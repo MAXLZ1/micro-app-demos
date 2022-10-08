@@ -12,8 +12,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
-    
+        node-version: [18.10.0]
+
     steps:
     - uses: actions/checkout@v3
 
@@ -21,13 +21,19 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    
+
     - name: Install pnpm
       uses: pnpm/action-setup@v2.2.2
       with:
         version: 6.20.2
-        
+
     - name: Build
       run: |
         pnpm i
         pnpm run qiankun-demo:build
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./packages
