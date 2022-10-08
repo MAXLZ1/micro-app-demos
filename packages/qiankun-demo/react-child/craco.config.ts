@@ -20,13 +20,17 @@ const config = {
     alias: {
       "@": path.resolve("src")
     },
-    configure: {
-      output: {
+    configure: (webpackConfig: any, { paths }: any) => {
+      paths.appBuild = 'dist'
+      webpackConfig.output = {
+        ...webpackConfig.output,
         library: `${name}-[name]`,
         libraryTarget: 'umd',
         chunkLoadingGlobal: `webpackJsonp_${name}`,
-        globalObject: 'window'
+        globalObject: 'window',
+        path:path.resolve(__dirname, 'dist')
       }
+      return webpackConfig
     },
   },
   babel: {

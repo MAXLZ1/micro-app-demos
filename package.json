@@ -4,7 +4,8 @@
   "description": "一些微前端框架的例子",
   "main": "index.js",
   "scripts": {
-    "qiankun-demo:start": "pnpm --filter \"@qiankun-demo/*\" run start"
+    "qiankun-demo:start": "pnpm --filter \"@qiankun-demo/*\" run start",
+    "qiankun-demo:build": "pnpm --filter \"@qiankun-demo/*\" run build"
   },
   "author": "MAXLZ",
   "license": "ISC"
