@@ -28,7 +28,7 @@ const config = {
         libraryTarget: 'umd',
         chunkLoadingGlobal: `webpackJsonp_${name}`,
         globalObject: 'window',
-        path:path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
       }
       return webpackConfig
     },

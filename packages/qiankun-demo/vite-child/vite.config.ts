@@ -7,8 +7,8 @@ import qiankun from 'vite-plugin-qiankun'
 const useDevMode = true
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  base: '/', // TODO，生产环境待配置
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/micro-app-demos/qiankun-demo/vite-child/dist/' : '/',
   server: {
     port: 8093,
     cors: true,
@@ -45,4 +45,4 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   }
-})
+}))

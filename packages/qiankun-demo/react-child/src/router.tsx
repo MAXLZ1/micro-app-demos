@@ -4,6 +4,8 @@ import CoexistView from '@/views/CoexistView'
 import CssIsolation from '@/views/CssIsolation'
 import type { RouteObject } from 'react-router-dom'
 
+const basename = window.__POWERED_BY_QIANKUN__ ? '/reactApp' : '/'
+
 const routes: RouteObject[] = [
   {
     path: '',
@@ -29,10 +31,11 @@ const routes: RouteObject[] = [
   },
 ]
 
+
 export const router = createBrowserRouter(routes, {
-  basename: window.__POWERED_BY_QIANKUN__ ? '/reactApp' : '/'
+  basename
 })
 
 export const memoryRouter = createMemoryRouter(routes, {
-  basename: window.__POWERED_BY_QIANKUN__ ? '/reactApp' : '/'
+  basename
 })
