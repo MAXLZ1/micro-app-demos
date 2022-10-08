@@ -7,15 +7,21 @@ import type { Menu } from '@/data/menuData'
 
 const globs = import.meta.glob('../views/*.vue')
 
-function getMenuList(menus: Menu[], pathPrefix = ''): RouteRecordRaw[] {
-  const res: RouteRecordRaw[] = []
+export type MenuItem = RouteRecordRaw & {
+  meta: {
+    key: number
+  },
+  children?: MenuItem[]
+}
+
+function getMenuList(menus: Menu[], pathPrefix = ''): MenuItem[] {
+  const res: MenuItem[] = []
   for(const item of menus) {
-    let { name, component, children, key, path, keepAlive } = item
-    const menu: Partial<RouteRecordRaw> = {
+    let { name, component, children, key, path } = item
+    const menu: Partial<MenuItem> = {
       name,
       meta: {
         key,
-        keepAlive: keepAlive || false
       },
     }
     if (component) {
@@ -32,23 +38,23 @@ function getMenuList(menus: Menu[], pathPrefix = ''): RouteRecordRaw[] {
     if (children && children.length > 0) {
       menu.children = getMenuList(children, menu.path)
     }
-    res.push(menu as RouteRecordRaw)
+    res.push(menu as MenuItem)
   }
   return res
 }
 
-function flatMenu(menu: RouteRecordRaw[]): RouteRecordRaw[] {
+function flatMenu(menu: MenuItem[]): MenuItem[] {
   return menu.reduce((res, cur) => {
     if (cur.children && cur.children.length > 0 ) {
       res.push(...flatMenu(cur.children))
     }
     res.push(cur)
     return res
-  }, [] as RouteRecordRaw[])
+  }, [] as MenuItem[])
 }
 
 export const useMenuStore = defineStore('menu', () => {
-  const menuList = reactive<RouteRecordRaw[]>(getMenuList(menu))
+  const menuList = reactive<MenuItem[]>(getMenuList(menu))
   const flattenMenuList = reactive<RouteRecordRaw[]>(flatMenu(menuList))
 
   const addRoutes = () => {

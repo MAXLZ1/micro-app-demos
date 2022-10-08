@@ -21,9 +21,12 @@ export default {
 </script>
 
 <script lang="ts" setup>
+import type { PropType } from 'vue'
+import type { MenuItem } from '@/stores/menu'
+
 defineProps({
   menuInfo: {
-    type: Object,
+    type: Object as PropType<MenuItem>,
     default: () => ({})
   }
 })

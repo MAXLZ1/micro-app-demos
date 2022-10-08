@@ -55,11 +55,11 @@
 
 <script lang="ts" setup>
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue'
-import { ref, reactive, onBeforeUnmount, onMounted, toRaw } from 'vue'
+import { ref, reactive, onBeforeUnmount, onMounted } from 'vue'
 import { useMenuStore } from '@/stores/menu'
 import { useRoute, useRouter } from 'vue-router'
 import { microAppLoading } from '@/utils/microAppLoading'
-import type { RouteRecordRaw } from 'vue-router'
+import type { MenuItem } from '@/stores/menu'
 
 const collapsed = ref(false)
 const selectedKeys = ref<number[]>([])
@@ -70,7 +70,7 @@ const { menuList, flattenMenuList } = useMenuStore()
 const router = useRouter()
 const route = useRoute()
 
-function getParentKeys(menus: RouteRecordRaw[], key: number, parents: number[]){
+function getParentKeys(menus: MenuItem[], key: number, parents: number[]){
   for (const item of menus) {
     if (key === item.meta!.key) {
       return true
