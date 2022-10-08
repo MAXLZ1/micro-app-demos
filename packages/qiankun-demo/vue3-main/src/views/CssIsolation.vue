@@ -20,6 +20,7 @@ export default {
 import { loadMicroApp } from 'qiankun'
 import { onBeforeUnmount, onMounted } from 'vue'
 import type { MicroApp } from 'qiankun'
+import { reactAppEntry, vue2AppEntry } from '@/data/appData'
 
 let app1: MicroApp | null = null
 let app2: MicroApp | null = null
@@ -27,7 +28,7 @@ let app2: MicroApp | null = null
 onMounted(() => {
   app1 = loadMicroApp({
     name: 'vue2App',
-    entry: 'http://localhost:8091',
+    entry: vue2AppEntry,
     container: '#css-box1',
     props: {
       path: '/css-isolation'
@@ -40,7 +41,7 @@ onMounted(() => {
   })
   app2 = loadMicroApp({
     name: 'reactApp',
-    entry: 'http://localhost:8092',
+    entry: reactAppEntry,
     container: '#css-box2',
     props: {
       path: '/reactApp/css-isolation'

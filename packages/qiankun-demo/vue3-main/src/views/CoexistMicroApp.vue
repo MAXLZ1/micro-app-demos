@@ -29,6 +29,7 @@ import { useUserStore } from '@/stores/user'
 import { dispatchUserEvent } from '@/utils/dispatchUserEvent'
 import type { MicroApp } from 'qiankun'
 import type { Ref } from 'vue'
+import { reactAppEntry, vue2AppEntry } from '@/data/appData'
 
 const { user } = useUserStore()
 
@@ -44,7 +45,7 @@ function mountApp(name: string) {
   if (name === 'vue2') {
     app1.value = loadMicroApp({
       name: 'vue2App',
-      entry: 'http://localhost:8091',
+      entry: vue2AppEntry,
       container: '#app-one',
       props: {
         path: '/communication-test'
@@ -61,7 +62,7 @@ function mountApp(name: string) {
   } else if (name === 'react18') {
     app2.value = loadMicroApp({
       name: 'reactApp',
-      entry: 'http://localhost:8092',
+      entry: reactAppEntry,
       container: '#app-two',
       props: {
         path: '/reactApp/communication-test'
