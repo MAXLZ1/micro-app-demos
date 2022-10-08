@@ -66,5 +66,3 @@ export async function unmount() {
   root && root.unmount()
   window.removeEventListener('changeUser', changeUserListener)
 }
-
-export async function update() {}
