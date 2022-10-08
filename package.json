@@ -1,0 +1,11 @@
+{
+  "name": "micro-app-demos",
+  "version": "1.0.0",
+  "description": "一些微前端框架的例子",
+  "main": "index.js",
+  "scripts": {
+    "qiankun-demo:start": "pnpm --filter \"@qiankun-demo/*\" run start"
+  },
+  "author": "MAXLZ",
+  "license": "ISC"
+}
