@@ -1,4 +1,4 @@
-import { createBrowserRouter, createMemoryRouter, Outlet } from 'react-router-dom'
+import { createHashRouter, createMemoryRouter, Outlet } from 'react-router-dom'
 import CommunicationTest from '@/views/CommunicationTest'
 import CoexistView from '@/views/CoexistView'
 import CssIsolation from '@/views/CssIsolation'
@@ -29,8 +29,7 @@ const routes: RouteObject[] = [
   },
 ]
 
-console.log(basename)
-export const router = createBrowserRouter(routes, {
+export const router = createHashRouter(routes, {
   basename
 })
 

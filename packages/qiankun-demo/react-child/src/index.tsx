@@ -27,18 +27,20 @@ function render(props?: Prop) {
 
   root = ReactDOM.createRoot(appContainer)
 
-  root.render(<React.StrictMode>
-    <Provider store={store}>
-      <ConfigProvider prefixCls="ar4" getPopupContainer={node => {
-        if (node) {
-          return node.parentNode as HTMLElement
-        }
-        return appContainer
-      }}>
-        <RouterProvider router={props?.path ? memoryRouter : router} />
-      </ConfigProvider>
-    </Provider>
-  </React.StrictMode>)
+  root.render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <ConfigProvider prefixCls="ar4" getPopupContainer={node => {
+          if (node) {
+            return node.parentNode as HTMLElement
+          }
+          return appContainer
+        }}>
+          <RouterProvider router={props?.path ? memoryRouter : router} />
+        </ConfigProvider>
+      </Provider>
+    </React.StrictMode>
+  )
 
   if (props?.path) {
     memoryRouter.navigate(props.path)

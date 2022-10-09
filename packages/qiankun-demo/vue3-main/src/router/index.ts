@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import { useMenuStore } from '@/stores/menu'
 import { useUserStore } from '@/stores/user'
 import { useAppStore } from '@/stores/app'
@@ -10,7 +10,7 @@ import { toRaw } from 'vue'
 import { setMicroAppLoading } from '@/utils/microAppLoading'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [{
     path: '/',
     redirect: '/page1'
@@ -21,6 +21,8 @@ const microAppMap = new Map<string, MicroApp>()
 
 // 是否已经加载初始化的数据
 let loadedInitData = false
+// 上次的location.hash
+let lastHash = ''
 
 router.beforeEach(async (to, from, next) => {
   const { addRoutes } = useMenuStore()
@@ -33,14 +35,15 @@ router.beforeEach(async (to, from, next) => {
     next(to)
   } else {
     const { apps } = useAppStore()
-
-    const app = apps.find(item => from.fullPath.startsWith(item.activeRule))
-    if (app) {
-      const name = app.name
-      if (microAppMap.has(name)) {
-        const microApp = microAppMap.get(name)!
-        if (microApp.getStatus() === 'MOUNTED') {
-          await microApp.unmount()
+    if (lastHash) {
+      const app = apps.find(item => lastHash.startsWith(item.activeRule))
+      if (app) {
+        const name = app.name
+        if (microAppMap.has(name)) {
+          const microApp = microAppMap.get(name)!
+          if (microApp.getStatus() === 'MOUNTED') {
+            await microApp.unmount()
+          }
         }
       }
     }
@@ -53,7 +56,8 @@ router.afterEach(async (to) => {
   window.dispatchEvent(new CustomEvent('routerAfterEach'))
   const { apps } = useAppStore()
   const { user } = useUserStore()
-  const app = apps.find(item => to.fullPath.startsWith(item.activeRule))
+  lastHash = location.hash
+  const app = apps.find(item => lastHash.startsWith(item.activeRule))
   let microApp
 
   // 手动加载子应用
@@ -61,7 +65,6 @@ router.afterEach(async (to) => {
     const name = app.name
     if (microAppMap.has(name)) {
       microApp = microAppMap.get(name)!
-      // const status = microApp.getStatus()
       if (!mounting) {
         mounting = true
         await microApp.mount()

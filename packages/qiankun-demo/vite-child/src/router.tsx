@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBrowserRouter, Outlet, RouteObject } from 'react-router-dom'
+import { createHashRouter, Outlet, RouteObject } from 'react-router-dom'
 import CommunicationTest from '@/views/CommunicationTest'
 import { qiankunWindow } from 'vite-plugin-qiankun/dist/helper'
 
@@ -19,6 +19,6 @@ const routes: RouteObject[] = [
   }
 ]
 
-export const router = createBrowserRouter(routes, {
+export const router = createHashRouter(routes, {
   basename,
 })
