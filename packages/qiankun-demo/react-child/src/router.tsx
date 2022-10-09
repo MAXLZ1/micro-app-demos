@@ -5,7 +5,7 @@ import CssIsolation from '@/views/CssIsolation'
 import type { RouteObject } from 'react-router-dom'
 import React from 'react'
 
-const basename = process.env.PUBLIC_URL + (window.__POWERED_BY_QIANKUN__ ? '/reactApp' : '/')
+const basename = window.__POWERED_BY_QIANKUN__ ? '/reactApp' : '/'
 
 const routes: RouteObject[] = [
   {
