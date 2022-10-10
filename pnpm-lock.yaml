@@ -21,6 +21,7 @@ importers:
       craco-less: ^2.0.0
       less: ^4.1.3
       less-loader: ^11.0.0
+      qiankun: ^2.8.1
       react: ^18.2.0
       react-dom: ^18.2.0
       react-redux: ^8.0.4
@@ -38,6 +39,7 @@ importers:
       '@types/react': registry.npmmirror.com/@types/react/18.0.21
       '@types/react-dom': registry.npmmirror.com/@types/react-dom/18.0.6
       antd: registry.npmmirror.com/antd/4.23.4_react-dom@18.2.0+react@18.2.0
+      qiankun: registry.npmmirror.com/qiankun/2.8.1
       react: registry.npmmirror.com/react/18.2.0
       react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
       react-redux: registry.npmmirror.com/react-redux/8.0.4_ed28c0204bb8461c8200289612f9802f

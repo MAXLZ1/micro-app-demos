@@ -6,6 +6,7 @@ const CommunicationTest = lazy(() => import('@/views/CommunicationTest'))
 const CoexistView = lazy(() => import('@/views/CoexistView'))
 const CssIsolation = lazy(() => import('@/views/CssIsolation'))
 const NavigateView = lazy(() => import('@/views/NavigateView'))
+const MicroAppView = lazy(() => import('@/views/MicroAppView'))
 
 const basename = window.__POWERED_BY_QIANKUN__ ? '/reactApp' : '/'
 
@@ -30,6 +31,10 @@ const routes: RouteObject[] = [
       {
         path: 'navigate-view',
         element: <NavigateView />,
+      },
+      {
+        path: 'microapp-view',
+        element: <MicroAppView />,
       },
     ]
   },

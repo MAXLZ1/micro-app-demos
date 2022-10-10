@@ -68,6 +68,11 @@ export const menuList: Menu[] = [
         path: 'navigate-view',
         name: '子应用跳转测试',
       },
+      {
+        key: 33,
+        path: 'microapp-view',
+        name: 'React18作为主应用',
+      },
     ],
   },
   {

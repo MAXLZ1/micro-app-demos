@@ -20,6 +20,7 @@
 
 <script lang="ts">
 import { Space, Button } from 'ant-design-vue'
+import { router } from '@/router'
 
 export default {
   name: 'NavigateView',
@@ -27,6 +28,9 @@ export default {
     [Space.name]: Space,
     [Button.name]: Button,
   },
+  // 主应用使用loadMicroApp进行加载子应用时，可能会使用abstract路由
+  // 这里强制使用hash router进行跳转
+  router,
 }
 </script>
 
