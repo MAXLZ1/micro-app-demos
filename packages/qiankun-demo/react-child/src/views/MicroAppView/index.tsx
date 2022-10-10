@@ -2,7 +2,7 @@ import { Alert, Cascader, Form, Space } from 'antd'
 import type { MicroApp } from 'qiankun'
 import { loadMicroApp } from 'qiankun'
 import { useEffect, useState } from 'react'
-import { useAppSelector } from '@/stores/storeHooks'
+import { store } from '@/stores/store'
 
 export const vue2AppEntry = process.env.NODE_ENV === 'production' ? 'https://maxlz1.github.io/micro-app-demos/qiankun-demo/vue2-child/dist/' : 'http://localhost:8091'
 export const viteAppEntry = process.env.MODE === 'production' ? 'https://maxlz1.github.io/micro-app-demos/qiankun-demo/vite-child/dist/' : 'http://localhost:8093'
@@ -41,46 +41,48 @@ const options = [
 
 let microApp: MicroApp | null = null
 
-export default function MicroAppView() {
-  const user = useAppSelector(state => state.user.user)
+const user = store.getState().user.user
 
+export default function MicroAppView() {
   const [appInfo, setAppInfo] = useState(['', ''])
 
-  const loadApp = async () => {
-    const [appName, appPath] = appInfo
-    if (appName && appPath) {
-      if (microApp && microApp.getStatus() === 'MOUNTED') {
-        await microApp.unmount()
-        microApp = null
-      }
-      microApp = loadMicroApp({
-        ...apps[appName],
-        container: '#micapp-container',
-        props: {
-          path: appPath,
-        }
-      })
-      await microApp.mountPromise
-      // 更新子应用用户信息
-      window.dispatchEvent(new CustomEvent('changeUser', {
-        detail: user
-      }))
-    }
-  }
-
   useEffect(() => {
-    loadApp()
+    (async () => {
+      const [appName, appPath] = appInfo
+      if (appName && appPath) {
+        if (microApp && microApp.getStatus() === 'MOUNTED') {
+          await microApp.unmount()
+          microApp = null
+        }
+        microApp = loadMicroApp({
+          ...apps[appName],
+          container: '#micapp-container',
+          props: {
+            path: appPath,
+          }
+        })
+        await microApp.mountPromise
+        // 更新子应用用户信息
+        window.dispatchEvent(new CustomEvent('changeUser', {
+          detail: user
+        }))
+      }
+    })()
     return () => {
       if (microApp && microApp.getStatus() === 'MOUNTED') {
-        microApp?.unmount().finally(() => {
+        microApp.unmount().then(() => {
           microApp = null
         })
       }
     }
-  }, [appInfo])
+  })
 
   const handleChange = async (value: any) => {
-    setAppInfo(value)
+    setAppInfo((pre) => {
+      if (pre[0] === undefined) return ['', '']
+      if (pre[0] === value[0] && pre[1] === value[1]) return pre
+      return value
+    })
   }
 
   return (
