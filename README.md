@@ -16,7 +16,7 @@ pnpm run qiankun-demo:start
 
 ```bash
 └── qiankun-demo
-    ├── react-child # react18子应用
+    ├── react-child # react18子应用(作为嵌套应用的主应用)
     ├── vite-child # react18-vite子应用
     ├── vue2-child # vue2子应用
     └── vue3-main # vue3主应用
