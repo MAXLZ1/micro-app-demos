@@ -39,12 +39,12 @@ const options = [
   }
 ]
 
+let microApp: MicroApp | null = null
+
 export default function MicroAppView() {
   const user = useAppSelector(state => state.user.user)
 
   const [appInfo, setAppInfo] = useState(['', ''])
-
-  let microApp: MicroApp | null = null
 
   const loadApp = async () => {
     const [appName, appPath] = appInfo
