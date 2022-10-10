@@ -29,3 +29,5 @@ pnpm run qiankun-demo:start
 - [ ] 子应用保活
 - [x] CSS隔离
 - [x] 主子应用间跳转
+- [ ] 嵌套子应用
+- [x] 资源预加载
