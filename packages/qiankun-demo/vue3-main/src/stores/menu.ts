@@ -7,58 +7,74 @@ import type { Menu } from '@/data/menuData'
 
 const globs = import.meta.glob('../views/*.vue')
 
-export type MenuItem = RouteRecordRaw & {
-  meta: {
-    key: number
-  },
-  children?: MenuItem[]
-}
-
-function getMenuList(menus: Menu[], pathPrefix = ''): MenuItem[] {
-  const res: MenuItem[] = []
-  for(const item of menus) {
-    let { name, component, children, key, path } = item
-    const menu: Partial<MenuItem> = {
-      name,
-      meta: {
-        key,
-      },
+// menu转Routes
+function transformRoutes(menus: Menu[], parentPath = ''): RouteRecordRaw[] {
+  const res: RouteRecordRaw[] = []
+  for (const item of menus) {
+    const { path, component, key, children } = item
+    const routeItem: RouteRecordRaw = {
+      name: key + '',
+      path: '',
+      children: []
     }
-    if (component) {
-      menu.component = globs[`../views/${component}`]
-    }
-    if (path) {
-      if (!pathPrefix  || pathPrefix.endsWith('/') || path.startsWith('/')) {
-        path = pathPrefix + path
-      } else {
-        path = pathPrefix + `/${path}`
+    // 处理一级路由
+    if (!parentPath && (!children || children?.length === 0)) {
+      routeItem.name = `top${item.key}`
+      routeItem.component = () => import('@/views/Layout.vue')
+      routeItem.path = ''
+      routeItem.children = [ {
+        name: item.key + '',
+        path: `/${item.path}`
+      } as RouteRecordRaw ]
+      if (component) {
+        routeItem.children[0].component = globs[`../views/${component}`]
       }
-      menu.path = path
+      res.push(routeItem)
+      continue
     }
-    if (children && children.length > 0) {
-      menu.children = getMenuList(children, menu.path)
+    routeItem.path = parentPath + '/' + path
+    if (component) {
+      routeItem.component = globs[`../views/${component}`]
     }
-    res.push(menu as MenuItem)
+    if (children) {
+      routeItem.children = transformRoutes(children, routeItem.path)
+    }
+    res.push(routeItem)
   }
   return res
 }
 
-function flatMenu(menu: MenuItem[]): MenuItem[] {
+// 组合menu完整path
+function combineMenuPath(menus: Menu[], parentPath = ''): Menu[] {
+  return menus.map((item) => {
+    const path = `${parentPath}/${item.path}`
+    if (item.children) {
+      return {
+        ...item,
+        path,
+        children: combineMenuPath(item.children, path)
+      }
+    }
+    return { ...item, path }
+  })
+}
+
+function flatMenu(menu: Menu[]): Menu[] {
   return menu.reduce((res, cur) => {
     if (cur.children && cur.children.length > 0 ) {
       res.push(...flatMenu(cur.children))
     }
     res.push(cur)
     return res
-  }, [] as MenuItem[])
+  }, [] as Menu[])
 }
 
 export const useMenuStore = defineStore('menu', () => {
-  const menuList = reactive<MenuItem[]>(getMenuList(menu))
-  const flattenMenuList = reactive<RouteRecordRaw[]>(flatMenu(menuList))
+  const menuList = reactive<Menu[]>(combineMenuPath(menu))
+  const flattenMenuList = reactive<Menu[]>(flatMenu(menuList))
 
   const addRoutes = () => {
-    menuList.forEach(item => router.addRoute(item))
+    transformRoutes(menu).forEach(item => router.addRoute(item))
   }
 
   return { menuList, addRoutes, flattenMenuList }

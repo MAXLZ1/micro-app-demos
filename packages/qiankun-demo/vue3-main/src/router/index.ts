@@ -13,7 +13,7 @@ const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [{
     path: '/',
-    redirect: '/page1'
+    redirect: '/main/communication-test'
   }]
 })
 
@@ -53,7 +53,6 @@ router.beforeEach(async (to, from, next) => {
 
 let mounting = false
 router.afterEach(async (to) => {
-  window.dispatchEvent(new CustomEvent('routerAfterEach'))
   const { apps } = useAppStore()
   const { user } = useUserStore()
   lastHash = location.hash

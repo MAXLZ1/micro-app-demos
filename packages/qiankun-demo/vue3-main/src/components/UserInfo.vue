@@ -1,6 +1,6 @@
 <template>
   <a-form v-if="user">
-    <a-descriptions title="主应用的数据 User Store Info" bordered>
+    <a-descriptions title="主应用的数据 User Store Info" bordered :column="column">
       <template #extra>
         <a-button type="primary" @click="toggleEdit">
           <template #icon>
@@ -45,6 +45,7 @@ import { onBeforeRouteLeave } from 'vue-router'
 
 const { user, setUser } = useUserStore()
 
+const column = { xxl: 3, xl: 3, lg: 2, md: 2, sm: 1, xs: 1 }
 const formState = reactive<User>(user ? {...user} : {
   name: '',
   age: 0,
@@ -112,7 +113,7 @@ function toggleEdit() {
 onBeforeRouteLeave(() => {
   if (isEdit.value) {
     message.warn({
-      content: '用户信息未保存，不会生效。',
+      content: '用户信息未保存，主应用信息不会生效。',
     })
   }
 })

@@ -1,9 +1,11 @@
 import { createHashRouter, createMemoryRouter, Outlet } from 'react-router-dom'
-import CommunicationTest from '@/views/CommunicationTest'
-import CoexistView from '@/views/CoexistView'
-import CssIsolation from '@/views/CssIsolation'
 import type { RouteObject } from 'react-router-dom'
-import React from 'react'
+import React, { lazy } from 'react'
+
+const CommunicationTest = lazy(() => import('@/views/CommunicationTest'))
+const CoexistView = lazy(() => import('@/views/CoexistView'))
+const CssIsolation = lazy(() => import('@/views/CssIsolation'))
+const NavigateView = lazy(() => import('@/views/NavigateView'))
 
 const basename = window.__POWERED_BY_QIANKUN__ ? '/reactApp' : '/'
 
@@ -24,7 +26,11 @@ const routes: RouteObject[] = [
       {
         path: 'css-isolation',
         element: <CssIsolation />,
-      }
+      },
+      {
+        path: 'navigate-view',
+        element: <NavigateView />,
+      },
     ]
   },
 ]

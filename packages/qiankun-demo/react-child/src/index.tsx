@@ -1,6 +1,6 @@
 import '@/public-path'
 import '@/reset.css'
-import React from 'react'
+import React, {  Suspense} from 'react'
 import ReactDOM from 'react-dom/client'
 import { router, memoryRouter } from '@/router'
 import { RouterProvider } from 'react-router-dom'
@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 import { store } from '@/stores/store'
 import type { User } from '@/stores/userSlice'
 import { setUser } from '@/stores/userSlice'
-import { ConfigProvider } from 'antd'
+import { ConfigProvider, Spin } from 'antd'
 
 interface Prop {
   container?: HTMLElement
@@ -36,7 +36,13 @@ function render(props?: Prop) {
           }
           return appContainer
         }}>
-          <RouterProvider router={props?.path ? memoryRouter : router} />
+          <Suspense fallback={
+            <Spin>
+              <div style={{width: '100%', height: '200px'}}></div>
+            </Spin>
+          }>
+            <RouterProvider router={props?.path ? memoryRouter : router} />
+          </Suspense>
         </ConfigProvider>
       </Provider>
     </React.StrictMode>

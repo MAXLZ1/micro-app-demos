@@ -1,12 +1,12 @@
 <template>
-  <a-sub-menu :key="menuInfo.meta.key">
+  <a-sub-menu :key="menuInfo.key">
     <template #title>{{ menuInfo.name }}</template>
-    <template v-for="item in menuInfo.children" :key="item.meta.key">
+    <template v-for="item in menuInfo.children" :key="item.key">
       <template v-if="item.children">
-        <sub-menu :menu-info="item" :key="item.meta.key" />
+        <sub-menu :menu-info="item" :key="item.key" />
       </template>
       <template v-else>
-        <a-menu-item :key="item.meta.key">
+        <a-menu-item :key="item.key">
           {{ item.name }}
         </a-menu-item>
       </template>
@@ -22,11 +22,11 @@ export default {
 
 <script lang="ts" setup>
 import type { PropType } from 'vue'
-import type { MenuItem } from '@/stores/menu'
+import type { Menu } from '@/data/menuData'
 
 defineProps({
   menuInfo: {
-    type: Object as PropType<MenuItem>,
+    type: Object as PropType<Menu>,
     default: () => ({})
   }
 })

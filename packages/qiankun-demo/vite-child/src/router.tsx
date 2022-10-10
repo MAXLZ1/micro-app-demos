@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import { createHashRouter, Outlet, RouteObject } from 'react-router-dom'
-import CommunicationTest from '@/views/CommunicationTest'
 import { qiankunWindow } from 'vite-plugin-qiankun/dist/helper'
+
+const CommunicationTest = lazy(() => import('@/views/CommunicationTest'))
+const NavigateView = lazy(() => import('@/views/NavigateView'))
 
 const basename = qiankunWindow.__POWERED_BY_QIANKUN__ ? '/viteApp' : '/'
 
@@ -14,6 +16,10 @@ const routes: RouteObject[] = [
       {
         path: 'communication-test',
         element: <CommunicationTest />,
+      },
+      {
+        path: 'navigate-view',
+        element: <NavigateView />,
       },
     ]
   }

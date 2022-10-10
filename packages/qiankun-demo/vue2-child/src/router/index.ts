@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
+import lazyLoad from '@/utils/lazyLoad'
 
 Vue.use(VueRouter)
 
@@ -12,26 +13,31 @@ const routes: Array<RouteConfig> = [
       {
         path: 'communication-test',
         name: 'CommunicationTest',
-        component: () => import('@/views/CommunicationTest.vue'),
+        component: () => lazyLoad(import('@/views/CommunicationTest.vue')),
       },
       {
         path: 'coexist-view',
         name: 'CoexistView',
-        component: () => import('@/views/CoexistView.vue'),
+        component: () => lazyLoad(import('@/views/CoexistView.vue')),
       },
       {
         path: 'tab-view',
         name: 'TabView',
-        component: () => import('@/views/TabView.vue'),
+        component: () => lazyLoad(import('@/views/TabView.vue')),
       },
       {
         path: 'css-isolation',
         name: 'CssIsolation',
-        component: () => import('@/views/CssIsolation.vue'),
+        component: () => lazyLoad(import('@/views/CssIsolation.vue')),
+      },
+      {
+        path: 'navigate-view',
+        name: 'NavigateView',
+        component: () => lazyLoad(import('@/views/NavigateView.vue')),
       },
     ],
   },
-
+  // 下面的路由作用于主应用调用
   {
     path: '/vue2App',
     redirect: '/vue2App/communication-test',
@@ -40,22 +46,27 @@ const routes: Array<RouteConfig> = [
       {
         path: 'communication-test',
         name: 'Vue2AppCommunicationTest',
-        component: () => import('@/views/CommunicationTest.vue'),
+        component: () => lazyLoad(import('@/views/CommunicationTest.vue')),
       },
       {
         path: 'coexist-view',
         name: 'Vue2AppCoexistView',
-        component: () => import('@/views/CoexistView.vue'),
+        component: () => lazyLoad(import('@/views/CoexistView.vue')),
       },
       {
         path: 'tab-view',
         name: 'Vue2AppTabView',
-        component: () => import('@/views/TabView.vue'),
+        component: () => lazyLoad(import('@/views/TabView.vue')),
       },
       {
         path: 'css-isolation',
         name: 'Vue2AppCssIsolation',
-        component: () => import('@/views/CssIsolation.vue'),
+        component: () => lazyLoad(import('@/views/CssIsolation.vue')),
+      },
+      {
+        path: 'navigate-view',
+        name: 'Vue2AppNavigateView',
+        component: () => lazyLoad(import('@/views/NavigateView.vue')),
       },
     ],
   },
