@@ -21,16 +21,23 @@
     </a-layout-sider>
     <a-layout class="right">
       <a-layout-header class="header">
-        <menu-unfold-outlined
-          v-if="collapsed"
-          class="trigger"
-          @click="changeCollapsed"
-        />
-        <menu-fold-outlined
-          v-else
-          class="trigger"
-          @click="changeCollapsed"
-        />
+        <a-row type="flex" justify="space-between" align="middle">
+          <a-col>
+            <menu-unfold-outlined
+              v-if="collapsed"
+              class="trigger"
+              @click="changeCollapsed"
+            />
+            <menu-fold-outlined
+              v-else
+              class="trigger"
+              @click="changeCollapsed"
+            />
+          </a-col>
+          <a-col>
+            <github-outlined class="github" @click="toGithub"/>
+          </a-col>
+        </a-row>
       </a-layout-header>
       <a-layout-content>
         <a-spin :spinning="microAppLoading" :delay="300" size="large" wrapperClassName="spin">
@@ -58,7 +65,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue'
+import { MenuUnfoldOutlined, MenuFoldOutlined, GithubOutlined } from '@ant-design/icons-vue'
 import { ref, reactive, watchEffect } from 'vue'
 import { useMenuStore } from '@/stores/menu'
 import { useRoute, useRouter } from 'vue-router'
@@ -115,6 +122,9 @@ function initKeys() {
 
 watchEffect(initKeys)
 
+function toGithub() {
+  window.open('https://github.com/MAXLZ1/micro-app-demos/tree/main/packages/qiankun-demo', '_blank')
+}
 </script>
 
 <style lang="less" scoped>
@@ -142,6 +152,11 @@ watchEffect(initKeys)
 
     .trigger {
       font-size: 20px;
+    }
+
+    .github {
+      font-size: 30px;
+      vertical-align: middle;
     }
   }
 

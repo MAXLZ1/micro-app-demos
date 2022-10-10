@@ -8,6 +8,7 @@
 
 本地启动命令
 ```bash
+pnpm i
 pnpm run qiankun-demo:start
 ```
 
@@ -27,3 +28,4 @@ pnpm run qiankun-demo:start
 - [x] 多个子应用共存
 - [ ] 子应用保活
 - [x] CSS隔离
+- [x] 主子应用间跳转
