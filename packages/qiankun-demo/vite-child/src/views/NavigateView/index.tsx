@@ -1,5 +1,4 @@
-import { Button, Space } from 'antd'
-import styles from './index.module.less'
+import { Button, Space, Typography } from 'antd'
 
 export default function NavigateView() {
   const handleClick = ({ url }: { url: string }) => {
@@ -29,7 +28,7 @@ export default function NavigateView() {
 
   return (
     <>
-      <h1 className={styles.title}>Vite子应用内控制跳转</h1>
+      <Typography.Title>Vite子应用内控制跳转</Typography.Title>
       <Space size={20}>
         {buttons}
       </Space>

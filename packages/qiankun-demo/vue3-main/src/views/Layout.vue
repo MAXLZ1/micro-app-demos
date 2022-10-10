@@ -2,9 +2,9 @@
   <a-layout has-sider>
     <a-layout-sider class="sider" width="250" v-model:collapsed="collapsed" :trigger="null">
       <div class="logo">
-        <template v-if="!collapsed">
+        <a-typography-text v-if="!collapsed">
           当前：qiankun-Vue3 主应用
-        </template>
+        </a-typography-text>
       </div>
       <a-menu :selectedKeys="selectedKeys" :openKeys="openKeys" @select="handleSelect" mode="inline" theme="dark">
         <template v-for="item in menuList" :key="item.key">
@@ -137,9 +137,12 @@ function toGithub() {
     line-height: 32px;
     background: rgba(255, 255, 255, 0.2);
     margin: 16px;
-    color: #ffffff;
     font-size: 16px;
     text-align: center;
+
+    :deep(.@{ant-prefix}-typography) {
+      color: #ffffff;
+    }
   }
 }
 

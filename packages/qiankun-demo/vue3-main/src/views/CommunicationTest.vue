@@ -1,15 +1,15 @@
 <template>
   <a-space direction="vertical" class="box" :size="40">
     <a-divider>
-      <h1>主应用页面</h1>
+      <a-typography-title>主应用页面</a-typography-title>
     </a-divider>
     <user-info />
     <a-divider>
-      <h2>主应用消息</h2>
+      <a-typography-title :level="2">主应用消息</a-typography-title>
     </a-divider>
     <message-trigger />
     <a-divider>
-      <h2>主应用Counter</h2>
+      <a-typography-title :level="2">主应用Counter</a-typography-title>
     </a-divider>
     <counter />
   </a-space>
@@ -30,14 +30,5 @@ const user = useUserStore()
 <style lang="less" scoped>
 .box {
   width: 100%;
-
-  h1 {
-    font-size: 2em;
-    margin-bottom: 0;
-  }
-
-  h2 {
-    margin-bottom: 0;
-  }
 }
 </style>

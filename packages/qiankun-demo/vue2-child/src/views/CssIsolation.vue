@@ -1,7 +1,9 @@
 <template>
   <div>
     <a-row>
-      <a-col><h2>Vue2子应用(style scope)</h2></a-col>
+      <a-col>
+        <h2 style="font-size: 38px">Vue2子应用(style scope)</h2>
+      </a-col>
     </a-row>
     <a-row>
       <a-col :span="12" class="first-col">class="first-col"<br />background-color: blue;<br />font-size: 30px;</a-col>

@@ -1,23 +1,22 @@
-import { Divider, Space } from 'antd'
+import { Divider, Space, Typography } from 'antd'
 import UserInfo from '@/components/UserInfo'
-import styles from './index.module.less'
 import MessageTrigger from '@/components/MessageTrigger'
 import Counter from '@/components/Counter'
 
 export default function CommunicationTest() {
   return (
     <>
-      <Space size={40} direction="vertical" className={styles.box}>
+      <Space size={40} direction="vertical" style={{ width: '100%'}}>
         <Divider>
-          <h1>React18子应用页面</h1>
+          <Typography.Title>React18子应用页面</Typography.Title>
         </Divider>
         <UserInfo />
         <Divider>
-          <h2>React18子应用向主应用通信</h2>
+          <Typography.Title level={2}>React18子应用向主应用通信</Typography.Title>
         </Divider>
         <MessageTrigger />
         <Divider>
-          <h2>React18子应用Counter</h2>
+          <Typography.Title level={2}>React18子应用Counter</Typography.Title>
         </Divider>
         <Counter />
       </Space>

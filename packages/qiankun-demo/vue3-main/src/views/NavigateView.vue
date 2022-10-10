@@ -1,5 +1,5 @@
 <template>
-  <h1>主应用内控制跳转</h1>
+  <a-typography-title>主应用内控制跳转</a-typography-title>
   <a-space :size="20">
     <router-link to="/main/communication-test">
       <a-button type="primary">跳转至主应用 page1</a-button>

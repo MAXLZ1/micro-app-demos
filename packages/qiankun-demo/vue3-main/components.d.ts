@@ -33,6 +33,8 @@ declare module '@vue/runtime-core' {
     ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
     ATextarea: typeof import('ant-design-vue/es')['Textarea']
     ATypographyLink: typeof import('ant-design-vue/es')['TypographyLink']
+    ATypographyText: typeof import('ant-design-vue/es')['TypographyText']
+    ATypographyTitle: typeof import('ant-design-vue/es')['TypographyTitle']
     Counter: typeof import('./src/components/Counter.vue')['default']
     MessageTrigger: typeof import('./src/components/MessageTrigger.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
