@@ -72,9 +72,7 @@ router.afterEach(async (to) => {
     } else {
       if (!mounting) {
         mounting = true
-        microApp = loadMicroApp(app, {
-          singular: true,
-        })
+        microApp = loadMicroApp(app)
         microAppMap.set(name, microApp)
         await microApp.mountPromise
       }

@@ -1,7 +1,6 @@
 import { Alert, Cascader, Form, Space } from 'antd'
 import type { MicroApp } from 'qiankun'
 import { loadMicroApp } from 'qiankun'
-import { useEffect, useState } from 'react'
 import { store } from '@/stores/store'
 
 export const vue2AppEntry = process.env.NODE_ENV === 'production' ? 'https://maxlz1.github.io/micro-app-demos/qiankun-demo/vue2-child/dist/' : 'http://localhost:8091'
@@ -44,51 +43,35 @@ let microApp: MicroApp | null = null
 const user = store.getState().user.user
 
 export default function MicroAppView() {
-  const [appInfo, setAppInfo] = useState(['', ''])
-
-  useEffect(() => {
-    (async () => {
-      const [appName, appPath] = appInfo
-      if (appName && appPath) {
-        if (microApp && microApp.getStatus() === 'MOUNTED') {
-          await microApp.unmount()
-          microApp = null
-        }
-        microApp = loadMicroApp({
-          ...apps[appName],
-          container: '#micapp-container',
-          props: {
-            path: appPath,
-          }
-        })
-        await microApp.mountPromise
-        // 更新子应用用户信息
-        window.dispatchEvent(new CustomEvent('changeUser', {
-          detail: user
-        }))
-      }
-    })()
-    return () => {
-      if (microApp && microApp.getStatus() === 'MOUNTED') {
-        microApp.unmount().then(() => {
-          microApp = null
-        })
-      }
-    }
-  })
 
   const handleChange = async (value: any) => {
-    setAppInfo((pre) => {
-      if (pre[0] === undefined) return ['', '']
-      if (pre[0] === value[0] && pre[1] === value[1]) return pre
-      return value
+    const [appName, appPath] = value
+    if (microApp && microApp.getStatus() === 'MOUNTED') {
+      await microApp.unmount()
+      microApp = null
+    }
+    microApp = loadMicroApp({
+      ...apps[appName],
+      container: '#micapp-container',
+      props: {
+        path: appPath,
+      }
+    }, {
+      sandbox: {
+        experimentalStyleIsolation: true
+      }
     })
+    await microApp.mountPromise
+    // 更新子应用用户信息
+    window.dispatchEvent(new CustomEvent('changeUser', {
+      detail: user
+    }))
   }
 
   return (
     <>
       <Space size={20} style={{ width: '100%'}} direction="vertical">
-        <Alert message="这是React19子应用作为主应用，挂载Vue2子应用或Vite子应用" type="success" />
+        <Alert message="这是React18子应用作为主应用，挂载Vue2子应用或Vite子应用" type="success" />
         <Form>
           <Form.Item label="选择要加载的子应用页面">
             <Cascader
