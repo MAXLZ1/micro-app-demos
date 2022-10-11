@@ -14,6 +14,9 @@
           <template v-else>
             <a-menu-item :key="item.key">
               {{ item.name }}
+              <template #icon>
+                <thunderbolt-outlined />
+              </template>
             </a-menu-item>
           </template>
         </template>
@@ -65,7 +68,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { MenuUnfoldOutlined, MenuFoldOutlined, GithubOutlined } from '@ant-design/icons-vue'
+import { MenuUnfoldOutlined, MenuFoldOutlined, GithubOutlined, ThunderboltOutlined, } from '@ant-design/icons-vue'
 import { ref, reactive, watchEffect } from 'vue'
 import { useMenuStore } from '@/stores/menu'
 import { useRoute, useRouter } from 'vue-router'

@@ -1,5 +1,8 @@
 <template>
   <a-sub-menu :key="menuInfo.key">
+    <template #icon>
+      <thunderbolt-outlined />
+    </template>
     <template #title>{{ menuInfo.name }}</template>
     <template v-for="item in menuInfo.children" :key="item.key">
       <template v-if="item.children">
@@ -8,6 +11,9 @@
       <template v-else>
         <a-menu-item :key="item.key">
           {{ item.name }}
+          <template #icon>
+            <thunderbolt-outlined />
+          </template>
         </a-menu-item>
       </template>
     </template>
@@ -21,6 +27,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
+import { ThunderboltOutlined } from '@ant-design/icons-vue'
 import type { PropType } from 'vue'
 import type { Menu } from '@/data/menuData'
 
