@@ -1,6 +1,7 @@
 import Vue from 'vue'
-import VueRouter, { RouteConfig } from 'vue-router'
+import VueRouter from 'vue-router'
 import lazyLoad from '@/utils/lazyLoad'
+import type { RouteConfig } from 'vue-router'
 
 Vue.use(VueRouter)
 

@@ -35,6 +35,8 @@ function render(props?: Prop) {
   }
 
   instance = new Vue({
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     router: routerInstance,
     pinia: createPinia(),
     render: (h) => h(App),
