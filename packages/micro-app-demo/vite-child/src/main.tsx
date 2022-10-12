@@ -14,9 +14,8 @@ let root: ReactDOM.Root | null = null
 
 function mount() {
   if (window.__MICRO_APP_BASE_APPLICATION__) {
-    // 监听基座下发的路由变化
-    window.addEventListener('viteApp:routerChange', routerChangeListaner)
-    window.addEventListener('changeUser', changeUserListener)
+    // 监听基座下发的数据变化
+    window.eventCenterForViteApp?.addDataListener(dataListener, true)
   }
 
   const container = document.getElementById('vite-root')!
@@ -49,21 +48,16 @@ function unmount() {
   root?.unmount()
   root = null
   if (window.__MICRO_APP_BASE_APPLICATION__) {
-    window.removeEventListener('viteApp:routerChange', routerChangeListaner)
-    window.removeEventListener('changeUser', changeUserListener)
+    window.eventCenterForViteApp?.removeDataListener(dataListener)
   }
 }
 
-function routerChangeListaner(e: any) {
-  if (e.detail) {
-    router.navigate(e.detail)
-  }
-}
-
-function changeUserListener(e: Event) {
-  store.dispatch((dispatch) => {
-    dispatch(setUser((e as CustomEvent<User>).detail))
+function dataListener(e: { path: string; user: User }) {
+  const { user, path } = e
+  user && store.dispatch((dispatch) => {
+    dispatch(setUser(user))
   })
+  path && router.navigate(path)
 }
 
 if (window.__MICRO_APP_BASE_APPLICATION__) {

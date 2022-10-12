@@ -20,8 +20,8 @@ export default {
   name: 'CssIsolation',
   components: {
     [Row.name]: Row,
-    [Col.name]: Col,
-  },
+    [Col.name]: Col
+  }
 }
 </script>
 

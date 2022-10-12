@@ -24,8 +24,13 @@
 
 <script lang="ts">
 import { Input, Col, Row, Button, Select, Form } from 'ant-design-vue'
-import { dispatchReceiveMessageEvent } from '@/utils/dispatchReceiveMessageEvent'
-import { Types } from '@/utils/dispatchReceiveMessageEvent'
+
+enum Types {
+  success = 'success',
+  warn = 'warn',
+  error = 'error',
+  info = 'info'
+}
 
 export default {
   name: 'MessageTrigger',
@@ -34,31 +39,31 @@ export default {
       types: [
         {
           value: Types.success,
-          label: '成功',
+          label: '成功'
         },
         {
           value: Types.error,
-          label: '失败',
+          label: '失败'
         },
         {
           value: Types.warn,
-          label: '提醒',
+          label: '提醒'
         },
         {
           value: Types.info,
-          label: '信息',
-        },
+          label: '信息'
+        }
       ],
       formItemLayout: {
         labelCol: {
           xs: { span: 24 },
-          sm: { span: 3, offset: 6 },
+          sm: { span: 3, offset: 6 }
         },
         wrapperCol: {
           xs: { span: 24 },
-          sm: { span: 9 },
-        },
-      },
+          sm: { span: 9 }
+        }
+      }
     }
   },
   beforeCreate() {
@@ -68,10 +73,17 @@ export default {
     sendMessage() {
       this.form.validateFields((err, values) => {
         if (!err) {
-          dispatchReceiveMessageEvent(values)
+          // 向主应用发送数据
+          window.microApp.dispatch({
+            type: 'message',
+            data: {
+              ...values,
+              from: 'Vue2子应用'
+            }
+          })
         }
       })
-    },
+    }
   },
   components: {
     [Input.TextArea.name]: Input.TextArea,
@@ -81,8 +93,8 @@ export default {
     [Col.name]: Col,
     [Row.name]: Row,
     [Form.name]: Form,
-    [Form.Item.name]: Form.Item,
-  },
+    [Form.Item.name]: Form.Item
+  }
 }
 </script>
 

@@ -6,8 +6,8 @@ module.exports = defineConfig({
   devServer: {
     port: 8090,
     headers: {
-      'Access-Control-Allow-Origin': '*',
-    },
+      'Access-Control-Allow-Origin': '*'
+    }
   },
   transpileDependencies: true,
   css: {
@@ -15,18 +15,18 @@ module.exports = defineConfig({
       less: {
         lessOptions: {
           modifyVars: {
-            'ant-prefix': 'av2',
+            'ant-prefix': 'av2'
           },
-          javascriptEnabled: true,
-        },
-      },
-    },
+          javascriptEnabled: true
+        }
+      }
+    }
   },
   configureWebpack: {
     output: {
       library: `${name}-[name]`,
       libraryTarget: 'umd', // 把微应用打包成 umd 库格式
-      chunkLoadingGlobal: `webpackJsonp_${name}`,
-    },
-  },
+      chunkLoadingGlobal: `webpackJsonp_${name}`
+    }
+  }
 })

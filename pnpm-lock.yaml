@@ -137,7 +137,7 @@ importers:
   packages/micro-app-demo/vue3-main:
     specifiers:
       '@ant-design/icons-vue': ^6.1.0
-      '@micro-zoe/micro-app': ^0.8.10
+      '@micro-zoe/micro-app': ^1.0.0-alpha.9
       '@rushstack/eslint-patch': ^1.1.4
       '@types/node': ^16.11.56
       '@vitejs/plugin-vue': ^3.0.3
@@ -161,7 +161,7 @@ importers:
       vue-tsc: ^0.40.7
     dependencies:
       '@ant-design/icons-vue': registry.npmmirror.com/@ant-design/icons-vue/6.1.0_vue@3.2.40
-      '@micro-zoe/micro-app': registry.npmmirror.com/@micro-zoe/micro-app/0.8.10
+      '@micro-zoe/micro-app': registry.npmmirror.com/@micro-zoe/micro-app/1.0.0-alpha.9
       ant-design-vue: registry.npmmirror.com/ant-design-vue/3.2.12_vue@3.2.40
       pinia: registry.npmmirror.com/pinia/2.0.22_typescript@4.7.4+vue@3.2.40
       vue: registry.npmmirror.com/vue/3.2.40
@@ -3085,10 +3085,10 @@ packages:
     name: '@leichtgewicht/ip-codec'
     version: 2.0.4
 
-  registry.npmmirror.com/@micro-zoe/micro-app/0.8.10:
-    resolution: {integrity: sha512-Zb1G5UrOAEHhiAlanzHJiBlRFHMd4+C/Q5jkwTM991R7blb1F6uGY47pmcunzHns48Kj6k9v2+CLsozGyhQmyw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@micro-zoe/micro-app/-/micro-app-0.8.10.tgz}
+  registry.npmmirror.com/@micro-zoe/micro-app/1.0.0-alpha.9:
+    resolution: {integrity: sha512-/wIzf3jVzDVeg6eb0f2Fj08Mp2OKwucfHldJaUSb/KeC1LdA1yKNEAqXAfUDzmcQ7RAPrGuM5fGZNJSlj3nPSQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@micro-zoe/micro-app/-/micro-app-1.0.0-alpha.9.tgz}
     name: '@micro-zoe/micro-app'
-    version: 0.8.10
+    version: 1.0.0-alpha.9
     dev: false
 
   registry.npmmirror.com/@nicolo-ribaudo/eslint-scope-5-internals/5.1.1-v1:

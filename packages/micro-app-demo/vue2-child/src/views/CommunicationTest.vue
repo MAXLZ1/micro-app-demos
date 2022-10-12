@@ -28,8 +28,8 @@ export default {
     Counter,
     UserInfo,
     [Divider.name]: Divider,
-    [Space.name]: Space,
-  },
+    [Space.name]: Space
+  }
 }
 </script>
 

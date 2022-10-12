@@ -1,12 +1,23 @@
 <template>
   <a-layout has-sider>
-    <a-layout-sider class="sider" width="250" v-model:collapsed="collapsed" :trigger="null">
+    <a-layout-sider
+      class="sider"
+      width="250"
+      v-model:collapsed="collapsed"
+      :trigger="null"
+    >
       <div class="logo">
         <a-typography-text v-if="!collapsed">
           当前：qiankun-Vue3 主应用
         </a-typography-text>
       </div>
-      <a-menu :selectedKeys="selectedKeys" :openKeys="openKeys" @select="handleSelect" mode="inline" theme="dark">
+      <a-menu
+        :selectedKeys="selectedKeys"
+        :openKeys="openKeys"
+        @select="handleSelect"
+        mode="inline"
+        theme="dark"
+      >
         <template v-for="item in menuList" :key="item.key">
           <template v-if="item.children">
             <sub-menu :key="item.key" :menu-info="item" />
@@ -38,19 +49,29 @@
             />
           </a-col>
           <a-col>
-            <github-outlined class="github" @click="toGithub"/>
+            <github-outlined class="github" @click="toGithub" />
           </a-col>
         </a-row>
       </a-layout-header>
       <a-layout-content>
-        <a-spin :spinning="microAppLoading" :delay="300" size="large" wrapperClassName="spin">
+        <a-spin
+          :spinning="microAppLoading"
+          :delay="300"
+          size="large"
+          wrapperClassName="spin"
+        >
           <div>
             <micro-app
               v-if="activeApp"
-              :name='activeApp.name'
-              :url='activeApp.url'
-              :baseroute='activeApp.baseroute'
+              :name="activeApp.name"
+              :url="activeApp.url"
+              :baseroute="activeApp.baseroute"
+              :data="microData"
+              :inline="istVite"
+              :disableSandbox="istVite"
+              clear-data
               @mounted="handleMounted"
+              @datachange="handleDataChange"
             />
             <router-view v-slot="{ Component }" v-else>
               <keep-alive>
@@ -60,49 +81,61 @@
           </div>
         </a-spin>
       </a-layout-content>
-      <a-layout-footer class='footer'>
-        Created by MAXLZ
-      </a-layout-footer>
+      <a-layout-footer class="footer"> Created by MAXLZ </a-layout-footer>
     </a-layout>
   </a-layout>
 </template>
 
 <script lang="ts">
 export default {
-  name: 'Layout',
+  name: 'Layout'
 }
 </script>
 
 <script lang="ts" setup>
-import { MenuUnfoldOutlined, MenuFoldOutlined, GithubOutlined, ThunderboltOutlined, } from '@ant-design/icons-vue'
-import { ref, reactive, watchEffect, onMounted } from 'vue'
+import {
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+  GithubOutlined,
+  ThunderboltOutlined
+} from '@ant-design/icons-vue'
+import 'ant-design-vue/es/notification/style/css'
+import { ref, reactive, watchEffect, onMounted, toRaw, computed } from 'vue'
 import { useMenuStore } from '@/stores/menu'
 import { useRoute, useRouter } from 'vue-router'
 import { microAppLoading } from '@/utils/microAppLoading'
 import { useAppStore } from '@/stores/app'
-import microApp from '@micro-zoe/micro-app'
 import type { MicroApp } from '@/data/appData'
 import type { Menu } from '@/data/menuData'
-import { dispatchUserEvent } from '@/utils/dispatchUserEvent'
 import { useUserStore } from '@/stores/user'
+import { storeToRefs } from 'pinia'
+import { notification } from 'ant-design-vue'
+import type { CustomEventData, MessageData } from '@/types/customEvent'
+import microApp from '@micro-zoe/micro-app'
 
 const collapsed = ref(false)
 const selectedKeys = ref<number[]>([])
 const openKeys = reactive<number[]>([])
 // 激活的子应用
 const activeApp = ref<MicroApp | null>(null)
-// 要跳转的路由地址
+// 子应用要跳转的路由地址
 const path = ref('')
-// 子应用挂载后是否需要跳转
-const needNavigate = ref(false)
 
 const { menuList, flattenMenuList } = useMenuStore()
 const router = useRouter()
 const route = useRoute()
-const { user } = useUserStore()
+const { user } = storeToRefs(useUserStore())
 const { getActiveMicroApp } = useAppStore()
 
-function getParentKeys(menus: Menu[], key: number, parents: number[]){
+const microData = computed(() => ({
+  user: toRaw(user.value),
+  path: path.value
+}))
+const istVite = computed(
+  () => activeApp.value && activeApp.value.name === 'viteApp'
+)
+
+function getParentKeys(menus: Menu[], key: number, parents: number[]) {
   for (const item of menus) {
     if (key === item.key) {
       return true
@@ -116,71 +149,9 @@ function getParentKeys(menus: Menu[], key: number, parents: number[]){
   return false
 }
 
-function changeCollapsed() {
-  collapsed.value = !collapsed.value
-}
-
-/**
- * 进行路由跳转
- * @param jump 是否进行router.push
- */
-function navigate(jump = true) {
-  const newApp = getActiveMicroApp(path.value) || null
-  // 子应用第一次挂载时，需要在挂载之后，再进行路由跳转
-  if (!activeApp.value || (newApp && activeApp.value.name !== newApp.name)) {
-    activeApp.value = newApp
-    needNavigate.value = true
-  } else {
-    activeApp.value = newApp
-    if (activeApp.value) {
-      if (activeApp.value.name === 'viteApp') {
-        window.dispatchEvent(new CustomEvent('viteApp:routerChange', {
-          detail: path.value
-        }))
-      } else {
-        microApp.setData(activeApp.value.name, {
-          path: path.value
-        })
-      }
-    } else if (jump) {
-      router.push(path.value)
-    }
-  }
-}
-
-function handleMounted() {
-  if (needNavigate.value) {
-    needNavigate.value = false
-    if (activeApp.value) {
-      // 派发用户信息更新事件
-      dispatchUserEvent(user)
-      if (activeApp.value.name === 'viteApp') {
-        window.dispatchEvent(new CustomEvent('viteApp:routerChange', {
-          detail: path.value
-        }))
-      } else {
-        microApp.setData(activeApp.value.name, {
-          path: path.value
-        })
-      }
-    }
-  }
-}
-
-function handleSelect({ key }: { key: number }) {
-  if (key !== undefined) {
-    selectedKeys.value = [key]
-    const res = flattenMenuList.find(item => item.key === key)
-    if (res && res.path) {
-      path.value = res.path
-      navigate()
-    }
-  }
-}
-
 function initKeys() {
   const { fullPath } = route
-  const res = flattenMenuList.find(item => item.path === fullPath)
+  const res = flattenMenuList.find((item) => item.path === fullPath)
   if (res) {
     selectedKeys.value = [res.key]
     const parents: number[] = []
@@ -192,13 +163,67 @@ function initKeys() {
 watchEffect(initKeys)
 
 function toGithub() {
-  window.open('https://github.com/MAXLZ1/micro-app-demos/tree/main/packages/qiankun-demo', '_blank')
+  window.open(
+    'https://github.com/MAXLZ1/micro-app-demos/tree/main/packages/qiankun-demo',
+    '_blank'
+  )
 }
 
 onMounted(() => {
-  path.value = route.path
-  navigate(false)
+  activeApp.value = getActiveMicroApp(route.path) || null
+  if (activeApp.value) {
+    path.value = route.path
+  } else {
+    path.value = ''
+  }
 })
+
+function changeCollapsed() {
+  collapsed.value = !collapsed.value
+}
+
+function handleMounted() {
+  if (activeApp.value) {
+    if (istVite.value) {
+      microApp.setData('viteApp', {
+        ...toRaw(microData.value)
+      })
+    } else {
+      microApp.setData(activeApp.value.name, {
+        ...toRaw(microData.value)
+      })
+    }
+  }
+}
+
+// 菜单选中事件
+function handleSelect({ key }: { key: number }) {
+  if (key !== undefined) {
+    selectedKeys.value = [key]
+    const res = flattenMenuList.find((item) => item.key === key)
+    if (res && res.path) {
+      activeApp.value = getActiveMicroApp(res.path) || null
+      if (activeApp.value) {
+        path.value = res.path
+      } else {
+        path.value = ''
+        router.push(res.path)
+      }
+    }
+  }
+}
+
+function handleDataChange(e: Event) {
+  const { type, data } = (e as CustomEvent<CustomEventData<MessageData>>).detail
+    .data
+  if (type === 'message') {
+    const { info, type, from } = data
+    notification[type]({
+      message: `来自【${from}】的消息`,
+      description: info
+    })
+  }
+}
 </script>
 
 <style lang="less" scoped>

@@ -18,16 +18,16 @@ export default {
   name: 'UserInfo',
   data() {
     return {
-      column: { xxl: 3, xl: 2, lg: 2, md: 2, sm: 1, xs: 1 },
+      column: { xxl: 3, xl: 2, lg: 2, md: 2, sm: 1, xs: 1 }
     }
   },
   computed: {
-    ...mapState(useUserStore, ['user']),
+    ...mapState(useUserStore, ['user'])
   },
   components: {
     [Descriptions.name]: Descriptions,
-    [Descriptions.Item.name]: Descriptions.Item,
-  },
+    [Descriptions.Item.name]: Descriptions.Item
+  }
 }
 </script>
 

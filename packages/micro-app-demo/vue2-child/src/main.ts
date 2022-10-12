@@ -5,52 +5,50 @@ import App from '@/App.vue'
 import router from '@/router'
 import { PiniaVuePlugin, createPinia } from 'pinia'
 import { useUserStore } from '@/stores/user'
-import type { User } from '@/stores/user'
 
 Vue.config.productionTip = false
 Vue.use(PiniaVuePlugin)
 
-let vue: Vue | null = null
+let app: Vue | null = null
 
 function mount() {
-  if (window.__MICRO_APP_ENVIRONMENT__) {
-    window.addEventListener('changeUser', changeUserListener)
-
-    // 监听基座下发的路由变化
-    window.microApp?.addDataListener(dataListener)
-  }
-
-  vue = new Vue({
+  app = new Vue({
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     router,
     pinia: createPinia(),
-    render: (h) => h(App),
+    render: (h) => h(App)
   }).$mount('#app')
+
+  if (window.__MICRO_APP_ENVIRONMENT__) {
+    window.microApp.addDataListener(dataListener, true)
+  }
 }
 
 function unmount() {
-  vue?.$destroy()
-  vue = null
+  if (app) {
+    app.$destroy()
+    app.$el.innerHTML = ''
+    app = null
+  }
+
   if (window.__MICRO_APP_ENVIRONMENT__) {
-    window.removeEventListener('changeUser', changeUserListener)
-    window.microApp?.removeDataListener(dataListener)
+    window.microApp.removeDataListener(dataListener)
   }
 }
 
-function dataListener(data: any) {
-  if (data.path) {
-    router.push(data.path)
+function dataListener(e: any) {
+  if (e.user) {
+    const { setUser } = useUserStore()
+    setUser(e.user)
   }
+
+  e.path && router.push(e.path)
 }
 
-function changeUserListener(e: Event) {
-  const { setUser } = useUserStore()
-  setUser((e as CustomEvent<User>).detail)
-}
+window.unmount = unmount
+window.mount = mount
 
-if (window.__MICRO_APP_ENVIRONMENT__) {
-  window[`micro-app-${window.__MICRO_APP_NAME__}`] = { mount, unmount }
-} else {
-  mount()
+if (!window.__MICRO_APP_ENVIRONMENT__) {
+  window.mount()
 }

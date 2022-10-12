@@ -4,7 +4,7 @@
 
 <script lang="ts">
 export default {
-  name: 'CoexistView',
+  name: 'CoexistView'
 }
 </script>
 

@@ -10,7 +10,7 @@ export default function CommunicationTest() {
       <Space size={40} direction="vertical" style={{ width: '100%'}}>
         <Alert message={(
           <>
-            qiankun官方并未对vite子应用进行支持，但qiankun3有支持vite的计划。该示例依靠社区的<a href="https://github.com/tengmaoqing/vite-plugin-qiankun" target="_blank">vite-plugin-qiankun</a>实现。
+            vite应用不支持<a href="https://micro-zoe.com/docs/1.x/#/zh-cn/framework/vite" target="_blank">JS沙箱</a>。在嵌入vite子应用时，micro-app的功能只负责渲染，其它的行为由应用自行决定,这包括如何防止样式、JS变量、元素的冲突。
           </>
         )} type="success" />
         <Divider>

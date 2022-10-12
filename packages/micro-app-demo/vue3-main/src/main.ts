@@ -1,10 +1,9 @@
 import '@/styles/index.less'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import App from './App.vue'
+import App from '@/App.vue'
 import router from './router'
-import { listenReceiveMessage } from '@/utils/messageListener'
-import microApp from '@micro-zoe/micro-app'
+import microApp, { EventCenterForMicroApp } from '@micro-zoe/micro-app'
 
 const app = createApp(App)
 
@@ -13,22 +12,28 @@ app.use(router)
 
 app.mount('#app')
 
-listenReceiveMessage()
-
 microApp.start({
+  'disable-memory-router': true, // 关闭虚拟路由系统
+  'disable-patch-request': true, // 关闭对子应用请求的拦截
   plugins: {
     modules: {
-      viteApp: [{
-        loader(code) {
-          if (process.env.NODE_ENV === 'development') {
-            // 这里 basename 需要和子应用vite.config.js中base的配置保持一致
-            code = code.replace(/(from|import)(\s*['"])(\/vite\/)/g, all => {
-              return all.replace('/vite/', 'http://localhost:8093/vite/')
-            })
+      viteApp: [
+        {
+          loader(code) {
+            if (process.env.NODE_ENV === 'development') {
+              code = code.replace(
+                /(from|import)(\s*['"])(\/vite\/)/g,
+                (all) => {
+                  return all.replace('/vite/', 'http://localhost:8093/vite/')
+                }
+              )
+            }
+            return code
           }
-          return code
         }
-      }]
-    },
+      ]
+    }
   }
 })
+
+window.eventCenterForViteApp = new EventCenterForMicroApp('viteApp')

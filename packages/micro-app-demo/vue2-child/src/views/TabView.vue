@@ -19,7 +19,7 @@ export default {
   components: {
     [Input.name]: Input,
     [Tabs.name]: Tabs,
-    [Tabs.TabPane.name]: Tabs.TabPane,
-  },
+    [Tabs.TabPane.name]: Tabs.TabPane
+  }
 }
 </script>

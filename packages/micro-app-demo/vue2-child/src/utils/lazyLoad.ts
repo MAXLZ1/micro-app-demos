@@ -13,26 +13,26 @@ export default function lazyLoad(AsyncView: Promise<any>) {
               height: '200px',
               display: 'flex',
               justifyContent: 'center',
-              alignItems: 'center',
-            },
+              alignItems: 'center'
+            }
           },
           [h(Spin)]
         )
-      },
+      }
     },
     error: {
       render(h: any) {
         return h('div', '组件加载失败!')
-      },
+      }
     },
     delay: 1,
-    timeout: 8000,
+    timeout: 8000
   })
 
   return Promise.resolve({
     functional: true,
     render(h: any, { data, children }: any) {
       return h(AsyncComponent, data, children)
-    },
+    }
   })
 }

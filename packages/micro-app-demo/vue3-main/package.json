@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.1.0",
-    "@micro-zoe/micro-app": "^0.8.10",
+    "@micro-zoe/micro-app": "^1.0.0-alpha.9",
     "ant-design-vue": "^3.2.12",
     "pinia": "^2.0.21",
     "vue": "^3.2.38",

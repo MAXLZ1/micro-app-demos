@@ -31,22 +31,22 @@ export default {
   name: 'Counter',
   data() {
     return {
-      step: 1,
+      step: 1
     }
   },
   computed: {
-    ...mapState(useCounterStore, ['value']),
+    ...mapState(useCounterStore, ['value'])
   },
   methods: {
-    ...mapActions(useCounterStore, ['increment', 'decrement']),
+    ...mapActions(useCounterStore, ['increment', 'decrement'])
   },
   components: {
     [Button.name]: Button,
     [Row.name]: Row,
     [Col.name]: Col,
     [InputNumber.name]: InputNumber,
-    [Space.name]: Space,
-  },
+    [Space.name]: Space
+  }
 }
 </script>
 

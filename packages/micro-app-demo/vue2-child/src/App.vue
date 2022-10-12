@@ -1,11 +1,13 @@
 <template>
-  <a-config-provider prefixCls="av2" :getPopupContainer="getPopupContainer">
-    <router-view v-slot="{ Component }">
-      <keep-alive>
-        <component :is="Component" />
-      </keep-alive>
-    </router-view>
-  </a-config-provider>
+  <div id="app">
+    <a-config-provider prefixCls="av2" :getPopupContainer="getPopupContainer">
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
+    </a-config-provider>
+  </div>
 </template>
 
 <script lang="ts">
@@ -19,11 +21,11 @@ export default {
         return triggerNode.parentNode
       }
       return (this as unknown as Vue).$root.$el
-    },
+    }
   },
   components: {
-    [ConfigProvider.name]: ConfigProvider,
-  },
+    [ConfigProvider.name]: ConfigProvider
+  }
 }
 </script>
 <style></style>

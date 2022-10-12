@@ -1,5 +1,17 @@
 import { Button, Col, Form, Input, Row, Select } from 'antd'
-import { dispatchReceiveMessageEvent, Message, Types } from '@/utils/dispatchReceiveMessageEvent'
+
+enum Types {
+  success = 'success',
+  warn = 'warn',
+  error = 'error',
+  info = 'info',
+}
+
+interface Message {
+  info: string
+  type: Types
+  from: string
+}
 
 const types = [
   {
@@ -38,7 +50,14 @@ export default function MessageTrigger() {
   const [ form ] = Form.useForm()
 
   const onFinish = (values: Omit<Message, 'from'>) => {
-    dispatchReceiveMessageEvent(values)
+    // 向主应用发送数据
+    window.microApp.dispatch({
+      type: 'message',
+      data: {
+        ...values,
+        from: 'React18子应用'
+      }
+    })
   }
 
   return (

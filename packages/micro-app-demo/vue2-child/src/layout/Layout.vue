@@ -4,7 +4,7 @@
 
 <script lang="ts">
 export default {
-  name: 'Layout',
+  name: 'Layout'
 }
 </script>
 

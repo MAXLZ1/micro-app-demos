@@ -25,8 +25,8 @@ export default {
   name: 'NavigateView',
   components: {
     [Space.name]: Space,
-    [Button.name]: Button,
-  },
+    [Button.name]: Button
+  }
 }
 </script>
 
