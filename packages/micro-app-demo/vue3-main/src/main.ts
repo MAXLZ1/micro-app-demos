@@ -4,6 +4,7 @@ import { createPinia } from 'pinia'
 import App from '@/App.vue'
 import router from './router'
 import microApp, { EventCenterForMicroApp } from '@micro-zoe/micro-app'
+import { addMiroAppDataListener } from '@/utils/microAppDataListener'
 
 const app = createApp(App)
 
@@ -37,3 +38,5 @@ microApp.start({
 })
 
 window.eventCenterForViteApp = new EventCenterForMicroApp('viteApp')
+
+addMiroAppDataListener()

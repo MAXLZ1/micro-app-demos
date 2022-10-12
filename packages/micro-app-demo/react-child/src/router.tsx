@@ -1,6 +1,6 @@
-import { createHashRouter, Outlet } from 'react-router-dom'
+import { createHashRouter, createMemoryRouter, Outlet } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
-import React, { lazy } from 'react'
+import { lazy } from 'react'
 
 const CommunicationTest = lazy(() => import('@/views/CommunicationTest'))
 const CoexistView = lazy(() => import('@/views/CoexistView'))
@@ -40,7 +40,11 @@ const routes: RouteObject[] = [
   },
 ]
 
-const router = createHashRouter(routes, {
+export const router = createHashRouter(routes, {
+  basename
+})
+
+export const memoryRouter = createMemoryRouter(routes, {
   basename
 })
 

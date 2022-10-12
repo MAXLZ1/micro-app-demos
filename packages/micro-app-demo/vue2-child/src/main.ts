@@ -2,20 +2,29 @@ import '@/public-path'
 import '@/styles/index.less'
 import Vue from 'vue'
 import App from '@/App.vue'
-import router from '@/router'
+import { router, abstractRouter } from '@/router'
 import { PiniaVuePlugin, createPinia } from 'pinia'
 import { useUserStore } from '@/stores/user'
+import type VueRouter from 'vue-router'
 
 Vue.config.productionTip = false
 Vue.use(PiniaVuePlugin)
 
 let app: Vue | null = null
+let routerInstance: VueRouter | null = null
 
 function mount() {
+  // 如果存在coexistence，使用abstract路由
+  if (window.__MICRO_APP_ENVIRONMENT__ && window.microApp.getData()?.coexistence) {
+    routerInstance = abstractRouter
+  } else {
+    routerInstance = router
+  }
+
   app = new Vue({
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    router,
+    router: routerInstance,
     pinia: createPinia(),
     render: (h) => h(App)
   }).$mount('#app')
@@ -31,7 +40,7 @@ function unmount() {
     app.$el.innerHTML = ''
     app = null
   }
-
+  routerInstance = null
   if (window.__MICRO_APP_ENVIRONMENT__) {
     window.microApp.removeDataListener(dataListener)
   }
@@ -43,7 +52,7 @@ function dataListener(e: any) {
     setUser(e.user)
   }
 
-  e.path && router.push(e.path)
+  e.path && routerInstance?.push(e.path)
 }
 
 window.unmount = unmount

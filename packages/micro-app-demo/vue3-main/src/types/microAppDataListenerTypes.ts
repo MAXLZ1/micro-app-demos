@@ -15,9 +15,7 @@ export interface MessageData {
   from: string
 }
 
-export type CustomEventData<T> = {
-  data: {
-    type: EventTypes
-    data: T
-  }
+export interface DataListenerParam<T> {
+  type: EventTypes
+  data: T
 }

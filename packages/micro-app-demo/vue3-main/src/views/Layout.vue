@@ -8,7 +8,7 @@
     >
       <div class="logo">
         <a-typography-text v-if="!collapsed">
-          当前：qiankun-Vue3 主应用
+          当前：MicroApp-Vue3 主应用
         </a-typography-text>
       </div>
       <a-menu
@@ -71,7 +71,6 @@
               :disableSandbox="istVite"
               clear-data
               @mounted="handleMounted"
-              @datachange="handleDataChange"
             />
             <router-view v-slot="{ Component }" v-else>
               <keep-alive>
@@ -99,7 +98,6 @@ import {
   GithubOutlined,
   ThunderboltOutlined
 } from '@ant-design/icons-vue'
-import 'ant-design-vue/es/notification/style/css'
 import { ref, reactive, watchEffect, onMounted, toRaw, computed } from 'vue'
 import { useMenuStore } from '@/stores/menu'
 import { useRoute, useRouter } from 'vue-router'
@@ -109,8 +107,6 @@ import type { MicroApp } from '@/data/appData'
 import type { Menu } from '@/data/menuData'
 import { useUserStore } from '@/stores/user'
 import { storeToRefs } from 'pinia'
-import { notification } from 'ant-design-vue'
-import type { CustomEventData, MessageData } from '@/types/customEvent'
 import microApp from '@micro-zoe/micro-app'
 
 const collapsed = ref(false)
@@ -164,7 +160,7 @@ watchEffect(initKeys)
 
 function toGithub() {
   window.open(
-    'https://github.com/MAXLZ1/micro-app-demos/tree/main/packages/qiankun-demo',
+    'https://github.com/MAXLZ1/micro-app-demos/tree/main/packages/micro-app-demo',
     '_blank'
   )
 }
@@ -210,18 +206,6 @@ function handleSelect({ key }: { key: number }) {
         router.push(res.path)
       }
     }
-  }
-}
-
-function handleDataChange(e: Event) {
-  const { type, data } = (e as CustomEvent<CustomEventData<MessageData>>).detail
-    .data
-  if (type === 'message') {
-    const { info, type, from } = data
-    notification[type]({
-      message: `来自【${from}】的消息`,
-      description: info
-    })
   }
 }
 </script>

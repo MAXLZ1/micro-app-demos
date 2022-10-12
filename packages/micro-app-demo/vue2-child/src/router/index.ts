@@ -73,8 +73,14 @@ const routes: Array<RouteConfig> = [
   }
 ]
 
-const router = new VueRouter({
+export const router = new VueRouter({
   mode: 'hash',
+  base: process.env.BASE_URL,
+  routes
+})
+
+export const abstractRouter = new VueRouter({
+  mode: 'abstract',
   base: process.env.BASE_URL,
   routes
 })

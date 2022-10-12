@@ -31,7 +31,7 @@
 <script lang="ts" setup>
 import { reactive } from 'vue'
 import { Form, notification } from 'ant-design-vue'
-import { MessageTypes } from '@/types/customEvent'
+import { MessageTypes } from '@/types/dataListenerTypes'
 
 const formData = reactive<{ type: MessageTypes; info: string }>({
   type: MessageTypes.success,

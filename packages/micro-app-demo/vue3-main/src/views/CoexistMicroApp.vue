@@ -1,16 +1,35 @@
 <template>
   <a-space direction="vertical" :size="40" class="box">
-    <a-alert message="左侧应用为Vue2子应用，右侧应用为React18子应用。" type="success" />
+    <a-alert
+      message="左侧应用为Vue2子应用，右侧应用为React18子应用。"
+      type="success"
+    />
     <a-row :gutter="20">
       <a-col :span="12">
-        <a-button v-if="app1" type="primary" danger @click="() => handleClick('vue2')">卸载Vue2应用</a-button>
-        <a-button v-else type="primary" @click="() => mountApp('vue2')">加载Vue2应用</a-button>
-        <div id="app-one"></div>
+        <a-button v-if="showVueApp" type="primary" danger @click="toggleVueAppShow">
+          卸载Vue2应用
+        </a-button>
+        <a-button v-else type="primary" @click="toggleVueAppShow">加载Vue2应用</a-button>
+        <micro-app
+          v-if="showVueApp"
+          :name="vueApp.name"
+          :url="vueApp.url"
+          :baseroute="vueApp.baseroute"
+          :data="vueData"
+        />
       </a-col>
       <a-col :span="12">
-        <a-button v-if="app2" type="primary" danger @click="() => handleClick('react18')">卸载React18应用</a-button>
-        <a-button v-else type="primary" @click="() => mountApp('react18')">加载React18应用</a-button>
-        <div id="app-two"></div>
+        <a-button v-if="showReactApp" type="primary" danger @click="toggleReactAppShow">
+          卸载React18应用
+        </a-button>
+        <a-button v-else type="primary" @click="toggleReactAppShow">加载React18应用</a-button>
+        <micro-app
+          v-if="showReactApp"
+          :name="reactApp.name"
+          :url="reactApp.url"
+          :baseroute="reactApp.baseroute"
+          :data="reactData"
+        />
       </a-col>
     </a-row>
   </a-space>
@@ -18,90 +37,52 @@
 
 <script lang="ts">
 export default {
-  name: 'CoexistMicroApp',
+  name: 'CoexistMicroApp'
 }
 </script>
 
 <script lang="ts" setup>
-import { onBeforeUnmount, onMounted, toRaw, ref } from 'vue'
-import { loadMicroApp } from 'qiankun'
+import { useAppStore } from '@/stores/app'
 import { useUserStore } from '@/stores/user'
-import { dispatchUserEvent } from '@/utils/dispatchUserEvent'
-import type { MicroApp } from 'qiankun'
+import { storeToRefs } from 'pinia'
+import { computed, ref, toRaw } from 'vue'
 import type { Ref } from 'vue'
-import { reactAppEntry, vue2AppEntry } from '@/data/appData'
 
-const { user } = useUserStore()
+const { apps } = storeToRefs(useAppStore())
+const { user } = storeToRefs(useUserStore())
 
-let app1 = ref<MicroApp | null>(null)
-let app2 = ref<MicroApp | null>(null)
+const showVueApp = ref(true)
+const showReactApp = ref(true)
 
-onMounted(() =>{
-  mountApp('vue2')
-  mountApp('react18')
-})
+const vueApp = computed(
+  () => apps.value.find((item) => item.name === 'vue2App')!
+)
+const reactApp = computed(
+  () => apps.value.find((item) => item.name === 'reactApp')!
+)
 
-function mountApp(name: string) {
-  if (name === 'vue2') {
-    app1.value = loadMicroApp({
-      name: 'vue2App',
-      entry: vue2AppEntry,
-      container: '#app-one',
-      props: {
-        path: '/communication-test'
-      }
-    }, {
-      sandbox: {
-        experimentalStyleIsolation: true
-      },
-      singular: false
-    })
-    app1.value.mountPromise.then(() => {
-      dispatchUserEvent(toRaw(user))
-    })
-  } else if (name === 'react18') {
-    app2.value = loadMicroApp({
-      name: 'reactApp',
-      entry: reactAppEntry,
-      container: '#app-two',
-      props: {
-        path: '/reactApp/communication-test'
-      }
-    }, {
-      sandbox: {
-        experimentalStyleIsolation: true
-      },
-      singular: false
-    })
-    app2.value.mountPromise.then(() => {
-      dispatchUserEvent(toRaw(user))
-    })
-  }
+const vueData = computed(() => ({
+  user: toRaw(user.value),
+  path: '/vue2App/communication-test',
+  coexistence: true // 共存模式
+}))
+const reactData = computed(() => ({
+  user: toRaw(user.value),
+  path: '/reactApp/communication-test',
+  coexistence: true // 共存模式
+}))
+
+function toggleVueAppShow() {
+  showVueApp.value = !showVueApp.value
 }
 
-async function handleClick(name: string) {
-  await unmountApp(name === 'vue2' ? app1 : app2)
+function toggleReactAppShow() {
+  showReactApp.value = !showReactApp.value
 }
-
-async function unmountApp(app: Ref<MicroApp | null>) {
-  if (app.value && app.value.getStatus() === 'MOUNTED') {
-    await app.value.unmount()
-  }
-  app.value = null
-}
-
-onBeforeUnmount(async () => {
-  await Promise.all([unmountApp(app1), unmountApp(app2)])
-})
 </script>
 
 <style lang="less" scoped>
 .box {
   width: 100%;
-}
-
-#app-one,
-#app-two {
-  margin-top: 20px;
 }
 </style>
