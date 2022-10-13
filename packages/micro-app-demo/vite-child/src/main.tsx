@@ -65,7 +65,8 @@ function dataListener(e: { path: string; user: User }) {
   user && store.dispatch((dispatch) => {
     dispatch(setUser(user))
   })
-  path && routerInstance.navigate(path)
+  // 由于主应用会进行router.push，为了不影响history，这里使用replace
+  path && routerInstance.navigate(path, { replace: true })
 }
 
 if (window.__MICRO_APP_BASE_APPLICATION__) {

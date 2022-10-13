@@ -64,7 +64,8 @@ function dataListener(e: any) {
       dispatch(setUser(e.user))
     })
   }
-  e.path && routerInstance?.navigate(e.path)
+  // 由于主应用会进行router.push，为了不影响history，这里使用replace
+  e.path && routerInstance?.navigate(e.path, { replace: true })
 }
 
 window.unmount = unmount

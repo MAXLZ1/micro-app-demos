@@ -98,7 +98,7 @@ import {
   GithubOutlined,
   ThunderboltOutlined
 } from '@ant-design/icons-vue'
-import { ref, reactive, watchEffect, onMounted, toRaw, computed } from 'vue'
+import { ref, reactive, watchEffect, toRaw, computed } from 'vue'
 import { useMenuStore } from '@/stores/menu'
 import { useRoute, useRouter } from 'vue-router'
 import { microAppLoading } from '@/utils/microAppLoading'
@@ -125,7 +125,8 @@ const { getActiveMicroApp } = useAppStore()
 
 const microData = computed(() => ({
   user: toRaw(user.value),
-  path: path.value
+  path: path.value,
+  router // 下发router对象，用于子应用控制主应用跳转
 }))
 const istVite = computed(
   () => activeApp.value && activeApp.value.name === 'viteApp'
@@ -150,6 +151,12 @@ function initKeys() {
   const res = flattenMenuList.find((item) => item.path === fullPath)
   if (res) {
     selectedKeys.value = [res.key]
+    activeApp.value = getActiveMicroApp(route.path) || null
+    if (activeApp.value) {
+      path.value = route.path
+    } else {
+      path.value = ''
+    }
     const parents: number[] = []
     getParentKeys(menuList, res.key, parents)
     openKeys.push(...parents)
@@ -164,15 +171,6 @@ function toGithub() {
     '_blank'
   )
 }
-
-onMounted(() => {
-  activeApp.value = getActiveMicroApp(route.path) || null
-  if (activeApp.value) {
-    path.value = route.path
-  } else {
-    path.value = ''
-  }
-})
 
 function changeCollapsed() {
   collapsed.value = !collapsed.value
@@ -192,13 +190,7 @@ function handleSelect({ key }: { key: number }) {
     selectedKeys.value = [key]
     const res = flattenMenuList.find((item) => item.key === key)
     if (res && res.path) {
-      activeApp.value = getActiveMicroApp(res.path) || null
-      if (activeApp.value) {
-        path.value = res.path
-      } else {
-        path.value = ''
-        router.push(res.path)
-      }
+      router.push(res.path)
     }
   }
 }

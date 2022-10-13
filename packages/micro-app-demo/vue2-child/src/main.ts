@@ -52,7 +52,7 @@ function dataListener(e: any) {
     setUser(e.user)
   }
 
-  e.path && routerInstance?.push(e.path)
+  e.path && routerInstance?.replace(e.path)
 }
 
 window.unmount = unmount
