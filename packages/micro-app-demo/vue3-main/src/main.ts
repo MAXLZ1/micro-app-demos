@@ -5,6 +5,7 @@ import App from '@/App.vue'
 import router from './router'
 import microApp, { EventCenterForMicroApp } from '@micro-zoe/micro-app'
 import { addMiroAppDataListener } from '@/utils/microAppDataListener'
+import { useAppStore } from './stores/app'
 
 const app = createApp(App)
 
@@ -12,6 +13,8 @@ app.use(createPinia())
 app.use(router)
 
 app.mount('#app')
+
+const { apps } = useAppStore()
 
 microApp.start({
   'disable-memory-router': true, // 关闭虚拟路由系统
@@ -34,9 +37,18 @@ microApp.start({
         }
       ]
     }
+  },
+  // 预加载
+  preFetchApps() {
+    return apps.map(item => ({
+      name: item.name,
+      url: item.url,
+      disableSandbox: item.name === 'viteApp'
+    }))
   }
 })
 
+// viteApp通信对象
 window.eventCenterForViteApp = new EventCenterForMicroApp('viteApp')
 
 addMiroAppDataListener()
