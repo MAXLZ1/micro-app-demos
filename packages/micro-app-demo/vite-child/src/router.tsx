@@ -1,5 +1,5 @@
 import React, { lazy } from 'react'
-import { createHashRouter, Outlet, RouteObject } from 'react-router-dom'
+import { createHashRouter, createMemoryRouter, Outlet, RouteObject } from 'react-router-dom'
 
 const CommunicationTest = lazy(() => import('@/views/CommunicationTest'))
 const NavigateView = lazy(() => import('@/views/NavigateView'))
@@ -26,8 +26,12 @@ const routes: RouteObject[] = [
   }
 ]
 
-const router = createHashRouter(routes, {
+export const router = createHashRouter(routes, {
   basename,
+})
+
+export const memoryRouter = createMemoryRouter(routes, {
+  basename
 })
 
 export default router

@@ -16,6 +16,7 @@
           :url="vueApp.url"
           :baseroute="vueApp.baseroute"
           :data="vueData"
+          destroy
         />
       </a-col>
       <a-col :span="12">
@@ -29,6 +30,7 @@
           :url="reactApp.url"
           :baseroute="reactApp.baseroute"
           :data="reactData"
+          destroy
         />
       </a-col>
     </a-row>
@@ -46,7 +48,6 @@ import { useAppStore } from '@/stores/app'
 import { useUserStore } from '@/stores/user'
 import { storeToRefs } from 'pinia'
 import { computed, ref, toRaw } from 'vue'
-import type { Ref } from 'vue'
 
 const { apps } = storeToRefs(useAppStore())
 const { user } = storeToRefs(useUserStore())

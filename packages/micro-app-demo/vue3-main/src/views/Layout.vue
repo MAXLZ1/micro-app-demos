@@ -66,9 +66,9 @@
               :name="activeApp.name"
               :url="activeApp.url"
               :baseroute="activeApp.baseroute"
-              :data="microData"
               :inline="istVite"
               :disableSandbox="istVite"
+              :data="microData"
               clear-data
               @mounted="handleMounted"
             />
@@ -180,15 +180,9 @@ function changeCollapsed() {
 
 function handleMounted() {
   if (activeApp.value) {
-    if (istVite.value) {
-      microApp.setData('viteApp', {
-        ...toRaw(microData.value)
-      })
-    } else {
-      microApp.setData(activeApp.value.name, {
-        ...toRaw(microData.value)
-      })
-    }
+    microApp.setData(activeApp.value.name, {
+      ...toRaw(microData.value)
+    })
   }
 }
 

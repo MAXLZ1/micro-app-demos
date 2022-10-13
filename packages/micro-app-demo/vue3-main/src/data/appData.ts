@@ -17,11 +17,11 @@ export const apps = [
   {
     name: 'reactApp',
     url: reactAppEntry,
-    baseroute: '/reactApp',
+    baseroute: '/reactApp'
   },
   {
     name: 'viteApp',
     url: viteAppEntry,
     baseroute: '/viteApp'
-  },
+  }
 ]
