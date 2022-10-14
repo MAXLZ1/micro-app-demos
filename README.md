@@ -60,4 +60,4 @@ pnpm run micro-app-demo:start
 - [x] 主子应用间跳转
 - [x] 嵌套子应用
 - [x] 资源预加载
-- [ ] 子应用保活
+- [x] 子应用保活
