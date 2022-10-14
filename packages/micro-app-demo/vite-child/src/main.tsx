@@ -62,7 +62,6 @@ function unmount() {
 }
 
 function dataListener(e: { path: string; user: User }) {
-  console.log(e)
   const { user, path } = e
   user && store.dispatch((dispatch) => {
     dispatch(setUser(user))

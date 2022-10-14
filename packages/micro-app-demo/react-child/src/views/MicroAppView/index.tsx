@@ -6,8 +6,8 @@ import { useState } from 'react'
 import { useAppSelector } from '@/stores/storeHooks'
 import microApp from '@micro-zoe/micro-app'
 
-export const vue2AppEntry = process.env.NODE_ENV === 'production' ? 'https://maxlz1.github.io/micro-app-demos/qiankun-demo/vue2-child/dist/' : 'http://localhost:8091'
-export const viteAppEntry = process.env.MODE === 'production' ? 'https://maxlz1.github.io/micro-app-demos/qiankun-demo/vite-child/dist/' : 'http://localhost:8093/vite/'
+export const vue2AppEntry = process.env.NODE_ENV === 'production' ? 'https://maxlz1.github.io/micro-app-demos/micro-app-demo/vue2-child/dist/' : 'http://localhost:8091'
+export const viteAppEntry = process.env.MODE === 'production' ? 'https://maxlz1.github.io/micro-app-demos/micro-app-demo/vite-child/dist/' : 'http://localhost:8093/vite/'
 
 interface MicroApp {
   name: string
@@ -55,7 +55,7 @@ export default function MicroAppView() {
     user,
     path: '',
     abstract: true,
-    router: window?.microApp.getData()?.router
+    router: window?.microApp.getData()?.router // 下发主应用的路由对象
   })
 
   const handleChange = async (value: any) => {
