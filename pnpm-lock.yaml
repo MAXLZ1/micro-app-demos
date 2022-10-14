@@ -8,6 +8,7 @@ importers:
   packages/micro-app-demo/react-child:
     specifiers:
       '@craco/craco': ^6.4.5
+      '@micro-zoe/micro-app': ^1.0.0-alpha.9
       '@reduxjs/toolkit': ^1.8.5
       '@testing-library/jest-dom': ^5.14.1
       '@testing-library/react': ^13.0.0
@@ -29,6 +30,7 @@ importers:
       typescript: ^4.4.2
       web-vitals: ^2.1.0
     dependencies:
+      '@micro-zoe/micro-app': registry.npmmirror.com/@micro-zoe/micro-app/1.0.0-alpha.9
       '@reduxjs/toolkit': registry.npmmirror.com/@reduxjs/toolkit/1.8.5_react-redux@8.0.4+react@18.2.0
       '@testing-library/jest-dom': registry.npmmirror.com/@testing-library/jest-dom/5.16.5
       '@testing-library/react': registry.npmmirror.com/@testing-library/react/13.4.0_react-dom@18.2.0+react@18.2.0

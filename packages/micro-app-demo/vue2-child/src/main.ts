@@ -14,8 +14,8 @@ let app: Vue | null = null
 let routerInstance: VueRouter | null = null
 
 function mount() {
-  // 如果存在coexistence，使用abstract路由
-  if (window.__MICRO_APP_ENVIRONMENT__ && window.microApp.getData()?.coexistence) {
+  // 如果存在abstract，使用abstract路由
+  if (window.__MICRO_APP_ENVIRONMENT__ && window.microApp.getData()?.abstract) {
     routerInstance = abstractRouter
   } else {
     routerInstance = router

@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import { store } from '@/stores/store'
 import { ConfigProvider, Spin } from 'antd'
 import { setUser } from '@/stores/userSlice'
+import microApp from '@micro-zoe/micro-app'
 
 let root: ReactDOM.Root | null = null
 let routerInstance: any | null = null
@@ -16,8 +17,8 @@ function mount() {
   
   const container = document.getElementById('root')!
   root = ReactDOM.createRoot(container)
-  // 如果存在coexistence，使用memory路由
-  if (window.__MICRO_APP_ENVIRONMENT__ && window.microApp.getData()?.coexistence) {
+  // 如果存在abstract，使用memory路由
+  if (window.__MICRO_APP_ENVIRONMENT__ && window.microApp.getData()?.abstract) {
     routerInstance = memoryRouter
   } else {
     routerInstance = router
@@ -74,3 +75,27 @@ window.mount = mount
 if (!window.__MICRO_APP_ENVIRONMENT__) {
   window.mount()
 }
+
+microApp.start({
+  'disable-memory-router': true, // 关闭虚拟路由系统
+  'disable-patch-request': true, // 关闭对子应用请求的拦截
+  plugins: {
+    modules: {
+      viteApp: [
+        {
+          loader(code) {
+            if (process.env.NODE_ENV === 'development') {
+              code = code.replace(
+                /(from|import)(\s*['"])(\/vite\/)/g,
+                (all) => {
+                  return all.replace('/vite/', 'http://localhost:8093/vite/')
+                }
+              )
+            }
+            return code
+          }
+        }
+      ]
+    }
+  }
+})

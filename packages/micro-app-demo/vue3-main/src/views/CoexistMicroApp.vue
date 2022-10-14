@@ -65,12 +65,12 @@ const reactApp = computed(
 const vueData = computed(() => ({
   user: toRaw(user.value),
   path: '/vue2App/communication-test',
-  coexistence: true // 共存模式
+  abstract: true // 共存模式
 }))
 const reactData = computed(() => ({
   user: toRaw(user.value),
   path: '/reactApp/communication-test',
-  coexistence: true // 共存模式
+  abstract: true // 共存模式
 }))
 
 function toggleVueAppShow() {

@@ -47,12 +47,12 @@ const reactApp = computed(
 const vueData = computed(() => ({
   user: null,
   path: '/vue2App/css-isolation',
-  coexistence: true // 共存模式
+  abstract: true // 共存模式
 }))
 const reactData = computed(() => ({
   user: null,
   path: '/reactApp/css-isolation',
-  coexistence: true // 共存模式
+  abstract: true // 共存模式
 }))
 </script>
 

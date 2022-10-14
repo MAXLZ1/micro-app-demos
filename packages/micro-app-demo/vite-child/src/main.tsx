@@ -14,12 +14,13 @@ let root: ReactDOM.Root | null = null
 let routerInstance: any | null = null
 
 function mount() {
-  // 如果存在coexistence，使用memory路由
-  if (window.__MICRO_APP_BASE_APPLICATION__ && window.eventCenterForViteApp?.getData()?.coexistence) {
+  // 如果存在abstract，使用memory路由
+  if (window.__MICRO_APP_BASE_APPLICATION__ && window.eventCenterForViteApp?.getData()?.abstract) {
     routerInstance = memoryRouter
   } else {
     routerInstance = router
   }
+
 
   const container = document.getElementById('vite-root')!
   root = ReactDOM.createRoot(container)
@@ -61,6 +62,7 @@ function unmount() {
 }
 
 function dataListener(e: { path: string; user: User }) {
+  console.log(e)
   const { user, path } = e
   user && store.dispatch((dispatch) => {
     dispatch(setUser(user))
