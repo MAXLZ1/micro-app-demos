@@ -61,3 +61,5 @@ pnpm run micro-app-demo:start
 - [x] 嵌套子应用
 - [x] 资源预加载
 - [x] 子应用保活
+
+## icestark demo

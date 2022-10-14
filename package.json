@@ -6,8 +6,10 @@
   "scripts": {
     "qiankun-demo:start": "pnpm --filter \"@qiankun-demo/*\" run start -r --stream",
     "micro-app-demo:start": "pnpm --filter \"@micro-app-demo/*\" run start -r --stream",
+    "icestark-demo:start": "pnpm --filter \"@icestark-demo/*\" run start -r --stream",
     "qiankun-demo:build": "pnpm --filter \"@qiankun-demo/*\" run build",
-    "micro-app-demo:build": "pnpm --filter \"@micro-app-demo/*\" run build"
+    "micro-app-demo:build": "pnpm --filter \"@micro-app-demo/*\" run build",
+    "icestark-demo:build": "pnpm --filter \"@icestark-demo/*\" run build"
   },
   "author": "MAXLZ",
   "license": "ISC"
