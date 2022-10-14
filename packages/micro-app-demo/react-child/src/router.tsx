@@ -7,6 +7,7 @@ const CoexistView = lazy(() => import('@/views/CoexistView'))
 const CssIsolation = lazy(() => import('@/views/CssIsolation'))
 const NavigateView = lazy(() => import('@/views/NavigateView'))
 const MicroAppView = lazy(() => import('@/views/MicroAppView'))
+const TabView = lazy(() => import('@/views/TabView'))
 
 const basename = window.__MICRO_APP_BASE_ROUTE__ || '/'
 
@@ -35,6 +36,10 @@ const routes: RouteObject[] = [
       {
         path: 'microapp-view',
         element: <MicroAppView />,
+      },
+      {
+        path: 'tab-view',
+        element: <TabView />,
       },
     ]
   },

@@ -16,31 +16,31 @@ app.mount('#app')
 
 const { apps } = useAppStore()
 
+const loaders = [
+  {
+    loader(code: string) {
+      if (process.env.NODE_ENV === 'development') {
+        code = code.replace(/(from|import)(\s*['"])(\/vite\/)/g, (all) => {
+          return all.replace('/vite/', 'http://localhost:8093/vite/')
+        })
+      }
+      return code
+    }
+  }
+]
+
 microApp.start({
   'disable-memory-router': true, // 关闭虚拟路由系统
   'disable-patch-request': true, // 关闭对子应用请求的拦截
   plugins: {
     modules: {
-      viteApp: [
-        {
-          loader(code) {
-            if (process.env.NODE_ENV === 'development') {
-              code = code.replace(
-                /(from|import)(\s*['"])(\/vite\/)/g,
-                (all) => {
-                  return all.replace('/vite/', 'http://localhost:8093/vite/')
-                }
-              )
-            }
-            return code
-          }
-        }
-      ]
+      viteApp: loaders,
+      viteAppKeepAlive: loaders
     }
   },
   // 预加载
   preFetchApps() {
-    return apps.map(item => ({
+    return apps.map((item) => ({
       name: item.name,
       url: item.url,
       disableSandbox: item.name === 'viteApp'
@@ -50,5 +50,6 @@ microApp.start({
 
 // viteApp通信对象
 window.eventCenterForViteApp = new EventCenterForMicroApp('viteApp')
+window.eventCenterForViteAppKeepAlive = new EventCenterForMicroApp('viteAppKeepAlive')
 
 addMiroAppDataListener()

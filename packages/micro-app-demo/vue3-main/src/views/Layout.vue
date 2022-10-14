@@ -73,7 +73,7 @@
               @mounted="handleMounted"
             />
             <router-view v-slot="{ Component }" v-else>
-              <keep-alive>
+              <keep-alive :include="keepAliveView">
                 <component :is="Component" />
               </keep-alive>
             </router-view>
@@ -112,6 +112,7 @@ import microApp from '@micro-zoe/micro-app'
 const collapsed = ref(false)
 const selectedKeys = ref<number[]>([])
 const openKeys = reactive<number[]>([])
+const keepAliveView = ref<string[]>(['Vue2KeepAliveView'])
 // 激活的子应用
 const activeApp = ref<MicroApp | null>(null)
 // 子应用要跳转的路由地址

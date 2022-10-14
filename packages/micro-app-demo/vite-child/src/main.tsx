@@ -14,13 +14,16 @@ let root: ReactDOM.Root | null = null
 let routerInstance: any | null = null
 
 function mount() {
+
   // 如果存在abstract，使用memory路由
-  if (window.__MICRO_APP_BASE_APPLICATION__ && window.eventCenterForViteApp?.getData()?.abstract) {
+  if (window.__MICRO_APP_BASE_APPLICATION__ && (
+    window.eventCenterForViteApp?.getData()?.abstract ||
+    window.eventCenterForViteAppKeepAlive?.getData()?.abstract
+  )) {
     routerInstance = memoryRouter
   } else {
     routerInstance = router
   }
-
 
   const container = document.getElementById('vite-root')!
   root = ReactDOM.createRoot(container)
@@ -49,6 +52,7 @@ function mount() {
   if (window.__MICRO_APP_BASE_APPLICATION__) {
     // 监听基座下发的数据变化
     window.eventCenterForViteApp?.addDataListener(dataListener, true)
+    window.eventCenterForViteAppKeepAlive?.addDataListener(dataListener, true)
   }
 }
 
@@ -58,6 +62,7 @@ function unmount() {
   routerInstance = null
   if (window.__MICRO_APP_BASE_APPLICATION__) {
     window.eventCenterForViteApp?.removeDataListener(dataListener)
+    window.eventCenterForViteAppKeepAlive?.removeDataListener(dataListener)
   }
 }
 
@@ -70,8 +75,10 @@ function dataListener(e: { path: string; user: User }) {
   path && routerInstance.navigate(path, { replace: true })
 }
 
+
 if (window.__MICRO_APP_BASE_APPLICATION__) {
   window['micro-app-viteApp'] = { mount, unmount }
+  window['micro-app-viteAppKeepAlive'] = { mount, unmount }
 } else {
   mount()
 }
