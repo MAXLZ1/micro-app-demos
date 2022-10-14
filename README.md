@@ -34,7 +34,7 @@ pnpm run qiankun-demo:start
 
 ## MicroApp demo
 
-线上地址：[]()
+线上地址：[https://maxlz1.github.io/micro-app-demos/micro-app-demo/vue3-main/dist/](https://maxlz1.github.io/micro-app-demos/micro-app-demo/vue3-main/dist/)
 
 本地启动命令
 ```bash
