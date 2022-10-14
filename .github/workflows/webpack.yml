@@ -31,6 +31,7 @@ jobs:
       run: |
         pnpm i
         pnpm run qiankun-demo:build
+        pnpm run micro-app-demo:build
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
