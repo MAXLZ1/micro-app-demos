@@ -8,6 +8,8 @@ importers:
   packages/icestark-demo/react-child:
     specifiers:
       '@craco/craco': ^6.4.5
+      '@ice/stark-app': ^1.5.0
+      '@ice/stark-data': ^0.1.3
       '@reduxjs/toolkit': ^1.8.5
       '@testing-library/jest-dom': ^5.14.1
       '@testing-library/react': ^13.0.0
@@ -29,6 +31,8 @@ importers:
       typescript: ^4.4.2
       web-vitals: ^2.1.0
     dependencies:
+      '@ice/stark-app': registry.npmmirror.com/@ice/stark-app/1.5.0
+      '@ice/stark-data': registry.npmmirror.com/@ice/stark-data/0.1.3
       '@reduxjs/toolkit': registry.npmmirror.com/@reduxjs/toolkit/1.8.5_react-redux@8.0.4+react@18.2.0
       '@testing-library/jest-dom': registry.npmmirror.com/@testing-library/jest-dom/5.16.5
       '@testing-library/react': registry.npmmirror.com/@testing-library/react/13.4.0_react-dom@18.2.0+react@18.2.0
@@ -54,6 +58,8 @@ importers:
 
   packages/icestark-demo/vite-child:
     specifiers:
+      '@ice/stark-app': ^1.5.0
+      '@ice/stark-data': ^0.1.3
       '@reduxjs/toolkit': ^1.8.5
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
@@ -67,7 +73,10 @@ importers:
       typescript: ^4.6.4
       vite: ^3.1.0
       vite-plugin-imp: ^2.3.0
+      vite-plugin-index-html: ^2.0.2
     dependencies:
+      '@ice/stark-app': registry.npmmirror.com/@ice/stark-app/1.5.0
+      '@ice/stark-data': registry.npmmirror.com/@ice/stark-data/0.1.3
       '@reduxjs/toolkit': registry.npmmirror.com/@reduxjs/toolkit/1.8.5_react-redux@8.0.4+react@18.2.0
       antd: registry.npmmirror.com/antd/4.23.4_react-dom@18.2.0+react@18.2.0
       react: registry.npmmirror.com/react/18.2.0
@@ -82,9 +91,12 @@ importers:
       typescript: registry.npmmirror.com/typescript/4.7.4
       vite: registry.npmmirror.com/vite/3.1.4_less@4.1.3
       vite-plugin-imp: registry.npmmirror.com/vite-plugin-imp/2.3.0_vite@3.1.4
+      vite-plugin-index-html: registry.npmmirror.com/vite-plugin-index-html/2.0.2
 
   packages/icestark-demo/vue2-child:
     specifiers:
+      '@ice/stark-app': ^1.5.0
+      '@ice/stark-data': ^0.1.3
       '@typescript-eslint/eslint-plugin': ^5.4.0
       '@typescript-eslint/parser': ^5.4.0
       '@vue/cli-plugin-babel': ~5.0.0
@@ -109,6 +121,8 @@ importers:
       vue-router: ^3.5.1
       vue-template-compiler: ^2.6.14
     dependencies:
+      '@ice/stark-app': registry.npmmirror.com/@ice/stark-app/1.5.0
+      '@ice/stark-data': registry.npmmirror.com/@ice/stark-data/0.1.3
       ant-design-vue: registry.npmmirror.com/ant-design-vue/1.7.8_e69f4c376315d116bc696ba4bfbc21f0
       core-js: registry.npmmirror.com/core-js/3.25.4
       pinia: registry.npmmirror.com/pinia/2.0.22_typescript@4.5.5+vue@2.7.10
@@ -137,6 +151,8 @@ importers:
   packages/icestark-demo/vue3-main:
     specifiers:
       '@ant-design/icons-vue': ^6.1.0
+      '@ice/stark': ^2.7.3
+      '@ice/stark-data': ^0.1.3
       '@rushstack/eslint-patch': ^1.1.4
       '@types/node': ^16.11.56
       '@vitejs/plugin-vue': ^3.0.3
@@ -160,6 +176,8 @@ importers:
       vue-tsc: ^0.40.7
     dependencies:
       '@ant-design/icons-vue': registry.npmmirror.com/@ant-design/icons-vue/6.1.0_vue@3.2.40
+      '@ice/stark': registry.npmmirror.com/@ice/stark/2.7.3
+      '@ice/stark-data': registry.npmmirror.com/@ice/stark-data/0.1.3
       ant-design-vue: registry.npmmirror.com/ant-design-vue/3.2.12_vue@3.2.40
       pinia: registry.npmmirror.com/pinia/2.0.22_typescript@4.7.4+vue@3.2.40
       vue: registry.npmmirror.com/vue/3.2.40
@@ -2916,6 +2934,38 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz}
     name: '@humanwhocodes/object-schema'
     version: 1.2.1
+
+  registry.npmmirror.com/@ice/sandbox/1.1.4:
+    resolution: {integrity: sha512-MEVF0Ze3McKDutnFiUAhUoc+WwOFxITVBgSSHmbGpKtWbXJX9kUVlx3VsEVJvdqU3O1kiBNx6zE1sFMjKPRTIQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@ice/sandbox/-/sandbox-1.1.4.tgz}
+    name: '@ice/sandbox'
+    version: 1.1.4
+    dev: false
+
+  registry.npmmirror.com/@ice/stark-app/1.5.0:
+    resolution: {integrity: sha512-9fuCri48eZj6TnfPkCju4vVLhGurz+mt6lFx4JQFHhnRBQ5MuiBqRZg5F/3vdnJ7dAYQJlCXmHlQtBHok82z+g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@ice/stark-app/-/stark-app-1.5.0.tgz}
+    name: '@ice/stark-app'
+    version: 1.5.0
+    dev: false
+
+  registry.npmmirror.com/@ice/stark-data/0.1.3:
+    resolution: {integrity: sha512-qm8f9EF1UFZZcgMxTqxMCqace8FU9ssDnR/zIQPIj5T3G4QzztvzNBHAtysO+g1E6ZFlaB+bKuCTjueosfFi8Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@ice/stark-data/-/stark-data-0.1.3.tgz}
+    name: '@ice/stark-data'
+    version: 0.1.3
+    dev: false
+
+  registry.npmmirror.com/@ice/stark/2.7.3:
+    resolution: {integrity: sha512-gNfVlrYI9UpZIJ88j4xC7Kk40uvPYGg43oYLxHEBQCJh1Vz6Gc3pu5juN+FVW/vpM1xFUftGlkaz8fjYai2xDQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@ice/stark/-/stark-2.7.3.tgz}
+    name: '@ice/stark'
+    version: 2.7.3
+    peerDependencies:
+      react: '>=15.0.0'
+    dependencies:
+      '@ice/sandbox': registry.npmmirror.com/@ice/sandbox/1.1.4
+      lodash.isempty: registry.npmmirror.com/lodash.isempty/4.4.0
+      lodash.isequal: registry.npmmirror.com/lodash.isequal/4.5.0
+      path-to-regexp: registry.npmmirror.com/path-to-regexp/1.8.0
+      url-parse: registry.npmmirror.com/url-parse/1.5.10
+    dev: false
 
   registry.npmmirror.com/@istanbuljs/load-nyc-config/1.1.0:
     resolution: {integrity: sha512-VjeHSlIzpv/NyD3N0YuHfXOPDIixcA1q2ZV98wsMqcYlPmv2n3Yb2lYP9XMElnaFVXg5A7YLTeLu6V84uQDjmQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz}
@@ -9044,7 +9094,6 @@ packages:
       graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
       jsonfile: registry.npmmirror.com/jsonfile/6.1.0
       universalify: registry.npmmirror.com/universalify/2.0.0
-    dev: false
 
   registry.npmmirror.com/fs-extra/9.1.0:
     resolution: {integrity: sha512-hcg3ZmepS30/7BSFqRvoo3DOMQu7IjqxO5nCDt+zM9XWjb33Wg7ziNT+Qvqbuc3+gWpzO02JubVyk2G4Zvo1OQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fs-extra/-/fs-extra-9.1.0.tgz}
@@ -10043,6 +10092,12 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       is-docker: registry.npmmirror.com/is-docker/2.2.1
+
+  registry.npmmirror.com/isarray/0.0.1:
+    resolution: {integrity: sha512-D2S+3GLxWH+uhrNEcoh/fnmYeP8E8/zHl644d/jdA0g2uyXvy3sb0qxotE+ne0LtccHknQzWwZEzhak7oJ0COQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/isarray/-/isarray-0.0.1.tgz}
+    name: isarray
+    version: 0.0.1
+    dev: false
 
   registry.npmmirror.com/isarray/1.0.0:
     resolution: {integrity: sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/isarray/-/isarray-1.0.0.tgz}
@@ -11203,6 +11258,18 @@ packages:
     version: 4.6.1
     dev: true
 
+  registry.npmmirror.com/lodash.isempty/4.4.0:
+    resolution: {integrity: sha512-oKMuF3xEeqDltrGMfDxAPGIVMSSRv8tbRSODbrs4KGsRRLEhrW8N8Rd4DRgB2+621hY8A8XwwrTVhXWpxFvMzg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/lodash.isempty/-/lodash.isempty-4.4.0.tgz}
+    name: lodash.isempty
+    version: 4.4.0
+    dev: false
+
+  registry.npmmirror.com/lodash.isequal/4.5.0:
+    resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz}
+    name: lodash.isequal
+    version: 4.5.0
+    dev: false
+
   registry.npmmirror.com/lodash.kebabcase/4.1.1:
     resolution: {integrity: sha512-N8XRTIMMqqDgSy4VLKPnJ/+hpGZN+PHQiJnSenYqPaVV/NCqEogTnAdZLQiGKhxX+JCs8waWq2t1XHWKOmlY8g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/lodash.kebabcase/-/lodash.kebabcase-4.1.1.tgz}
     name: lodash.kebabcase
@@ -12165,6 +12232,14 @@ packages:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/path-parse/-/path-parse-1.0.7.tgz}
     name: path-parse
     version: 1.0.7
+
+  registry.npmmirror.com/path-to-regexp/1.8.0:
+    resolution: {integrity: sha512-n43JRhlUKUAlibEJhPeir1ncUID16QnEjNpwzNdO3Lm4ywrBpBZ5oLD0I6br9evr1Y9JTqwRtAh7JLoOzAQdVA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/path-to-regexp/-/path-to-regexp-1.8.0.tgz}
+    name: path-to-regexp
+    version: 1.8.0
+    dependencies:
+      isarray: registry.npmmirror.com/isarray/0.0.1
+    dev: false
 
   registry.npmmirror.com/path-type/3.0.0:
     resolution: {integrity: sha512-T2ZUsdZFHgA3u4e5PfPbjd7HDDpxPnQb5jN0SrDsjNSuVXHJqtwTnWqG0B1jZrgmJ/7lj1EmVIByWt1gxGkWvg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/path-type/-/path-type-3.0.0.tgz}
@@ -16357,6 +16432,15 @@ packages:
       vite: registry.npmmirror.com/vite/3.1.4_less@4.1.3
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  registry.npmmirror.com/vite-plugin-index-html/2.0.2:
+    resolution: {integrity: sha512-JAiVudLbgooKAzpsXVBbXPULZ1ZRsr0hyuRnDBS+/Qq8pP3GeVr3UI5/tbIIVKQb5aECSMe1eZiJP3StJPK/dQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite-plugin-index-html/-/vite-plugin-index-html-2.0.2.tgz}
+    name: vite-plugin-index-html
+    version: 2.0.2
+    dependencies:
+      fs-extra: registry.npmmirror.com/fs-extra/10.1.0
+      html-minifier-terser: registry.npmmirror.com/html-minifier-terser/6.1.0
     dev: true
 
   registry.npmmirror.com/vite-plugin-qiankun/1.0.15_typescript@4.7.4+vite@3.1.4:

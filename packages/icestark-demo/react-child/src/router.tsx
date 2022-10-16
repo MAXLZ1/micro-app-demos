@@ -1,6 +1,7 @@
 import { createHashRouter, Outlet } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
 import React, { lazy } from 'react'
+import { getBasename } from '@ice/stark-app'
 
 const CommunicationTest = lazy(() => import('@/views/CommunicationTest'))
 const CoexistView = lazy(() => import('@/views/CoexistView'))
@@ -8,7 +9,7 @@ const CssIsolation = lazy(() => import('@/views/CssIsolation'))
 const NavigateView = lazy(() => import('@/views/NavigateView'))
 const MicroAppView = lazy(() => import('@/views/MicroAppView'))
 
-const basename = '/'
+const basename = getBasename()
 
 const routes: RouteObject[] = [
   {

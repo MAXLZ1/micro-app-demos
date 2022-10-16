@@ -1,12 +1,12 @@
 import { notification } from 'ant-design-vue'
 import 'ant-design-vue/es/notification/style/css'
-export const RECEIVE_MESSAGE = 'receiveMessage'
+import { event } from '@ice/stark-data'
 
 export enum Types {
   success = 'success',
   warn = 'warn',
   error = 'error',
-  info = 'info',
+  info = 'info'
 }
 
 export interface Message {
@@ -18,25 +18,11 @@ export interface Message {
 // 监听receiveMessage
 // 子应用触发type=receiveMessage的CustomEvent
 export function listenReceiveMessage() {
-  window.addEventListener('receiveMessage', function(e) {
-    const { type, info, from } = (e as CustomEvent<Message>).detail
+  event.on('message', function (msg: Message) {
+    const { type, info, from } = msg
     notification[type]({
       message: `来自【${from}】的消息`,
-      description: info,
+      description: info
     })
   })
-}
-
-function createReceiveMessageEvent(message: Omit<Message, 'from'>) {
-  return new CustomEvent(RECEIVE_MESSAGE, {
-    detail: {
-      ...message,
-      from: '主应用'
-    },
-  })
-}
-
-export function dispatchReceiveMessageEvent(message: Omit<Message, 'from'>) {
-  const event = createReceiveMessageEvent(message)
-  window.dispatchEvent(event)
 }

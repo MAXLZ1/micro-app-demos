@@ -1,5 +1,18 @@
 import { Button, Col, Form, Input, Row, Select } from 'antd'
-import { dispatchReceiveMessageEvent, Message, Types } from '@/utils/dispatchReceiveMessageEvent'
+import { event } from '@ice/stark-data'
+
+enum Types {
+  success = 'success',
+  warn = 'warn',
+  error = 'error',
+  info = 'info',
+}
+
+interface Message {
+  info: string
+  type: Types
+  from: string
+}
 
 const types = [
   {
@@ -38,7 +51,10 @@ export default function MessageTrigger() {
   const [ form ] = Form.useForm()
 
   const onFinish = (values: Omit<Message, 'from'>) => {
-    dispatchReceiveMessageEvent(values)
+    event.emit('message', {
+      ...values,
+      from: 'React18子应用',
+    })
   }
 
   return (

@@ -1,12 +1,23 @@
 <template>
   <a-layout has-sider>
-    <a-layout-sider class="sider" width="250" v-model:collapsed="collapsed" :trigger="null">
+    <a-layout-sider
+      class="sider"
+      width="250"
+      v-model:collapsed="collapsed"
+      :trigger="null"
+    >
       <div class="logo">
         <a-typography-text v-if="!collapsed">
-          当前：qiankun-Vue3 主应用
+          当前：icestark-Vue3 主应用
         </a-typography-text>
       </div>
-      <a-menu :selectedKeys="selectedKeys" :openKeys="openKeys" @select="handleSelect" mode="inline" theme="dark">
+      <a-menu
+        :selectedKeys="selectedKeys"
+        :openKeys="openKeys"
+        @select="handleSelect"
+        mode="inline"
+        theme="dark"
+      >
         <template v-for="item in menuList" :key="item.key">
           <template v-if="item.children">
             <sub-menu :key="item.key" :menu-info="item" />
@@ -38,53 +49,69 @@
             />
           </a-col>
           <a-col>
-            <github-outlined class="github" @click="toGithub"/>
+            <github-outlined class="github" @click="toGithub" />
           </a-col>
         </a-row>
       </a-layout-header>
       <a-layout-content>
-        <a-spin :spinning="microAppLoading" :delay="300" size="large" wrapperClassName="spin">
+        <a-spin
+          :spinning="microAppLoading"
+          :delay="300"
+          size="large"
+          wrapperClassName="spin"
+        >
           <div>
-            <div id="child-app"></div>
-            <router-view v-slot="{ Component }">
-              <keep-alive :include="aliveView">
+            <div ref="microAppDom" id="child-app"></div>
+            <router-view v-if="!activeMicroApp" v-slot="{ Component }">
+              <keep-alive>
                 <component :is="Component" />
               </keep-alive>
             </router-view>
           </div>
         </a-spin>
       </a-layout-content>
-      <a-layout-footer class='footer'>
-        Created by MAXLZ
-      </a-layout-footer>
+      <a-layout-footer class="footer"> Created by MAXLZ </a-layout-footer>
     </a-layout>
   </a-layout>
 </template>
 
 <script lang="ts">
 export default {
-  name: 'Layout',
+  name: 'Layout'
 }
 </script>
 
 <script lang="ts" setup>
-import { MenuUnfoldOutlined, MenuFoldOutlined, GithubOutlined, ThunderboltOutlined, } from '@ant-design/icons-vue'
-import { ref, reactive, watchEffect } from 'vue'
+import {
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+  GithubOutlined,
+  ThunderboltOutlined
+} from '@ant-design/icons-vue'
+import { ref, reactive, watchEffect, onMounted, toRaw, onUnmounted, computed } from 'vue'
 import { useMenuStore } from '@/stores/menu'
 import { useRoute, useRouter } from 'vue-router'
 import { microAppLoading } from '@/utils/microAppLoading'
+import { registerMicroApps, removeMicroApps, type AppConfig } from '@ice/stark/lib/apps'
+import start from '@ice/stark/lib/start'
+import { useAppStore } from '@/stores/app'
 import type { Menu } from '@/data/menuData'
+import { storeToRefs } from 'pinia'
+import { useUserStore } from '@/stores/user'
 
 const collapsed = ref(false)
 const selectedKeys = ref<number[]>([])
 const openKeys = reactive<number[]>([])
-const aliveView = reactive<string[]>(['KeepAliveView'])
+const microAppDom = ref<HTMLDivElement | null>(null)
+const activeMicroApp = ref(false)
 
 const { menuList, flattenMenuList } = useMenuStore()
 const router = useRouter()
 const route = useRoute()
+const { apps } = storeToRefs(useAppStore())
+const { user } = storeToRefs(useUserStore())
 
-function getParentKeys(menus: Menu[], key: number, parents: number[]){
+function getParentKeys(menus: Menu[], key: number, parents: number[]) {
   for (const item of menus) {
     if (key === item.key) {
       return true
@@ -105,7 +132,7 @@ function changeCollapsed() {
 function handleSelect({ key }: { key: number }) {
   if (key !== undefined) {
     selectedKeys.value = [key]
-    const res = flattenMenuList.find(item => item.key === key)
+    const res = flattenMenuList.find((item) => item.key === key)
     if (res) {
       router.push(res.path!)
     }
@@ -114,7 +141,7 @@ function handleSelect({ key }: { key: number }) {
 
 function initKeys() {
   const { fullPath } = route
-  const res = flattenMenuList.find(item => item.path === fullPath)
+  const res = flattenMenuList.find((item) => item.path === fullPath)
   if (res) {
     selectedKeys.value = [res.key]
     const parents: number[] = []
@@ -126,8 +153,37 @@ function initKeys() {
 watchEffect(initKeys)
 
 function toGithub() {
-  window.open('https://github.com/MAXLZ1/micro-app-demos/tree/main/packages/qiankun-demo', '_blank')
+  window.open(
+    'https://github.com/MAXLZ1/micro-app-demos/tree/main/packages/icestark-demo',
+    '_blank'
+  )
 }
+
+onMounted(() => {
+  // 注册子应用
+  registerMicroApps(
+    toRaw(apps.value).map(
+      (item) =>
+        ({
+          ...item,
+          container: microAppDom.value
+        } as any)
+    )
+  )
+
+  start({
+    shouldAssetsRemove(assetUrl, element) {
+      return false
+    },
+    onActiveApps(activeApps) {
+      activeMicroApp.value = !!(activeApps || []).length
+    }
+  })
+})
+
+onUnmounted(() => {
+  removeMicroApps(toRaw(apps.value).map(item => item.name) as string[])
+})
 </script>
 
 <style lang="less" scoped>

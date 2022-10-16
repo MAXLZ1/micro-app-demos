@@ -38,6 +38,38 @@ const routes: Array<RouteConfig> = [
       },
     ],
   },
+  {
+    path: '/vue2App',
+    redirect: '/vue2App/communication-test',
+    component: () => import('@/layout/Layout.vue'),
+    children: [
+      {
+        path: 'communication-test',
+        name: 'Vue2AppCommunicationTest',
+        component: () => lazyLoad(import('@/views/CommunicationTest.vue')),
+      },
+      {
+        path: 'coexist-view',
+        name: 'Vue2AppCoexistView',
+        component: () => lazyLoad(import('@/views/CoexistView.vue')),
+      },
+      {
+        path: 'tab-view',
+        name: 'Vue2AppTabView',
+        component: () => lazyLoad(import('@/views/TabView.vue')),
+      },
+      {
+        path: 'css-isolation',
+        name: 'Vue2AppCssIsolation',
+        component: () => lazyLoad(import('@/views/CssIsolation.vue')),
+      },
+      {
+        path: 'navigate-view',
+        name: 'Vue2AppNavigateView',
+        component: () => lazyLoad(import('@/views/NavigateView.vue')),
+      },
+    ],
+  },
 ]
 
 const router = new VueRouter({

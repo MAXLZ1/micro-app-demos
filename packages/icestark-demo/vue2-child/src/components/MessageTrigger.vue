@@ -24,8 +24,14 @@
 
 <script lang="ts">
 import { Input, Col, Row, Button, Select, Form } from 'ant-design-vue'
-import { dispatchReceiveMessageEvent } from '@/utils/dispatchReceiveMessageEvent'
-import { Types } from '@/utils/dispatchReceiveMessageEvent'
+import { event } from '@ice/stark-data'
+
+enum Types {
+  success = 'success',
+  warn = 'warn',
+  error = 'error',
+  info = 'info',
+}
 
 export default {
   name: 'MessageTrigger',
@@ -68,7 +74,10 @@ export default {
     sendMessage() {
       this.form.validateFields((err, values) => {
         if (!err) {
-          dispatchReceiveMessageEvent(values)
+          event.emit('message', {
+            ...values,
+            from: 'Vue2子应用',
+          })
         }
       })
     },

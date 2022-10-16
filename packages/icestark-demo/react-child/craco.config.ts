@@ -24,11 +24,12 @@ const config = {
       paths.appBuild = 'dist'
       webpackConfig.output = {
         ...webpackConfig.output,
-        library: `${name}-[name]`,
+        library: name,
         libraryTarget: 'umd',
-        chunkLoadingGlobal: `webpackJsonp_${name}`,
-        globalObject: 'window',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist')
+      }
+      if (process.env.NODE_ENV === 'development') {
+        webpackConfig.output.publicPath = 'http://localhost:8092/'
       }
       return webpackConfig
     },

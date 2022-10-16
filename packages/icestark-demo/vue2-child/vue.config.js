@@ -1,10 +1,11 @@
 const { defineConfig } = require('@vue/cli-service')
-const { name } = require('./package')
+const { name } = require('./package.json')
 
 module.exports = defineConfig({
-  publicPath: process.env.NODE_ENV === 'production' ? '/micro-app-demos/qiankun-demo/vue2-child/dist/' : '/',
+  publicPath:
+    process.env.NODE_ENV === 'production' ? '/micro-app-demos/qiankun-demo/vue2-child/dist/' : 'http://localhost:8091/',
   devServer: {
-    port: 8090,
+    port: 8091,
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
@@ -24,9 +25,8 @@ module.exports = defineConfig({
   },
   configureWebpack: {
     output: {
-      library: `${name}-[name]`,
+      library: `${name}`,
       libraryTarget: 'umd', // 把微应用打包成 umd 库格式
-      chunkLoadingGlobal: `webpackJsonp_${name}`,
     },
   },
 })

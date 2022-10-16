@@ -1,10 +1,9 @@
 import { defineStore } from 'pinia'
 import { apps as microApps } from '@/data/appData'
-import { computed, reactive } from 'vue'
-import type { MicoApp } from '@/data/appData'
+import { reactive } from 'vue'
+import type { AppConfig } from '@ice/stark/lib/apps'
 
 export const useAppStore = defineStore('appStore', () => {
-  const apps = reactive<MicoApp[]>(microApps)
-  const paths = computed(() => apps.map(item => item.activeRule))
-  return { apps, paths }
+  const apps = reactive<AppConfig[]>(microApps)
+  return { apps }
 })

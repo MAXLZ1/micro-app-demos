@@ -1,10 +1,11 @@
 import React, { lazy } from 'react'
 import { createHashRouter, Outlet, RouteObject } from 'react-router-dom'
+import { getBasename } from '@ice/stark-app'
 
 const CommunicationTest = lazy(() => import('@/views/CommunicationTest'))
 const NavigateView = lazy(() => import('@/views/NavigateView'))
 
-const basename = '/'
+const basename = getBasename()
 
 const routes: RouteObject[] = [
   {
