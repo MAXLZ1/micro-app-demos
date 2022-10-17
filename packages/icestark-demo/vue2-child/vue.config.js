@@ -32,6 +32,15 @@ module.exports = defineConfig({
   chainWebpack: (config) => {
     config.optimization.delete('splitChunks')
     // 添加多入口，导出微模块js
-    config.entry('communicationTest').add('./src/modules/communicationTest.ts')
+    ;[
+      {
+        name: 'communicationTest',
+        entry: './src/modules/communicationTest.ts',
+      },
+      {
+        name: 'cssIsolation',
+        entry: './src/modules/cssIsolation.ts',
+      },
+    ].forEach((item) => config.entry(item.name).add(item.entry))
   },
 })

@@ -63,3 +63,31 @@ pnpm run micro-app-demo:start
 - [x] 子应用保活
 
 ## icestark demo
+
+线上地址：[https://maxlz1.github.io/micro-app-demos/icestark-demo/vue3-main/dist/](https://maxlz1.github.io/micro-app-demos/icestark-demo/vue3-main/dist/)
+
+本地启动命令
+```bash
+pnpm i
+pnpm run icestark-demo:start
+```
+
+### 文件目录
+
+```bash
+└── icestark-demo
+    ├── react-child # react18子应用(作为嵌套应用的主应用)
+    ├── vite-child # react18-vite子应用
+    ├── vue2-child # vue2子应用
+    └── vue3-main # vue3主应用
+```
+
+### 功能列表
+
+- [x] 应用间通信
+- [x] 多个子应用共存
+- [x] CSS隔离
+- [ ] 主子应用间跳转
+- [ ] 嵌套子应用
+- [ ] 资源预加载
+- [ ] 子应用保活

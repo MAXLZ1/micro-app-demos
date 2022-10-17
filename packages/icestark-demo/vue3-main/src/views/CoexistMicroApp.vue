@@ -45,7 +45,7 @@ export default {
 
 <script lang="ts" setup>
 import { mountModule, unmoutModule } from '@ice/stark-module'
-import { ref, watchPostEffect } from 'vue'
+import { onBeforeUnmount, ref, watchPostEffect } from 'vue'
 
 const one = ref<HTMLElement | null>(null)
 const two = ref<HTMLElement | null>(null)
@@ -80,6 +80,15 @@ watchPostEffect(() => {
   if (showReactApp.value) {
     mountModule(moduleInfos[1], two.value!)
   } else {
+    unmoutModule(moduleInfos[1], two.value!)
+  }
+})
+
+onBeforeUnmount(() => {
+  if (showVueApp.value) {
+    unmoutModule(moduleInfos[0], one.value!)
+  }
+  if (showReactApp.value) {
     unmoutModule(moduleInfos[1], two.value!)
   }
 })

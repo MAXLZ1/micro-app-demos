@@ -22,6 +22,11 @@ const config = {
       "@": path.resolve("src")
     },
     configure: (webpackConfig: any, { paths }: any) => {
+      const entries = {
+        app: [webpackConfig.entry],
+        communicationTest: [path.join(__dirname, './src/modules/communicationTest.tsx')],
+        cssIsolation: [path.join(__dirname, './src/modules/cssIsolation.tsx')]
+      }
       paths.appBuild = 'dist'
       webpackConfig.output = {
         ...webpackConfig.output,
@@ -33,10 +38,7 @@ const config = {
       if (process.env.NODE_ENV === 'development') {
         webpackConfig.output.publicPath = 'http://localhost:8092/'
       }
-      webpackConfig.entry = {
-        app: [webpackConfig.entry],
-        communicationTest: [path.join(__dirname, './src/modules/communicationTest.tsx')]
-      }
+      webpackConfig.entry = entries
       // const htmlWebpackPlugin = webpackConfig.plugins[0]
       // htmlWebpackPlugin.userOptions.chunks = ['app']
       // webpackConfig.plugins.unshift(new htmlWebpackPlugin.constructor(

@@ -8,6 +8,8 @@
     <a-col :span="12" class="first-col">class="first-col"<br />background-color: red;<br />font-size: 50px;</a-col>
     <a-col :span="12" class="second-col">class="second-col"<br />background-color: green;<br />font-size: 50px;</a-col>
   </a-row>
+  <div ref="one"></div>
+  <div ref="two"></div>
 </template>
 
 <script lang="ts">
@@ -17,6 +19,54 @@ export default {
 </script>
 
 <script lang="ts" setup>
+import { mountModule, unmoutModule } from '@ice/stark-module'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+
+interface ModuleInfo {
+  name: string,
+  url: string
+  container?: HTMLElement
+}
+
+const one = ref<HTMLElement | null>(null)
+const two = ref<HTMLElement | null>(null)
+
+const moduleInfos: ModuleInfo[] = [
+  {
+    name: 'vueCssIsolation',
+    url: 'http://localhost:8091/js/cssIsolation.js',
+  },
+  {
+    name: 'reactCssIsolation',
+    url: 'http://localhost:8092/static/js/cssIsolation.bundle.js',
+  }
+]
+
+onMounted(() => {
+  moduleInfos[0].container = one.value!
+  moduleInfos[1].container = two.value!
+  moduleInfos.forEach((item) =>
+    mountModule(
+      {
+        name: item.name,
+        url: item.url
+      },
+      item.container!
+    )
+  )
+})
+
+onBeforeUnmount(() => {
+  moduleInfos.forEach((item) =>
+    unmoutModule(
+      {
+        name: item.name,
+        url: item.url
+      },
+      item.container!
+    )
+  )
+})
 </script>
 
 <style lang="less" scoped>
