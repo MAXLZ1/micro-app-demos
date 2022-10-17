@@ -97,7 +97,6 @@ import start from '@ice/stark/lib/start'
 import { useAppStore } from '@/stores/app'
 import type { Menu } from '@/data/menuData'
 import { storeToRefs } from 'pinia'
-import { useUserStore } from '@/stores/user'
 
 const collapsed = ref(false)
 const selectedKeys = ref<number[]>([])
@@ -109,7 +108,6 @@ const { menuList, flattenMenuList } = useMenuStore()
 const router = useRouter()
 const route = useRoute()
 const { apps } = storeToRefs(useAppStore())
-const { user } = storeToRefs(useUserStore())
 
 function getParentKeys(menus: Menu[], key: number, parents: number[]) {
   for (const item of menus) {

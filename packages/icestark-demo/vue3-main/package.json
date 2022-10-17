@@ -13,6 +13,7 @@
     "@ant-design/icons-vue": "^6.1.0",
     "@ice/stark": "^2.7.3",
     "@ice/stark-data": "^0.1.3",
+    "@ice/stark-module": "^1.5.0",
     "ant-design-vue": "^3.2.12",
     "pinia": "^2.0.21",
     "vue": "^3.2.38",

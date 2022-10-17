@@ -1,6 +1,7 @@
+// @ts-nocheck
 const { name } = require('./package')
-const path = require("path")
-const CracoLessPlugin = require("craco-less")
+const path = require('path')
+const CracoLessPlugin = require('craco-less')
 
 const config = {
   devServer: {
@@ -26,11 +27,47 @@ const config = {
         ...webpackConfig.output,
         library: name,
         libraryTarget: 'umd',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'static/js/[name].bundle.js',
       }
       if (process.env.NODE_ENV === 'development') {
         webpackConfig.output.publicPath = 'http://localhost:8092/'
       }
+      webpackConfig.entry = {
+        app: [webpackConfig.entry],
+        communicationTest: [path.join(__dirname, './src/modules/communicationTest.tsx')]
+      }
+      // const htmlWebpackPlugin = webpackConfig.plugins[0]
+      // htmlWebpackPlugin.userOptions.chunks = ['app']
+      // webpackConfig.plugins.unshift(new htmlWebpackPlugin.constructor(
+      //   Object.assign({}, htmlWebpackPlugin.userOptions, {
+      //     template: path.join(__dirname, './public/index.html'),
+      //     inject: true,
+      //     chunks: ['communicationTest'],
+      //     filename: 'communicationText.html'
+      //   })
+      // ))
+      const manidestPlugin = webpackConfig.plugins.find(item => item.constructor.name === 'WebpackManifestPlugin')
+      // webpackConfig.optimization.runtimeChunk = 'multiple'
+
+      manidestPlugin.options.generate = (seed, files, entrypoints) => {
+        const manifestFiles = files.reduce((manifest, file) => {
+          manifest[file.name] = file.path
+          return manifest
+        }, seed)
+
+        const entrypointFiles = {}
+        // 修改多入口后，entrypointFiles也要对应修改
+        Object.keys(entrypoints).forEach(entrypoint => {
+          entrypointFiles[entrypoint] = entrypoints[entrypoint].filter(fileName => !fileName.endsWith('.map'))
+        })
+
+        return {
+          files: manifestFiles,
+          entrypoints: entrypointFiles,
+        }
+      }
+
       return webpackConfig
     },
   },

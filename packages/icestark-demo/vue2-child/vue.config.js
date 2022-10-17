@@ -29,4 +29,9 @@ module.exports = defineConfig({
       libraryTarget: 'umd', // 把微应用打包成 umd 库格式
     },
   },
+  chainWebpack: (config) => {
+    config.optimization.delete('splitChunks')
+    // 添加多入口，导出微模块js
+    config.entry('communicationTest').add('./src/modules/communicationTest.ts')
+  },
 })

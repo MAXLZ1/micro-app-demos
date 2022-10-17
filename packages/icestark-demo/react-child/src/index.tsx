@@ -1,5 +1,5 @@
 import '@/reset.css'
-import React, {  Suspense} from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import router from '@/router'
 import { RouterProvider } from 'react-router-dom'
@@ -17,7 +17,6 @@ interface Props {
 setLibraryName('@icestark-demo/react-child')
 
 function setup(container: HTMLElement): ReactDOM.Root {
-
   const root = ReactDOM.createRoot(container)
   
   root.render(
