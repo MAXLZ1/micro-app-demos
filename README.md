@@ -89,5 +89,5 @@ pnpm run icestark-demo:start
 - [x] CSS隔离
 - [x] 主子应用间跳转
 - [x] 嵌套子应用
-- [ ] 资源预加载
+- [x] 资源预加载
 - [ ] 子应用保活

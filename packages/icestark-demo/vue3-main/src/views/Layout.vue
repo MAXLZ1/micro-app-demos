@@ -170,6 +170,7 @@ onMounted(() => {
   )
 
   start({
+    prefetch: true,
     shouldAssetsRemove() {
       return false
     },
