@@ -1,5 +1,7 @@
 const { defineConfig } = require('@vue/cli-service')
 const { name } = require('./package.json')
+const path = require('path')
+const fs = require('fs')
 
 module.exports = defineConfig({
   publicPath:
@@ -31,20 +33,15 @@ module.exports = defineConfig({
   },
   chainWebpack: (config) => {
     config.optimization.delete('splitChunks')
-    // 添加多入口，导出微模块js
-    ;[
-      {
-        name: 'communicationTest',
-        entry: './src/modules/communicationTest.ts',
-      },
-      {
-        name: 'cssIsolation',
-        entry: './src/modules/cssIsolation.ts',
-      },
-      {
-        name: 'navigateView',
-        entry: './src/modules/navigateView.ts',
-      },
-    ].forEach((item) => config.entry(item.name).add(item.entry))
+    // 导出微模块
+    const modulePath = path.join(__dirname, './src/modules')
+    const modules = fs.readdirSync(modulePath)
+    modules.forEach((item) => {
+      const name = item.match(/^(.*)\.ts$/)[1]
+      // 忽略模块生命周期文件
+      if (name !== 'moduleLifeCycle') {
+        config.entry(name).add(path.join(modulePath, item))
+      }
+    })
   },
 })

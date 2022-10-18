@@ -1,3 +1,3 @@
-export { default } from '@/views/CommunicationTest.vue'
+export { default } from '@/views/TabView.vue'
 
 export { mount, unmount } from '@/modules/moduleLifeCycle'

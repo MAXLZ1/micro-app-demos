@@ -46,6 +46,7 @@ export default {
 <script lang="ts" setup>
 import { mountModule, unmoutModule } from '@ice/stark-module'
 import { onBeforeUnmount, ref, watchPostEffect } from 'vue'
+import { vue2PublicPath, reactPublicPath } from '@/data/appData'
 
 const one = ref<HTMLElement | null>(null)
 const two = ref<HTMLElement | null>(null)
@@ -63,11 +64,11 @@ function toggleReactShow() {
 const moduleInfos = [
   {
     name: 'vueModule',
-    url: 'http://localhost:8091/js/communicationTest.js'
+    url: `${vue2PublicPath}/js/communicationTest.js`
   },
   {
     name: 'reactModule',
-    url: 'http://localhost:8092/static/js/communicationTest.bundle.js'
+    url: `${reactPublicPath}/static/js/communicationTest.bundle.js`
   }
 ]
 

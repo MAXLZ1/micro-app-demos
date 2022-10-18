@@ -1,6 +1,7 @@
 // @ts-nocheck
 const { name } = require('./package')
 const path = require('path')
+const fs = require('fs')
 const CracoLessPlugin = require('craco-less')
 
 const config = {
@@ -23,10 +24,19 @@ const config = {
     },
     configure: (webpackConfig: any, { paths }: any) => {
       const entries = {
-        app: [webpackConfig.entry],
-        communicationTest: [path.join(__dirname, './src/modules/communicationTest.tsx')],
-        cssIsolation: [path.join(__dirname, './src/modules/cssIsolation.tsx')]
+        app: [webpackConfig.entry]
       }
+
+      const modulePath = path.join(__dirname, './src/modules')
+      const modules = fs.readdirSync(modulePath)
+      modules.forEach((item) => {
+        const name = item.match(/^(.*)\.tsx$/)[1]
+        // 忽略模块生命周期文件
+        if (name !== 'moduleLifeCycle') {
+          entries[name] = [path.join(modulePath, item)]
+        }
+      })
+      
       paths.appBuild = 'dist'
       webpackConfig.output = {
         ...webpackConfig.output,

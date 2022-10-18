@@ -63,7 +63,7 @@
           <div>
             <div ref="microAppDom" id="child-app"></div>
             <router-view v-show="!activeMicroApp" v-slot="{ Component }">
-              <keep-alive>
+              <keep-alive :include="keepAliveViews">
                 <component :is="Component" />
               </keep-alive>
             </router-view>
@@ -103,6 +103,11 @@ const selectedKeys = ref<number[]>([])
 const openKeys = reactive<number[]>([])
 const microAppDom = ref<HTMLDivElement | null>(null)
 const activeMicroApp = ref(false)
+const keepAliveViews = reactive([
+  'Vue2KeepAliveView',
+  'React18KeepAliveView',
+  ''
+])
 
 const { menuList, flattenMenuList } = useMenuStore()
 const router = useRouter()
