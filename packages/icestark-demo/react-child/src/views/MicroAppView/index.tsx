@@ -2,10 +2,7 @@ import { Alert, Form, Select, Space } from 'antd'
 import { useEffect, useRef, useState } from 'react'
 import { mountModule, unmoutModule, type StarkModule } from '@ice/stark-module'
 
-const vue2AppEntry =
-  process.env.NODE_ENV === 'production'
-    ? 'https://maxlz1.github.io/micro-app-demos/icestark-demo/vue2-child/dist'
-    : 'http://localhost:8091'
+const vue2AppEntry = process.env.REACT_APP_VUE2_CHILD_PUBLIC_PATH
 
 const options = [
   { name: 'vue2App-通信测试页面', url: `${vue2AppEntry}/js/communicationTest.js` },

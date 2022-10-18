@@ -21,6 +21,7 @@ export default {
 <script lang="ts" setup>
 import { mountModule, unmoutModule } from '@ice/stark-module'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { vue2PublicPath, reactPublicPath } from '@/data/appData'
 
 interface ModuleInfo {
   name: string,
@@ -34,11 +35,11 @@ const two = ref<HTMLElement | null>(null)
 const moduleInfos: ModuleInfo[] = [
   {
     name: 'vueCssIsolation',
-    url: 'http://localhost:8091/js/cssIsolation.js',
+    url: `${vue2PublicPath}/js/cssIsolation.js`
   },
   {
     name: 'reactCssIsolation',
-    url: 'http://localhost:8092/static/js/cssIsolation.bundle.js',
+    url: `${reactPublicPath}/static/js/cssIsolation.bundle.js`
   }
 ]
 

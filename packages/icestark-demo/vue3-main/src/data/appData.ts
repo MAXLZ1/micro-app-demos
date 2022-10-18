@@ -1,17 +1,8 @@
 import type { AppConfig } from '@ice/stark/lib/apps'
 
-export const vue2PublicPath =
-  import.meta.env.MODE === 'production'
-    ? 'https://maxlz1.github.io/micro-app-demos/icestark-demo/vue2-child/dist'
-    : 'http://localhost:8091'
-export const reactPublicPath =
-  import.meta.env.MODE === 'production'
-    ? 'https://maxlz1.github.io/micro-app-demos/icestark-demo/react-child/dist'
-    : 'http://localhost:8092'
-export const vitePublicPath =
-  import.meta.env.MODE === 'production'
-    ? 'https://maxlz1.github.io/micro-app-demos/icestark-demo/vite-child/dist'
-    : 'http://localhost:8093'
+export const vue2PublicPath = import.meta.env.VITE_VUE2_CHILD_PUBLIC_PATH
+export const reactPublicPath = import.meta.env.VITE_REACT18_CHILD_PUBLIC_PATH
+export const vitePublicPath = import.meta.env.VITE_VITE_CHILD_PUBLIC_PATH
 
 export const apps: AppConfig[] = [
   {

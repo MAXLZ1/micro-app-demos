@@ -46,7 +46,7 @@ const config = {
         filename: 'static/js/[name].bundle.js',
       }
       if (process.env.NODE_ENV === 'development') {
-        webpackConfig.output.publicPath = 'http://localhost:8092/'
+        webpackConfig.output.publicPath = process.env.PUBLIC_URL
       }
       webpackConfig.entry = entries
       // const htmlWebpackPlugin = webpackConfig.plugins[0]

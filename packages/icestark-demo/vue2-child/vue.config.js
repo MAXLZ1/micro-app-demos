@@ -4,8 +4,7 @@ const path = require('path')
 const fs = require('fs')
 
 module.exports = defineConfig({
-  publicPath:
-    process.env.NODE_ENV === 'production' ? '/micro-app-demos/qiankun-demo/vue2-child/dist/' : 'http://localhost:8091/',
+  publicPath: process.env.VUE_APP_PUBLIC_PATH,
   devServer: {
     port: 8091,
     headers: {
