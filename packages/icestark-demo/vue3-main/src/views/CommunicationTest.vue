@@ -17,15 +17,11 @@
 
 <script lang="ts">
 export default {
-  name: 'CommunicationTest',
+  name: 'CommunicationTest'
 }
 </script>
 
-<script lang="ts" setup>
-import { useUserStore } from '@/stores/user'
-
-const user = useUserStore()
-</script>
+<script lang="ts" setup></script>
 
 <style lang="less" scoped>
 .box {

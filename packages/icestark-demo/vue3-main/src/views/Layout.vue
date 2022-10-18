@@ -62,7 +62,7 @@
         >
           <div>
             <div ref="microAppDom" id="child-app"></div>
-            <router-view v-if="!activeMicroApp" v-slot="{ Component }">
+            <router-view v-show="!activeMicroApp" v-slot="{ Component }">
               <keep-alive>
                 <component :is="Component" />
               </keep-alive>
@@ -92,7 +92,7 @@ import { ref, reactive, watchEffect, onMounted, toRaw, onUnmounted, computed } f
 import { useMenuStore } from '@/stores/menu'
 import { useRoute, useRouter } from 'vue-router'
 import { microAppLoading } from '@/utils/microAppLoading'
-import { registerMicroApps, removeMicroApps, type AppConfig } from '@ice/stark/lib/apps'
+import { registerMicroApps, removeMicroApps } from '@ice/stark/lib/apps'
 import start from '@ice/stark/lib/start'
 import { useAppStore } from '@/stores/app'
 import type { Menu } from '@/data/menuData'
@@ -170,7 +170,7 @@ onMounted(() => {
   )
 
   start({
-    shouldAssetsRemove(assetUrl, element) {
+    shouldAssetsRemove() {
       return false
     },
     onActiveApps(activeApps) {

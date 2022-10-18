@@ -31,7 +31,7 @@ router.beforeEach(async (to, from, next) => {
   }
 })
 
-router.afterEach(async (to) => {
+router.afterEach(() => {
   setMicroAppLoading(false)
 })
 
