@@ -41,6 +41,10 @@ module.exports = defineConfig({
         name: 'cssIsolation',
         entry: './src/modules/cssIsolation.ts',
       },
+      {
+        name: 'navigateView',
+        entry: './src/modules/navigateView.ts',
+      },
     ].forEach((item) => config.entry(item.name).add(item.entry))
   },
 })

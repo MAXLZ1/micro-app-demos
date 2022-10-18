@@ -10,6 +10,7 @@ importers:
       '@craco/craco': ^6.4.5
       '@ice/stark-app': ^1.5.0
       '@ice/stark-data': ^0.1.3
+      '@ice/stark-module': ^1.5.0
       '@reduxjs/toolkit': ^1.8.5
       '@testing-library/jest-dom': ^5.14.1
       '@testing-library/react': ^13.0.0
@@ -33,6 +34,7 @@ importers:
     dependencies:
       '@ice/stark-app': registry.npmmirror.com/@ice/stark-app/1.5.0
       '@ice/stark-data': registry.npmmirror.com/@ice/stark-data/0.1.3
+      '@ice/stark-module': registry.npmmirror.com/@ice/stark-module/1.5.0_react-dom@18.2.0+react@18.2.0
       '@reduxjs/toolkit': registry.npmmirror.com/@reduxjs/toolkit/1.8.5_react-redux@8.0.4+react@18.2.0
       '@testing-library/jest-dom': registry.npmmirror.com/@testing-library/jest-dom/5.16.5
       '@testing-library/react': registry.npmmirror.com/@testing-library/react/13.4.0_react-dom@18.2.0+react@18.2.0
@@ -769,11 +771,6 @@ packages:
     resolution: {integrity: sha1-sAqqVW3YtEVoFQ7J0blT8/kMu2E=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/merge-descriptors/download/merge-descriptors-1.0.1.tgz}
     name: merge-descriptors
     version: 1.0.1
-
-  registry.nlark.com/path-to-regexp/0.1.7:
-    resolution: {integrity: sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/path-to-regexp/download/path-to-regexp-0.1.7.tgz}
-    name: path-to-regexp
-    version: 0.1.7
 
   registry.nlark.com/setprototypeof/1.1.0:
     resolution: {integrity: sha1-0L2FU2iHtv58DYGMuWLZ2RxU5lY=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/setprototypeof/download/setprototypeof-1.1.0.tgz}
@@ -2964,6 +2961,20 @@ packages:
       react-dom: '>=15.0.0'
     dependencies:
       '@ice/sandbox': registry.npmmirror.com/@ice/sandbox/1.1.4
+    dev: false
+
+  registry.npmmirror.com/@ice/stark-module/1.5.0_react-dom@18.2.0+react@18.2.0:
+    resolution: {integrity: sha512-vUingWAb9lElOxuZ2yg+L0TI4/RDd7iTPkcAeCLhfe/gqSm87utpxb24nqAzjLOFrbwuYXyd8ZMisQFN6e6LiA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@ice/stark-module/-/stark-module-1.5.0.tgz}
+    id: registry.npmmirror.com/@ice/stark-module/1.5.0
+    name: '@ice/stark-module'
+    version: 1.5.0
+    peerDependencies:
+      react: '>=15.0.0'
+      react-dom: '>=15.0.0'
+    dependencies:
+      '@ice/sandbox': registry.npmmirror.com/@ice/sandbox/1.1.4
+      react: registry.npmmirror.com/react/18.2.0
+      react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
     dev: false
 
   registry.npmmirror.com/@ice/stark/2.7.3:
@@ -8796,7 +8807,7 @@ packages:
       methods: registry.npmmirror.com/methods/1.1.2
       on-finished: registry.npmmirror.com/on-finished/2.4.1
       parseurl: registry.npmmirror.com/parseurl/1.3.3
-      path-to-regexp: registry.nlark.com/path-to-regexp/0.1.7
+      path-to-regexp: registry.npmmirror.com/path-to-regexp/0.1.7
       proxy-addr: registry.npmmirror.com/proxy-addr/2.0.7
       qs: registry.npmmirror.com/qs/6.10.3
       range-parser: registry.npmmirror.com/range-parser/1.2.1
@@ -12245,6 +12256,11 @@ packages:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/path-parse/-/path-parse-1.0.7.tgz}
     name: path-parse
     version: 1.0.7
+
+  registry.npmmirror.com/path-to-regexp/0.1.7:
+    resolution: {integrity: sha512-5DFkuoqlv1uYQKxy8omFBeJPQcdoE07Kv2sferDCrAq1ohOU+MSDswDIbnx3YAM60qIOnYa53wBhXW0EbMonrQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz}
+    name: path-to-regexp
+    version: 0.1.7
 
   registry.npmmirror.com/path-to-regexp/1.8.0:
     resolution: {integrity: sha512-n43JRhlUKUAlibEJhPeir1ncUID16QnEjNpwzNdO3Lm4ywrBpBZ5oLD0I6br9evr1Y9JTqwRtAh7JLoOzAQdVA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/path-to-regexp/-/path-to-regexp-1.8.0.tgz}

@@ -4,8 +4,6 @@ import { fileURLToPath, URL } from 'node:url'
 import vitePluginImp from 'vite-plugin-imp'
 import htmlPlugin from 'vite-plugin-index-html'
 
-const useDevMode = true
-
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   base: mode === 'production' ? loadEnv('production', process.cwd()).VITE_BASE_URL : '',
@@ -42,5 +40,5 @@ export default defineConfig(({ mode }) => ({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
 }))
