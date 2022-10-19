@@ -39,5 +39,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./packages
-        exclude_assets: '/**/[^dist]'
+        exclude_assets: '/**/node_modules'
         full_commit_message: ${{ github.event.head_commit.message }}
