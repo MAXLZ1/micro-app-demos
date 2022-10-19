@@ -2,7 +2,7 @@ const { defineConfig } = require('@vue/cli-service')
 const { name } = require('./package')
 
 module.exports = defineConfig({
-  publicPath: process.env.NODE_ENV === 'production' ? '/micro-app-demos/qiankun-demo/vue2-child/dist/' : '/',
+  publicPath: process.env.VUE_APP_PUBLIC_PATH,
   devServer: {
     port: 8091,
     headers: {

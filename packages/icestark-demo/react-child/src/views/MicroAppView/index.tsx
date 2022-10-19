@@ -21,7 +21,6 @@ export default function MicroAppView() {
 
   const handleChange = (value: any, options: any) => {
     const {name, url} = options
-    console.log(options)
     setModuleInfo(() => ({
       name,
       url

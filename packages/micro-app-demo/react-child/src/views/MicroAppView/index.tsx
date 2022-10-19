@@ -6,8 +6,8 @@ import { useState } from 'react'
 import { useAppSelector } from '@/stores/storeHooks'
 import microApp from '@micro-zoe/micro-app'
 
-export const vue2AppEntry = process.env.NODE_ENV === 'production' ? 'https://maxlz1.github.io/micro-app-demos/micro-app-demo/vue2-child/dist/' : 'http://localhost:8091'
-export const viteAppEntry = process.env.MODE === 'production' ? 'https://maxlz1.github.io/micro-app-demos/micro-app-demo/vite-child/dist/' : 'http://localhost:8093/vite/'
+export const vue2AppEntry = process.env.REACT_APP_VUE2_CHILD_PUBLIC_PATH as string
+export const viteAppEntry = process.env.REACT_APP_VITE_CHILD_PUBLIC_PATH as string
 
 interface MicroApp {
   name: string

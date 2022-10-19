@@ -3,8 +3,8 @@ import type { MicroApp } from 'qiankun'
 import { loadMicroApp } from 'qiankun'
 import { store } from '@/stores/store'
 
-export const vue2AppEntry = process.env.NODE_ENV === 'production' ? 'https://maxlz1.github.io/micro-app-demos/qiankun-demo/vue2-child/dist/' : 'http://localhost:8091'
-export const viteAppEntry = process.env.MODE === 'production' ? 'https://maxlz1.github.io/micro-app-demos/qiankun-demo/vite-child/dist/' : 'http://localhost:8093'
+export const vue2AppEntry = process.env.REACT_APP_VUE2_CHILD_PUBLIC_PATH
+export const viteAppEntry = process.env.REACT_APP_VITE_CHILD_PUBLIC_PATH
 
 const apps: Record<string, any> = {
   vue2App: {

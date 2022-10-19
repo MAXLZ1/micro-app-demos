@@ -3,10 +3,10 @@ import type { RouteObject } from 'react-router-dom'
 import React, { lazy } from 'react'
 
 const CommunicationTest = lazy(() => import('@/views/CommunicationTest'))
-const CoexistView = lazy(() => import('@/views/CoexistView'))
 const CssIsolation = lazy(() => import('@/views/CssIsolation'))
 const NavigateView = lazy(() => import('@/views/NavigateView'))
 const MicroAppView = lazy(() => import('@/views/MicroAppView'))
+const TabView = lazy(() => import('@/views/TabView'))
 
 const basename = window.__POWERED_BY_QIANKUN__ ? '/reactApp' : '/'
 
@@ -21,10 +21,6 @@ const routes: RouteObject[] = [
         element: <CommunicationTest />,
       },
       {
-        path: 'coexist-view',
-        element: <CoexistView />,
-      },
-      {
         path: 'css-isolation',
         element: <CssIsolation />,
       },
@@ -35,6 +31,10 @@ const routes: RouteObject[] = [
       {
         path: 'microapp-view',
         element: <MicroAppView />,
+      },
+      {
+        path: 'tab-view',
+        element: <TabView />,
       },
     ]
   },
