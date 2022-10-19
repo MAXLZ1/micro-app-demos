@@ -4,7 +4,6 @@ import React, { lazy } from 'react'
 import { getBasename } from '@ice/stark-app'
 
 const CommunicationTest = lazy(() => import('@/views/CommunicationTest'))
-const CoexistView = lazy(() => import('@/views/CoexistView'))
 const CssIsolation = lazy(() => import('@/views/CssIsolation'))
 const NavigateView = lazy(() => import('@/views/NavigateView'))
 const MicroAppView = lazy(() => import('@/views/MicroAppView'))
@@ -21,10 +20,6 @@ const routes: RouteObject[] = [
       {
         path: 'communication-test',
         element: <CommunicationTest />,
-      },
-      {
-        path: 'coexist-view',
-        element: <CoexistView />,
       },
       {
         path: 'css-isolation',
