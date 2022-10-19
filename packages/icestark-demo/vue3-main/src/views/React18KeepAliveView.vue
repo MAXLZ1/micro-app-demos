@@ -17,10 +17,11 @@ const container = ref<HTMLElement | null>(null)
 
 const moduleInfo = {
   name: 'react18AppKeepAlive',
-  url: [
-    `${reactPublicPath}/static/js/tabView.bundle.js`,
-    `${reactPublicPath}/static/css/tabView.css`
-  ]
+  url: [`${reactPublicPath}/static/js/tabView.bundle.js`]
+}
+
+if (import.meta.env.MODE === 'production') {
+  moduleInfo.url.push(`${reactPublicPath}/static/css/tabView.css`)
 }
 
 onMounted(() => {

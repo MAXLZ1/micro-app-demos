@@ -64,19 +64,18 @@ function toggleReactShow() {
 const moduleInfos = [
   {
     name: 'vueModule',
-    url: [
-      `${vue2PublicPath}/js/communicationTest.js`,
-      `${vue2PublicPath}/css/communicationTest.css`
-    ]
+    url: [`${vue2PublicPath}/js/communicationTest.js`]
   },
   {
     name: 'reactModule',
-    url: [
-      `${reactPublicPath}/static/js/communicationTest.bundle.js`,
-      `${reactPublicPath}/static/css/communicationTest.css`
-    ]
+    url: [`${reactPublicPath}/static/js/communicationTest.bundle.js`]
   }
 ]
+
+if (import.meta.env.MODE === 'production') {
+  moduleInfos[0].url.push(`${vue2PublicPath}/css/communicationTest.css`)
+  moduleInfos[1].url.push(`${reactPublicPath}/static/css/communicationTest.css`)
+}
 
 watchPostEffect(() => {
   if (showVueApp.value) {

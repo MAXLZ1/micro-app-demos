@@ -35,19 +35,18 @@ const two = ref<HTMLElement | null>(null)
 const moduleInfos: ModuleInfo[] = [
   {
     name: 'vueCssIsolation',
-    url: [
-      `${vue2PublicPath}/js/cssIsolation.js`,
-      `${vue2PublicPath}/css/cssIsolation.css`
-    ]
+    url: [`${vue2PublicPath}/js/cssIsolation.js`]
   },
   {
     name: 'reactCssIsolation',
-    url: [
-      `${reactPublicPath}/static/js/cssIsolation.bundle.js`,
-      `${reactPublicPath}/static/css/cssIsolation.css`
-    ]
+    url: [`${reactPublicPath}/static/js/cssIsolation.bundle.js`]
   }
 ]
+
+if (import.meta.env.MODE === 'production') {
+  moduleInfos[0].url.push(`${vue2PublicPath}/css/cssIsolation.css`)
+  moduleInfos[1].url.push(`${reactPublicPath}/static/css/cssIsolation.css`)
+}
 
 onMounted(() => {
   moduleInfos[0].container = one.value!

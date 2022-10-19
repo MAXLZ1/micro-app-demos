@@ -17,10 +17,11 @@ const container = ref<HTMLElement | null>(null)
 
 const moduleInfo = {
   name: 'vue2AppKeepAlive',
-  url: [
-    `${vue2PublicPath}/js/tabView.js`,
-    `${vue2PublicPath}/css/tabView.css`
-  ]
+  url: [`${vue2PublicPath}/js/tabView.js`]
+}
+
+if (import.meta.env.MODE === 'production') {
+  moduleInfo.url.push(`${vue2PublicPath}/css/tabView.css`)
 }
 
 onMounted(() => {

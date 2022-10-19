@@ -26,7 +26,7 @@ export default function lazyLoad(AsyncView: Promise<any>) {
       }
     },
     delay: 1,
-    timeout: 8000
+    timeout: 10000
   })
 
   return Promise.resolve({

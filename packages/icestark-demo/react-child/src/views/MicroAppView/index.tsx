@@ -5,9 +5,15 @@ import { mountModule, unmoutModule, type StarkModule } from '@ice/stark-module'
 const vue2AppEntry = process.env.REACT_APP_VUE2_CHILD_PUBLIC_PATH
 
 const options = [
-  { name: 'vue2App-通信测试页面', url: [`${vue2AppEntry}/js/communicationTest.css`, `${vue2AppEntry}/js/communicationTest.css`] },
-  { name: 'vue2App-子应用跳转测试页面', url: [`${vue2AppEntry}/js/navigateView.js`, `${vue2AppEntry}/css/navigateView.css`] }
+  { name: 'vue2App-通信测试页面', url: [`${vue2AppEntry}/js/communicationTest.js`] },
+  { name: 'vue2App-子应用跳转测试页面', url: [`${vue2AppEntry}/js/navigateView.js`] }
 ]
+
+// 生产环境下需要添加css入口
+if (process.env.NODE_ENV === 'production') {
+  options[0].url.push(`${vue2AppEntry}/css/communicationTest.css`)
+  options[1].url.push(`${vue2AppEntry}/css/navigateView.css`)
+}
 
 export default function MicroAppView() {
   const container = useRef(null)
@@ -15,6 +21,7 @@ export default function MicroAppView() {
 
   const handleChange = (value: any, options: any) => {
     const {name, url} = options
+    console.log(options)
     setModuleInfo(() => ({
       name,
       url
@@ -39,7 +46,7 @@ export default function MicroAppView() {
             <Select
               style={{ width: '400px'}}
               options={options}
-              fieldNames={{label: 'name', value: 'url'}}
+              fieldNames={{label: 'name', value: 'name'}}
               onChange={handleChange}
             />
           </Form.Item>
