@@ -23,6 +23,20 @@ const config = {
       "@": path.resolve("src")
     },
     configure: (webpackConfig: any, { paths }: any) => {
+      let manidestPlugin, miniCssExtraPlugin
+      webpackConfig.plugins.forEach(item => {
+        switch (item.constructor.name) {
+          case 'WebpackManifestPlugin':
+            manidestPlugin = item
+            break
+          case 'MiniCssExtractPlugin':
+            miniCssExtraPlugin = item
+            break
+          default:
+            break
+        }
+      })
+
       const entries = {
         app: [webpackConfig.entry]
       }
@@ -59,10 +73,10 @@ const config = {
       //     filename: 'communicationText.html'
       //   })
       // ))
-      const manidestPlugin = webpackConfig.plugins.find(item => item.constructor.name === 'WebpackManifestPlugin')
-      // webpackConfig.optimization.runtimeChunk = 'multiple'
 
-      manidestPlugin.options.generate = (seed, files, entrypoints) => {
+      // webpackConfig.optimization.runtimeChunk = 'multiple'
+      miniCssExtraPlugin && (miniCssExtraPlugin.options.filename = 'static/css/[name].css')
+      manidestPlugin && (manidestPlugin.options.generate = (seed, files, entrypoints) => {
         const manifestFiles = files.reduce((manifest, file) => {
           manifest[file.name] = file.path
           return manifest
@@ -78,7 +92,7 @@ const config = {
           files: manifestFiles,
           entrypoints: entrypointFiles,
         }
-      }
+      })
 
       return webpackConfig
     },

@@ -5,8 +5,8 @@ import { mountModule, unmoutModule, type StarkModule } from '@ice/stark-module'
 const vue2AppEntry = process.env.REACT_APP_VUE2_CHILD_PUBLIC_PATH
 
 const options = [
-  { name: 'vue2App-通信测试页面', url: `${vue2AppEntry}/js/communicationTest.js` },
-  { name: 'vue2App-子应用跳转测试页面', url: `${vue2AppEntry}/js/navigateView.js` }
+  { name: 'vue2App-通信测试页面', url: [`${vue2AppEntry}/js/communicationTest.css`, `${vue2AppEntry}/js/communicationTest.css`] },
+  { name: 'vue2App-子应用跳转测试页面', url: [`${vue2AppEntry}/js/navigateView.js`, `${vue2AppEntry}/css/navigateView.css`] }
 ]
 
 export default function MicroAppView() {

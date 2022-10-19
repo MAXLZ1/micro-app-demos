@@ -24,8 +24,8 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { vue2PublicPath, reactPublicPath } from '@/data/appData'
 
 interface ModuleInfo {
-  name: string,
-  url: string
+  name: string
+  url: string[]
   container?: HTMLElement
 }
 
@@ -35,11 +35,17 @@ const two = ref<HTMLElement | null>(null)
 const moduleInfos: ModuleInfo[] = [
   {
     name: 'vueCssIsolation',
-    url: `${vue2PublicPath}/js/cssIsolation.js`
+    url: [
+      `${vue2PublicPath}/js/cssIsolation.js`,
+      `${vue2PublicPath}/css/cssIsolation.css`
+    ]
   },
   {
     name: 'reactCssIsolation',
-    url: `${reactPublicPath}/static/js/cssIsolation.bundle.js`
+    url: [
+      `${reactPublicPath}/static/js/cssIsolation.bundle.js`,
+      `${reactPublicPath}/static/css/cssIsolation.css`
+    ]
   }
 ]
 

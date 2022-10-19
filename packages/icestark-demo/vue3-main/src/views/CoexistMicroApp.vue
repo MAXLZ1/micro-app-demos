@@ -64,11 +64,17 @@ function toggleReactShow() {
 const moduleInfos = [
   {
     name: 'vueModule',
-    url: `${vue2PublicPath}/js/communicationTest.js`
+    url: [
+      `${vue2PublicPath}/js/communicationTest.js`,
+      `${vue2PublicPath}/css/communicationTest.css`
+    ]
   },
   {
     name: 'reactModule',
-    url: `${reactPublicPath}/static/js/communicationTest.bundle.js`
+    url: [
+      `${reactPublicPath}/static/js/communicationTest.bundle.js`,
+      `${reactPublicPath}/static/css/communicationTest.css`
+    ]
   }
 ]
 

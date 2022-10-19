@@ -17,7 +17,10 @@ const container = ref<HTMLElement | null>(null)
 
 const moduleInfo = {
   name: 'vue2AppKeepAlive',
-  url: `${vue2PublicPath}/js/tabView.js`
+  url: [
+    `${vue2PublicPath}/js/tabView.js`,
+    `${vue2PublicPath}/css/tabView.css`
+  ]
 }
 
 onMounted(() => {
