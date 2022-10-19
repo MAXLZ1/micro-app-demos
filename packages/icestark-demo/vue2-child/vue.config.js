@@ -42,5 +42,6 @@ module.exports = defineConfig({
         config.entry(name).add(path.join(modulePath, item))
       }
     })
+    config.output.filename('js/[name].js')
   },
 })
