@@ -6,7 +6,7 @@ import htmlPlugin from 'vite-plugin-index-html'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: loadEnv('production', process.cwd()).VITE_BASE_URL,
+  base: loadEnv(mode, process.cwd()).VITE_BASE_URL,
   server: {
     port: 8093,
     cors: true,

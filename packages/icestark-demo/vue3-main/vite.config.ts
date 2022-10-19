@@ -10,12 +10,10 @@ import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 export default defineConfig(({ mode }) => {
   return {
     server: {
-      port: 8081
+      port: 8081,
+      open: true
     },
-    base:
-      mode === 'production'
-        ? loadEnv('production', process.cwd()).VITE_BASE_URL
-        : '',
+    base: loadEnv(mode, process.cwd()).VITE_BASE_URL,
     plugins: [
       vue(),
       vueJsx(),

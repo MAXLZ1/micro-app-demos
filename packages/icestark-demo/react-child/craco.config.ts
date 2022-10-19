@@ -6,7 +6,8 @@ const CracoLessPlugin = require('craco-less')
 
 const config = {
   devServer: {
-    port: 8092
+    port: 8092,
+    open: false
   },
   style: {
     css: {
