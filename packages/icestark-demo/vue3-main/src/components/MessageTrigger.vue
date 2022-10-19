@@ -33,7 +33,7 @@ import { reactive, toRaw } from 'vue'
 import { Form } from 'ant-design-vue'
 import type { Message } from '@/utils/messageListener'
 import { Types } from '@/utils/messageListener'
-import { event } from '@ice/stark-data'
+import event from '@ice/stark-data/lib/event'
 
 const formData = reactive<Omit<Message, 'from'>>({
   type: Types.success,

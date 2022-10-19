@@ -44,7 +44,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { mountModule, unmoutModule } from '@ice/stark-module'
+import { mountModule, unmoutModule } from '@ice/stark-module/lib/modules'
 import { onBeforeUnmount, ref, watchPostEffect } from 'vue'
 import { vue2PublicPath, reactPublicPath } from '@/data/appData'
 

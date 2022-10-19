@@ -1,6 +1,6 @@
 import { notification } from 'ant-design-vue'
 import 'ant-design-vue/es/notification/style/css'
-import { event } from '@ice/stark-data'
+import event from '@ice/stark-data/lib/event'
 
 export enum Types {
   success = 'success',

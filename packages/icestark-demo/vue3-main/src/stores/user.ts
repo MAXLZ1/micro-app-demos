@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, toRaw } from 'vue'
 import type { User } from '@/data/userData'
-import { store } from '@ice/stark-data'
+import store from '@ice/stark-data/lib/store'
 
 export const useUserStore = defineStore('userStore', () => {
   const user = ref<User | null>(null)

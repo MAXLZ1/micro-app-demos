@@ -4,7 +4,7 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import { listenReceiveMessage } from '@/utils/messageListener'
-import { store } from '@ice/stark-data'
+import store from '@ice/stark-data/lib/store'
 
 const app = createApp(App)
 

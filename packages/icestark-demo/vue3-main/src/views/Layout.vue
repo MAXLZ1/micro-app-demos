@@ -103,11 +103,7 @@ const selectedKeys = ref<number[]>([])
 const openKeys = reactive<number[]>([])
 const microAppDom = ref<HTMLDivElement | null>(null)
 const activeMicroApp = ref(false)
-const keepAliveViews = reactive([
-  'Vue2KeepAliveView',
-  'React18KeepAliveView',
-  ''
-])
+const keepAliveViews = reactive(['Vue2KeepAliveView', 'React18KeepAliveView'])
 
 const { menuList, flattenMenuList } = useMenuStore()
 const router = useRouter()

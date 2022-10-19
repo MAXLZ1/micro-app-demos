@@ -10,7 +10,7 @@ export default {
 
 <script lang="ts" setup>
 import { onBeforeUnmount, onMounted, ref } from 'vue'
-import { mountModule, unmoutModule } from '@ice/stark-module'
+import { mountModule, unmoutModule } from '@ice/stark-module/lib/modules'
 import { reactPublicPath } from '@/data/appData'
 
 const container = ref<HTMLElement | null>(null)
