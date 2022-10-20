@@ -100,3 +100,36 @@ pnpm run icestark-demo:start
 - [x] 接入vite子应用
 
 具体功能实现细节参考：[功能实现说明](https://github.com/MAXLZ1/micro-app-demos/tree/main/packages/icestark-demo#功能实现说明)
+
+## wujie demo
+
+线上地址：[https://maxlz1.github.io/micro-app-demos/wujie-demo/vue3-main/dist/](https://maxlz1.github.io/micro-app-demos/wujie-demo/vue3-main/dist/)
+
+本地启动命令
+```bash
+pnpm i
+pnpm run wujie-demo:start
+```
+
+### 文件目录
+
+```bash
+└── wujie-demo
+    ├── react-child # react18子应用(作为嵌套应用的主应用)
+    ├── vite-child # react18-vite子应用
+    ├── vue2-child # vue2子应用
+    └── vue3-main # vue3主应用
+```
+
+### 功能列表
+
+- [x] 应用间通信
+- [ ] 多个子应用共存
+- [ ] CSS隔离
+- [ ] 主子应用间跳转
+- [ ] 嵌套子应用
+- [ ] 资源预加载
+- [ ] 子应用保活
+- [x] 接入vite子应用
+
+具体功能实现细节参考：[功能实现说明](https://github.com/MAXLZ1/micro-app-demos/tree/main/packages/wujie-demo#功能实现说明)
