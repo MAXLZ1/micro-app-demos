@@ -571,6 +571,184 @@ importers:
       vite: registry.npmmirror.com/vite/3.1.4_less@4.1.3
       vue-tsc: registry.npmmirror.com/vue-tsc/0.40.13_typescript@4.7.4
 
+  packages/wujie-demo/react-child:
+    specifiers:
+      '@craco/craco': ^6.4.5
+      '@reduxjs/toolkit': ^1.8.5
+      '@testing-library/jest-dom': ^5.14.1
+      '@testing-library/react': ^13.0.0
+      '@testing-library/user-event': ^13.2.1
+      '@types/jest': ^27.0.1
+      '@types/node': ^16.7.13
+      '@types/react': ^18.0.0
+      '@types/react-dom': ^18.0.0
+      antd: ^4.23.4
+      babel-plugin-import: ^1.13.5
+      craco-less: ^2.0.0
+      less: ^4.1.3
+      less-loader: ^11.0.0
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      react-redux: ^8.0.4
+      react-router-dom: ^6.4.1
+      react-scripts: 5.0.1
+      typescript: ^4.4.2
+      web-vitals: ^2.1.0
+    dependencies:
+      '@reduxjs/toolkit': registry.npmmirror.com/@reduxjs/toolkit/1.8.5_react-redux@8.0.4+react@18.2.0
+      '@testing-library/jest-dom': registry.npmmirror.com/@testing-library/jest-dom/5.16.5
+      '@testing-library/react': registry.npmmirror.com/@testing-library/react/13.4.0_react-dom@18.2.0+react@18.2.0
+      '@testing-library/user-event': registry.npmmirror.com/@testing-library/user-event/13.5.0
+      '@types/jest': registry.npmmirror.com/@types/jest/27.5.2
+      '@types/node': registry.npmmirror.com/@types/node/16.11.63
+      '@types/react': registry.npmmirror.com/@types/react/18.0.21
+      '@types/react-dom': registry.npmmirror.com/@types/react-dom/18.0.6
+      antd: registry.npmmirror.com/antd/4.23.4_react-dom@18.2.0+react@18.2.0
+      react: registry.npmmirror.com/react/18.2.0
+      react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
+      react-redux: registry.npmmirror.com/react-redux/8.0.4_ed28c0204bb8461c8200289612f9802f
+      react-router-dom: registry.npmmirror.com/react-router-dom/6.4.2_react-dom@18.2.0+react@18.2.0
+      react-scripts: registry.npmmirror.com/react-scripts/5.0.1_react@18.2.0+typescript@4.7.4
+      typescript: registry.npmmirror.com/typescript/4.7.4
+      web-vitals: registry.npmmirror.com/web-vitals/2.1.4
+    devDependencies:
+      '@craco/craco': registry.npmmirror.com/@craco/craco/6.4.5_1c5981e53e6dc9a4dba11ca2534bfdb2
+      babel-plugin-import: registry.npmmirror.com/babel-plugin-import/1.13.5
+      craco-less: registry.npmmirror.com/craco-less/2.0.0_b9aed5549a32ad879f0a0e5669e4f762
+      less: registry.npmmirror.com/less/4.1.3
+      less-loader: registry.npmmirror.com/less-loader/11.0.0_less@4.1.3
+
+  packages/wujie-demo/vite-child:
+    specifiers:
+      '@reduxjs/toolkit': ^1.8.5
+      '@types/react': ^18.0.17
+      '@types/react-dom': ^18.0.6
+      '@vitejs/plugin-react': ^2.1.0
+      antd: ^4.23.4
+      less: ^4.1.3
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      react-redux: ^8.0.4
+      react-router-dom: ^6.4.1
+      typescript: ^4.6.4
+      vite: ^3.1.0
+      vite-plugin-imp: ^2.3.0
+    dependencies:
+      '@reduxjs/toolkit': registry.npmmirror.com/@reduxjs/toolkit/1.8.5_react-redux@8.0.4+react@18.2.0
+      antd: registry.npmmirror.com/antd/4.23.4_react-dom@18.2.0+react@18.2.0
+      react: registry.npmmirror.com/react/18.2.0
+      react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
+      react-redux: registry.npmmirror.com/react-redux/8.0.4_ed28c0204bb8461c8200289612f9802f
+      react-router-dom: registry.npmmirror.com/react-router-dom/6.4.2_react-dom@18.2.0+react@18.2.0
+    devDependencies:
+      '@types/react': registry.npmmirror.com/@types/react/18.0.21
+      '@types/react-dom': registry.npmmirror.com/@types/react-dom/18.0.6
+      '@vitejs/plugin-react': registry.npmmirror.com/@vitejs/plugin-react/2.1.0_vite@3.1.4
+      less: registry.npmmirror.com/less/4.1.3
+      typescript: registry.npmmirror.com/typescript/4.7.4
+      vite: registry.npmmirror.com/vite/3.1.4_less@4.1.3
+      vite-plugin-imp: registry.npmmirror.com/vite-plugin-imp/2.3.0_vite@3.1.4
+
+  packages/wujie-demo/vue2-child:
+    specifiers:
+      '@typescript-eslint/eslint-plugin': ^5.4.0
+      '@typescript-eslint/parser': ^5.4.0
+      '@vue/cli-plugin-babel': ~5.0.0
+      '@vue/cli-plugin-eslint': ~5.0.0
+      '@vue/cli-plugin-router': ~5.0.0
+      '@vue/cli-plugin-typescript': ~5.0.0
+      '@vue/cli-service': ~5.0.0
+      '@vue/eslint-config-typescript': ^9.1.0
+      ant-design-vue: 1.7.8
+      babel-plugin-import: ^1.13.5
+      core-js: ^3.8.3
+      eslint: ^7.32.0
+      eslint-config-prettier: ^8.3.0
+      eslint-plugin-prettier: ^4.0.0
+      eslint-plugin-vue: ^8.0.3
+      less: ^3.13.1
+      less-loader: ^11.0.0
+      pinia: ^2.0.21
+      prettier: ^2.4.1
+      typescript: ~4.5.5
+      vue: ^2.6.14
+      vue-router: ^3.5.1
+      vue-template-compiler: ^2.6.14
+    dependencies:
+      ant-design-vue: registry.npmmirror.com/ant-design-vue/1.7.8_e69f4c376315d116bc696ba4bfbc21f0
+      core-js: registry.npmmirror.com/core-js/3.25.4
+      pinia: registry.npmmirror.com/pinia/2.0.22_typescript@4.5.5+vue@2.7.10
+      vue: registry.npmmirror.com/vue/2.7.10
+      vue-router: registry.npmmirror.com/vue-router/3.6.5
+    devDependencies:
+      '@typescript-eslint/eslint-plugin': registry.npmmirror.com/@typescript-eslint/eslint-plugin/5.38.1_6814662d83103d7ff8f63fd46883de7a
+      '@typescript-eslint/parser': registry.npmmirror.com/@typescript-eslint/parser/5.38.1_eslint@7.32.0+typescript@4.5.5
+      '@vue/cli-plugin-babel': registry.npmmirror.com/@vue/cli-plugin-babel/5.0.8_4e22aa047062d8323cdc8ef58085e0a3
+      '@vue/cli-plugin-eslint': registry.npmmirror.com/@vue/cli-plugin-eslint/5.0.8_c55aa92e1e5ff62fc892a7c9d3e68cd0
+      '@vue/cli-plugin-router': registry.npmmirror.com/@vue/cli-plugin-router/5.0.8_@vue+cli-service@5.0.8
+      '@vue/cli-plugin-typescript': registry.npmmirror.com/@vue/cli-plugin-typescript/5.0.8_bbff6db33cc5ade069b291a9fbb8ef3b
+      '@vue/cli-service': registry.npmmirror.com/@vue/cli-service/5.0.8_8d49a9b7dd5706cbcff70ffe62d02182
+      '@vue/eslint-config-typescript': registry.npmmirror.com/@vue/eslint-config-typescript/9.1.0_539b4b9e9b6c72c2c4dac4b3c5842acb
+      babel-plugin-import: registry.npmmirror.com/babel-plugin-import/1.13.5
+      eslint: registry.npmmirror.com/eslint/7.32.0
+      eslint-config-prettier: registry.npmmirror.com/eslint-config-prettier/8.5.0_eslint@7.32.0
+      eslint-plugin-prettier: registry.npmmirror.com/eslint-plugin-prettier/4.2.1_f9a5537566b3ca3b5b68fc99385c0ca6
+      eslint-plugin-vue: registry.npmmirror.com/eslint-plugin-vue/8.7.1_eslint@7.32.0
+      less: registry.npmmirror.com/less/3.13.1
+      less-loader: registry.npmmirror.com/less-loader/11.0.0_less@3.13.1
+      prettier: registry.npmmirror.com/prettier/2.7.1
+      typescript: registry.npmmirror.com/typescript/4.5.5
+      vue-template-compiler: registry.npmmirror.com/vue-template-compiler/2.7.10
+
+  packages/wujie-demo/vue3-main:
+    specifiers:
+      '@ant-design/icons-vue': ^6.1.0
+      '@rushstack/eslint-patch': ^1.1.4
+      '@types/node': ^16.11.56
+      '@vitejs/plugin-vue': ^3.0.3
+      '@vitejs/plugin-vue-jsx': ^2.0.1
+      '@vue/eslint-config-prettier': ^7.0.0
+      '@vue/eslint-config-typescript': ^11.0.0
+      '@vue/tsconfig': ^0.1.3
+      ant-design-vue: ^3.2.12
+      eslint: ^8.22.0
+      eslint-plugin-vue: ^9.3.0
+      less: ^4.1.3
+      less-loader: ^11.0.0
+      npm-run-all: ^4.1.5
+      pinia: ^2.0.21
+      prettier: ^2.7.1
+      typescript: ~4.7.4
+      unplugin-vue-components: ^0.22.7
+      vite: ^3.0.9
+      vue: ^3.2.38
+      vue-router: ^4.1.5
+      vue-tsc: ^0.40.7
+    dependencies:
+      '@ant-design/icons-vue': registry.npmmirror.com/@ant-design/icons-vue/6.1.0_vue@3.2.40
+      ant-design-vue: registry.npmmirror.com/ant-design-vue/3.2.12_vue@3.2.40
+      pinia: registry.npmmirror.com/pinia/2.0.22_typescript@4.7.4+vue@3.2.40
+      vue: registry.npmmirror.com/vue/3.2.40
+      vue-router: registry.npmmirror.com/vue-router/4.1.5_vue@3.2.40
+    devDependencies:
+      '@rushstack/eslint-patch': registry.npmmirror.com/@rushstack/eslint-patch/1.2.0
+      '@types/node': registry.npmmirror.com/@types/node/16.11.63
+      '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/3.1.2_vite@3.1.4+vue@3.2.40
+      '@vitejs/plugin-vue-jsx': registry.npmmirror.com/@vitejs/plugin-vue-jsx/2.0.1_vite@3.1.4+vue@3.2.40
+      '@vue/eslint-config-prettier': registry.npmmirror.com/@vue/eslint-config-prettier/7.0.0_eslint@8.24.0+prettier@2.7.1
+      '@vue/eslint-config-typescript': registry.npmmirror.com/@vue/eslint-config-typescript/11.0.2_53ee5ea2388e22b4334449d488a91426
+      '@vue/tsconfig': registry.npmmirror.com/@vue/tsconfig/0.1.3_@types+node@16.11.63
+      eslint: registry.npmmirror.com/eslint/8.24.0
+      eslint-plugin-vue: registry.npmmirror.com/eslint-plugin-vue/9.5.1_eslint@8.24.0
+      less: registry.npmmirror.com/less/4.1.3
+      less-loader: registry.npmmirror.com/less-loader/11.0.0_less@4.1.3
+      npm-run-all: registry.npmmirror.com/npm-run-all/4.1.5
+      prettier: registry.npmmirror.com/prettier/2.7.1
+      typescript: registry.npmmirror.com/typescript/4.7.4
+      unplugin-vue-components: registry.npmmirror.com/unplugin-vue-components/0.22.7_vue@3.2.40
+      vite: registry.npmmirror.com/vite/3.1.4_less@4.1.3
+      vue-tsc: registry.npmmirror.com/vue-tsc/0.40.13_typescript@4.7.4
+
 packages:
 
   registry.nlark.com/@nodelib/fs.scandir/2.1.5:

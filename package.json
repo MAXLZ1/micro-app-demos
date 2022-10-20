@@ -9,7 +9,9 @@
     "micro-app-demo:start": "pnpm --filter \"@micro-app-demo/*\" run start -r --stream",
     "micro-app-demo:build": "pnpm --filter \"@micro-app-demo/*\" run build -r --stream",
     "icestark-demo:start": "pnpm --filter \"@icestark-demo/*\" run start -r --stream",
-    "icestark-demo:build": "pnpm --filter \"@icestark-demo/*\" run build -r --stream"
+    "icestark-demo:build": "pnpm --filter \"@icestark-demo/*\" run build -r --stream",
+    "wujie-demo:start": "pnpm --filter \"@wujie-demo/*\" run start -r --stream",
+    "wujie-demo:build": "pnpm --filter \"@wujie-demo/*\" run build -r --stream"
   },
   "author": "MAXLZ",
   "license": "ISC"
