@@ -15,4 +15,5 @@ app.mount('#main-app')
 
 listenReceiveMessage()
 
+// 下发路由对象
 store.set('router', router)

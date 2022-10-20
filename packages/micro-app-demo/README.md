@@ -14,7 +14,7 @@ pnpm run micro-app-demo:start
 - 主应用：http://localhost:8081
 - vue2子应用：http://localhost:8091
 - React18子应用：http://localhost:8092
-- Vite子应用：http://localhost:8093
+- Vite子应用：http://localhost:8093/vite/
 
 ## 文件目录
 

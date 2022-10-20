@@ -2,11 +2,13 @@
 
 线上地址：[https://maxlz1.github.io/micro-app-demos/qiankun-demo/vue3-main/dist/](https://maxlz1.github.io/micro-app-demos/qiankun-demo/vue3-main/dist/)
 
-本地启动命令，启动后自动打开主应用，如果未打开页面，使用浏览器输入http://localhost:8081进行访问
+本地启动命令
 ```bash
 pnpm i
 pnpm run qiankun-demo:start
 ```
+
+启动后自动打开主应用，如果未打开页面，使用浏览器输入http://localhost:8081进行访问
 
 各应用本地地址：
 - 主应用：http://localhost:8081
