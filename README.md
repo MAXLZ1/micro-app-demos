@@ -22,7 +22,7 @@ pnpm run qiankun-demo:start
     └── vue3-main # vue3主应用
 ```
 
-### 功能列表
+### 功能列表[](README.md)
 
 - [x] 应用间通信（利用`CustomEvent`）
 - [x] 多个子应用共存
@@ -33,7 +33,7 @@ pnpm run qiankun-demo:start
 - [x] 子应用保活
 - [x] 接入vite子应用
 
-具体功能实现细节参考：[功能实现说明](https://github.com/MAXLZ1/micro-app-demos/tree/main/packages/qiankun-demo)
+具体功能实现细节参考：[功能实现说明](https://github.com/MAXLZ1/micro-app-demos/tree/main/packages/qiankun-demo#功能实现说明)
 
 ## MicroApp demo
 
@@ -65,6 +65,8 @@ pnpm run micro-app-demo:start
 - [x] 资源预加载
 - [x] 子应用保活
 - [x] 接入vite子应用
+
+具体功能实现细节参考：[功能实现说明](https://github.com/MAXLZ1/micro-app-demos/tree/main/packages/micro-app-demo#功能实现说明)
 
 ## icestark demo
 

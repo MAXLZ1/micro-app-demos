@@ -170,7 +170,7 @@ function render(props?: Prop) {
 
 框架处理：`ant design`提供了统一修改`CSS`前缀的方案（子应用统一将`Select`, `Tooltip`等组件挂载到父节点上）
 
-其他情况使用`scoped`、`module css`等方式进行隔离。
+正常情况使用`scoped`、`module css`等方式进行隔离。
 
 ### 主子应用间跳转
 
