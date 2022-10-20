@@ -6,28 +6,58 @@ import { RouterProvider } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store } from '@/stores/store'
 import { ConfigProvider, Spin } from 'antd'
+import { setUser } from '@/stores/userSlice'
 
-const container = document.getElementById('root')!
+function setup() {
+  const container = document.getElementById('root')!
 
-const root = ReactDOM.createRoot(container)
+  const root = ReactDOM.createRoot(container)
+  
+  root.render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <ConfigProvider prefixCls="ar4" getPopupContainer={node => {
+          if (node) {
+            return node.parentNode as HTMLElement
+          }
+          return container
+        }}>
+          <Suspense fallback={
+            <Spin>
+              <div style={{width: '100%', height: '200px'}}></div>
+            </Spin>
+          }>
+            <RouterProvider router={router} />
+          </Suspense>
+        </ConfigProvider>
+      </Provider>
+    </React.StrictMode>
+  )  
+  return root
+}
 
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ConfigProvider prefixCls="ar4" getPopupContainer={node => {
-        if (node) {
-          return node.parentNode as HTMLElement
-        }
-        return container
-      }}>
-        <Suspense fallback={
-          <Spin>
-            <div style={{width: '100%', height: '200px'}}></div>
-          </Spin>
-        }>
-          <RouterProvider router={router} />
-        </Suspense>
-      </ConfigProvider>
-    </Provider>
-  </React.StrictMode>
-)
+function changeUserListener(e: any) {
+  store.dispatch((dispatch) => {
+    dispatch(setUser(e.user))
+  })
+}
+
+function routerChangeListener(e: any) {
+  router.navigate(e)
+}
+
+if (window.__POWERED_BY_WUJIE__) {
+  let root: ReactDOM.Root | undefined
+  window.__WUJIE_MOUNT = () => {
+    root = setup()
+    window.$wujie?.bus.$on('changeUser', changeUserListener)
+    window.$wujie?.bus.$on('reactApp:router-change', routerChangeListener)
+  }
+  window.__WUJIE_UNMOUNT = () => {
+    root?.unmount()
+    window.$wujie?.bus.$off('changeUser', changeUserListener)
+    window.$wujie?.bus.$off('reactApp:router-change', routerChangeListener)
+  }
+} else {
+  setup()
+}

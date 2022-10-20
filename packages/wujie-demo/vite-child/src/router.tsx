@@ -4,7 +4,7 @@ import { createHashRouter, Outlet, RouteObject } from 'react-router-dom'
 const CommunicationTest = lazy(() => import('@/views/CommunicationTest'))
 const NavigateView = lazy(() => import('@/views/NavigateView'))
 
-const basename = '/'
+const basename = window.__POWERED_BY_WUJIE__ ? '/viteApp' : '/'
 
 const routes: RouteObject[] = [
   {

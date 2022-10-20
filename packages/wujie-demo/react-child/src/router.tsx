@@ -3,12 +3,11 @@ import type { RouteObject } from 'react-router-dom'
 import React, { lazy } from 'react'
 
 const CommunicationTest = lazy(() => import('@/views/CommunicationTest'))
-const CoexistView = lazy(() => import('@/views/CoexistView'))
 const CssIsolation = lazy(() => import('@/views/CssIsolation'))
 const NavigateView = lazy(() => import('@/views/NavigateView'))
 const MicroAppView = lazy(() => import('@/views/MicroAppView'))
 
-const basename = '/'
+const basename = window.__POWERED_BY_WUJIE__ ? '/reactApp' : '/'
 
 const routes: RouteObject[] = [
   {
@@ -19,10 +18,6 @@ const routes: RouteObject[] = [
       {
         path: 'communication-test',
         element: <CommunicationTest />,
-      },
-      {
-        path: 'coexist-view',
-        element: <CoexistView />,
       },
       {
         path: 'css-isolation',

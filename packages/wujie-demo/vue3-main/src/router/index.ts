@@ -6,12 +6,13 @@ import { setMicroAppLoading } from '@/utils/microAppLoading'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
-  routes: [{
-    path: '/',
-    redirect: '/main/communication-test'
-  }]
+  routes: [
+    {
+      path: '/',
+      redirect: '/main/communication-test'
+    }
+  ]
 })
-
 
 // 是否已经加载初始化的数据
 let loadedInitData = false
@@ -30,7 +31,7 @@ router.beforeEach(async (to, from, next) => {
   }
 })
 
-router.afterEach(async (to) => {
+router.afterEach(async () => {
   setMicroAppLoading(false)
 })
 
