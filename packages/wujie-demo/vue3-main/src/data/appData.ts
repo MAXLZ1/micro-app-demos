@@ -1,4 +1,4 @@
-export interface MicoApp {
+export interface MicroApp {
   name: string
   url: string
   activeRule: string

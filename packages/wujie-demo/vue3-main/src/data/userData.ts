@@ -1,7 +1,7 @@
 export interface User {
   name: string
   gender: string
-  age:  number
+  age: number
   phone: string
 }
 

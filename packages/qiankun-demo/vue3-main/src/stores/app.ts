@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia'
 import { apps as microApps } from '@/data/appData'
 import { computed, reactive } from 'vue'
-import type { MicoApp } from '@/data/appData'
+import type { MicroApp } from '@/data/appData'
 import { prefetchApps } from 'qiankun'
 
 export const useAppStore = defineStore('appStore', () => {
-  const apps = reactive<MicoApp[]>(microApps)
+  const apps = reactive<MicroApp[]>(microApps)
   // 预加载
   prefetchApps(microApps.map(item => ({
     name: item.name,
