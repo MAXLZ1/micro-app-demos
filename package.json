@@ -4,15 +4,19 @@
   "description": "一些微前端框架的例子",
   "main": "index.js",
   "scripts": {
-    "qiankun-demo:start": "pnpm --filter \"@qiankun-demo/*\" run start -r --stream",
-    "qiankun-demo:build": "pnpm --filter \"@qiankun-demo/*\" run build -r --stream",
-    "micro-app-demo:start": "pnpm --filter \"@micro-app-demo/*\" run start -r --stream",
-    "micro-app-demo:build": "pnpm --filter \"@micro-app-demo/*\" run build -r --stream",
-    "icestark-demo:start": "pnpm --filter \"@icestark-demo/*\" run start -r --stream",
-    "icestark-demo:build": "pnpm --filter \"@icestark-demo/*\" run build -r --stream",
-    "wujie-demo:start": "pnpm --filter \"@wujie-demo/*\" run start -r --stream",
-    "wujie-demo:build": "pnpm --filter \"@wujie-demo/*\" run build -r --stream"
+    "qiankun-demo:start": "pnpm --filter \"@qiankun-demo/*\" -r --stream run start",
+    "qiankun-demo:build": "pnpm --filter \"@qiankun-demo/*\" -r --stream run build",
+    "micro-app-demo:start": "pnpm --filter \"@micro-app-demo/*\" -r --stream run start",
+    "micro-app-demo:build": "pnpm --filter \"@micro-app-demo/*\" -r --stream run build",
+    "icestark-demo:start": "pnpm --filter \"@icestark-demo/*\" -r --stream run start",
+    "icestark-demo:build": "pnpm --filter \"@icestark-demo/*\" -r --stream run build",
+    "wujie-demo:start": "pnpm --filter \"@wujie-demo/*\" -r --stream run start",
+    "wujie-demo:build": "pnpm --filter \"@wujie-demo/*\" -r --stream run build"
   },
   "author": "MAXLZ",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": "^16 || ^18",
+    "pnpm": ">=7"
+  }
 }
