@@ -1,0 +1,3 @@
+# https://www.robotstxt.org/robotstxt.html
+CommunicationTest-agent: *
+Disallow:

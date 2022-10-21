@@ -1,0 +1,81 @@
+{
+  "files": {
+    "app.css": "/micro-app-demos/icestark-demo/react-child/static/css/app.css",
+    "app.js": "/micro-app-demos/icestark-demo/react-child/static/js/app.bundle.js",
+    "communicationTest.css": "/micro-app-demos/icestark-demo/react-child/static/css/communicationTest.css",
+    "communicationTest.js": "/micro-app-demos/icestark-demo/react-child/static/js/communicationTest.bundle.js",
+    "cssIsolation.css": "/micro-app-demos/icestark-demo/react-child/static/css/cssIsolation.css",
+    "cssIsolation.js": "/micro-app-demos/icestark-demo/react-child/static/js/cssIsolation.bundle.js",
+    "tabView.css": "/micro-app-demos/icestark-demo/react-child/static/css/tabView.css",
+    "tabView.js": "/micro-app-demos/icestark-demo/react-child/static/js/tabView.bundle.js",
+    "static/css/340.2889e842.chunk.css": "/micro-app-demos/icestark-demo/react-child/static/css/340.2889e842.chunk.css",
+    "static/js/340.af037661.chunk.js": "/micro-app-demos/icestark-demo/react-child/static/js/340.af037661.chunk.js",
+    "static/css/884.864871ef.chunk.css": "/micro-app-demos/icestark-demo/react-child/static/css/884.864871ef.chunk.css",
+    "static/js/884.905a351d.chunk.js": "/micro-app-demos/icestark-demo/react-child/static/js/884.905a351d.chunk.js",
+    "static/css/507.39e534ef.chunk.css": "/micro-app-demos/icestark-demo/react-child/static/css/507.39e534ef.chunk.css",
+    "static/js/507.c61c145f.chunk.js": "/micro-app-demos/icestark-demo/react-child/static/js/507.c61c145f.chunk.js",
+    "static/css/16.0ee4fbca.chunk.css": "/micro-app-demos/icestark-demo/react-child/static/css/16.0ee4fbca.chunk.css",
+    "static/js/16.917afcfc.chunk.js": "/micro-app-demos/icestark-demo/react-child/static/js/16.917afcfc.chunk.js",
+    "static/css/975.747fab25.chunk.css": "/micro-app-demos/icestark-demo/react-child/static/css/975.747fab25.chunk.css",
+    "static/js/975.aa90f202.chunk.js": "/micro-app-demos/icestark-demo/react-child/static/js/975.aa90f202.chunk.js",
+    "static/js/422.2707c353.chunk.js": "/micro-app-demos/icestark-demo/react-child/static/js/422.2707c353.chunk.js",
+    "static/css/672.de3cfbb2.chunk.css": "/micro-app-demos/icestark-demo/react-child/static/css/672.de3cfbb2.chunk.css",
+    "static/js/672.79cb5e87.chunk.js": "/micro-app-demos/icestark-demo/react-child/static/js/672.79cb5e87.chunk.js",
+    "static/css/251.28064f96.chunk.css": "/micro-app-demos/icestark-demo/react-child/static/css/251.28064f96.chunk.css",
+    "static/css/583.5cf2e362.chunk.css": "/micro-app-demos/icestark-demo/react-child/static/css/583.5cf2e362.chunk.css",
+    "static/js/583.e50ab81f.chunk.js": "/micro-app-demos/icestark-demo/react-child/static/js/583.e50ab81f.chunk.js",
+    "static/js/166.e8f5834c.chunk.js": "/micro-app-demos/icestark-demo/react-child/static/js/166.e8f5834c.chunk.js",
+    "static/js/879.50141894.chunk.js": "/micro-app-demos/icestark-demo/react-child/static/js/879.50141894.chunk.js",
+    "static/css/807.d06ac5b0.chunk.css": "/micro-app-demos/icestark-demo/react-child/static/css/807.d06ac5b0.chunk.css",
+    "static/js/807.05c7bc01.chunk.js": "/micro-app-demos/icestark-demo/react-child/static/js/807.05c7bc01.chunk.js",
+    "static/js/709.92e10978.chunk.js": "/micro-app-demos/icestark-demo/react-child/static/js/709.92e10978.chunk.js",
+    "index.html": "/micro-app-demos/icestark-demo/react-child/index.html",
+    "app.css.map": "/micro-app-demos/icestark-demo/react-child/static/css/app.css.map",
+    "app.bundle.js.map": "/micro-app-demos/icestark-demo/react-child/static/js/app.bundle.js.map",
+    "communicationTest.css.map": "/micro-app-demos/icestark-demo/react-child/static/css/communicationTest.css.map",
+    "communicationTest.bundle.js.map": "/micro-app-demos/icestark-demo/react-child/static/js/communicationTest.bundle.js.map",
+    "cssIsolation.css.map": "/micro-app-demos/icestark-demo/react-child/static/css/cssIsolation.css.map",
+    "cssIsolation.bundle.js.map": "/micro-app-demos/icestark-demo/react-child/static/js/cssIsolation.bundle.js.map",
+    "tabView.css.map": "/micro-app-demos/icestark-demo/react-child/static/css/tabView.css.map",
+    "tabView.bundle.js.map": "/micro-app-demos/icestark-demo/react-child/static/js/tabView.bundle.js.map",
+    "340.2889e842.chunk.css.map": "/micro-app-demos/icestark-demo/react-child/static/css/340.2889e842.chunk.css.map",
+    "340.af037661.chunk.js.map": "/micro-app-demos/icestark-demo/react-child/static/js/340.af037661.chunk.js.map",
+    "884.864871ef.chunk.css.map": "/micro-app-demos/icestark-demo/react-child/static/css/884.864871ef.chunk.css.map",
+    "884.905a351d.chunk.js.map": "/micro-app-demos/icestark-demo/react-child/static/js/884.905a351d.chunk.js.map",
+    "507.39e534ef.chunk.css.map": "/micro-app-demos/icestark-demo/react-child/static/css/507.39e534ef.chunk.css.map",
+    "507.c61c145f.chunk.js.map": "/micro-app-demos/icestark-demo/react-child/static/js/507.c61c145f.chunk.js.map",
+    "16.0ee4fbca.chunk.css.map": "/micro-app-demos/icestark-demo/react-child/static/css/16.0ee4fbca.chunk.css.map",
+    "16.917afcfc.chunk.js.map": "/micro-app-demos/icestark-demo/react-child/static/js/16.917afcfc.chunk.js.map",
+    "975.747fab25.chunk.css.map": "/micro-app-demos/icestark-demo/react-child/static/css/975.747fab25.chunk.css.map",
+    "975.aa90f202.chunk.js.map": "/micro-app-demos/icestark-demo/react-child/static/js/975.aa90f202.chunk.js.map",
+    "422.2707c353.chunk.js.map": "/micro-app-demos/icestark-demo/react-child/static/js/422.2707c353.chunk.js.map",
+    "672.de3cfbb2.chunk.css.map": "/micro-app-demos/icestark-demo/react-child/static/css/672.de3cfbb2.chunk.css.map",
+    "672.79cb5e87.chunk.js.map": "/micro-app-demos/icestark-demo/react-child/static/js/672.79cb5e87.chunk.js.map",
+    "251.28064f96.chunk.css.map": "/micro-app-demos/icestark-demo/react-child/static/css/251.28064f96.chunk.css.map",
+    "583.5cf2e362.chunk.css.map": "/micro-app-demos/icestark-demo/react-child/static/css/583.5cf2e362.chunk.css.map",
+    "583.e50ab81f.chunk.js.map": "/micro-app-demos/icestark-demo/react-child/static/js/583.e50ab81f.chunk.js.map",
+    "166.e8f5834c.chunk.js.map": "/micro-app-demos/icestark-demo/react-child/static/js/166.e8f5834c.chunk.js.map",
+    "879.50141894.chunk.js.map": "/micro-app-demos/icestark-demo/react-child/static/js/879.50141894.chunk.js.map",
+    "807.d06ac5b0.chunk.css.map": "/micro-app-demos/icestark-demo/react-child/static/css/807.d06ac5b0.chunk.css.map",
+    "807.05c7bc01.chunk.js.map": "/micro-app-demos/icestark-demo/react-child/static/js/807.05c7bc01.chunk.js.map",
+    "709.92e10978.chunk.js.map": "/micro-app-demos/icestark-demo/react-child/static/js/709.92e10978.chunk.js.map"
+  },
+  "entrypoints": {
+    "app": [
+      "static/css/app.css",
+      "static/js/app.bundle.js"
+    ],
+    "communicationTest": [
+      "static/css/communicationTest.css",
+      "static/js/communicationTest.bundle.js"
+    ],
+    "cssIsolation": [
+      "static/css/cssIsolation.css",
+      "static/js/cssIsolation.bundle.js"
+    ],
+    "tabView": [
+      "static/css/tabView.css",
+      "static/js/tabView.bundle.js"
+    ]
+  }
+}
