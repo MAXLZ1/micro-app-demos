@@ -15,6 +15,10 @@ export default defineConfig(({ mode }) => {
         '../../../micro-app-demos/wujie-demo/vue3-main'
       )
     },
+    server: {
+      port: 8081,
+      open: true
+    },
     base: loadEnv(mode, process.cwd()).VITE_BASE_URL,
     plugins: [
       vue(),
