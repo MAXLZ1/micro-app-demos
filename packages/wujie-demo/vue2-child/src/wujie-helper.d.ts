@@ -7,8 +7,8 @@ declare global {
         $on: any
         $emit: any
       }
-      props?: {
-        user: User
+      props: {
+        router: any
       }
     }
     __POWERED_BY_WUJIE__: boolean

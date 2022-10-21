@@ -40,11 +40,13 @@ pnpm run wujie-demo:start
 
 ## 功能实现说明
 
-
 ### 应用间通信
 
+利用`wujie`提供的(bus)[https://wujie-micro.github.io/doc/api/bus.html]进行应用间通信，或者通过`props`等方式。
 
 ### 多个子应用共存
+
+利用`wujie-vue2`、`wujie-vue3`、`wujie-react`显示多个标签即可。
 
 ### CSS隔离
 
@@ -53,6 +55,70 @@ pnpm run wujie-demo:start
 正常情况使用`scoped`、`module css`等方式进行隔离。
 
 ### 主子应用间跳转
+
+- 主应用跳转至子应用：利用自身路由对象跳转。
+- 子应用跳转至子应用：主应用下发路由对象，子应用利用下发的路由对象进行跳转。
+
+  **主应用**
+  ```vue
+  <template>
+    <wujie-vue
+      v-if="microApp"
+      :name="microApp.name"
+      :url="microApp.url"
+      :props="microAppProps"
+      :afterMount="afterMount"
+    />
+  </template>
+
+  <script lang="ts" setup>
+  const router = useRouter()
+  const microAppProps = computed(() => ({ router }))
+  </script>
+  ```
+
+  **子应用**
+  ```ts
+  import { Button, Space, Typography } from 'antd'
+
+  const handleClick = ({ url }: { url: string }) => {
+    const router = window.$wujie.props.router
+    router?.push(url)
+  }
+  const buttons = [
+    {
+      url: '/main/communication-test',
+      label: '跳转至主应用 page1'
+    },
+    {
+      url: '/vue2App/communication-test',
+      label: '跳转至Vue2子应用'
+    },
+    {
+      url: '/reactApp/communication-test',
+      label: '跳转至React18子应用'
+    },
+    {
+      url: '/viteApp/communication-test',
+      label: '跳转至Vite子应用'
+    },
+  ].map(item => (
+    <Button type="primary" onClick={() => handleClick(item)} key={item.url}>{item.label}</Button>
+  ))
+
+  export default function NavigateView() {
+    return (
+      <>
+        <Typography.Title>React18子应用内控制跳转</Typography.Title>
+        <Space size={20}>
+          {buttons}
+        </Space>
+      </>
+    )
+  }
+  ```
+
+- 子应用跳转至主应用：同子应用跳转至子应用。
 
 ### 嵌套子应用
 

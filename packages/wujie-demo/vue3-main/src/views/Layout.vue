@@ -65,6 +65,7 @@
               v-if="microApp"
               :name="microApp.name"
               :url="microApp.url"
+              :props="microAppProps"
               :afterMount="afterMount"
             />
             <router-view v-slot="{ Component }">
@@ -127,6 +128,7 @@ const microApp = computed(() => {
 const microData = computed(() => ({
   user: toRaw(user.value)
 }))
+const microAppProps = computed(() => ({ router }))
 
 const { bus } = WujieVue
 
