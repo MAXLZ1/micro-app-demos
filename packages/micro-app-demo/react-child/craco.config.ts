@@ -22,14 +22,12 @@ const config = {
       "@": path.resolve("src")
     },
     configure: (webpackConfig: any, { paths }: any) => {
-      paths.appBuild = 'dist'
       webpackConfig.output = {
         ...webpackConfig.output,
         library: `${name}-[name]`,
         libraryTarget: 'umd',
         chunkLoadingGlobal: `webpackJsonp_${name}`,
         globalObject: 'window',
-        path: path.resolve(__dirname, 'dist'),
       }
       return webpackConfig
     },

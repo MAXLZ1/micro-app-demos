@@ -1,6 +1,6 @@
 # qiankun demo
 
-线上地址：[https://maxlz1.github.io/micro-app-demos/qiankun-demo/vue3-main/dist/](https://maxlz1.github.io/micro-app-demos/qiankun-demo/vue3-main/dist/)
+线上地址：[https://maxlz1.github.io/micro-app-demos/qiankun-demo/vue3-main/](https://maxlz1.github.io/micro-app-demos/qiankun-demo/vue3-main/)
 
 本地启动命令
 ```bash

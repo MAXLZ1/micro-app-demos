@@ -30,14 +30,11 @@ jobs:
     - name: Build
       run: |
         pnpm i
-        pnpm run qiankun-demo:build
-        pnpm run micro-app-demo:build
-        pnpm run icestark-demo:build
+        pnpm run deploy:build
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./packages
-        exclude_assets: '/**/node_modules'
+        publish_dir: ./micro-app-demos
         full_commit_message: ${{ github.event.head_commit.message }}

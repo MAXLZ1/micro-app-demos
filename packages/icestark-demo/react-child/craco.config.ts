@@ -52,30 +52,16 @@ const config = {
         }
       })
       
-      paths.appBuild = 'dist'
       webpackConfig.output = {
         ...webpackConfig.output,
         library: name,
         libraryTarget: 'umd',
-        path: path.resolve(__dirname, 'dist'),
         filename: 'static/js/[name].bundle.js',
       }
       if (process.env.NODE_ENV === 'development') {
         webpackConfig.output.publicPath = process.env.PUBLIC_URL
       }
       webpackConfig.entry = entries
-      // const htmlWebpackPlugin = webpackConfig.plugins[0]
-      // htmlWebpackPlugin.userOptions.chunks = ['app']
-      // webpackConfig.plugins.unshift(new htmlWebpackPlugin.constructor(
-      //   Object.assign({}, htmlWebpackPlugin.userOptions, {
-      //     template: path.join(__dirname, './public/index.html'),
-      //     inject: true,
-      //     chunks: ['communicationTest'],
-      //     filename: 'communicationText.html'
-      //   })
-      // ))
-
-      // webpackConfig.optimization.runtimeChunk = 'multiple'
       miniCssExtraPlugin && (miniCssExtraPlugin.options.filename = 'static/css/[name].css')
       manidestPlugin && (manidestPlugin.options.generate = (seed, files, entrypoints) => {
         const manifestFiles = files.reduce((manifest, file) => {

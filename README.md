@@ -4,7 +4,7 @@
 
 ## qiankun demo
 
-线上地址：[https://maxlz1.github.io/micro-app-demos/qiankun-demo/vue3-main/dist/](https://maxlz1.github.io/micro-app-demos/qiankun-demo/vue3-main/dist/)
+线上地址：[https://maxlz1.github.io/micro-app-demos/qiankun-demo/vue3-main/](https://maxlz1.github.io/micro-app-demos/qiankun-demo/vue3-main/)
 
 本地启动命令
 ```bash
@@ -37,7 +37,7 @@ pnpm run qiankun-demo:start
 
 ## MicroApp demo
 
-线上地址：[https://maxlz1.github.io/micro-app-demos/micro-app-demo/vue3-main/dist/](https://maxlz1.github.io/micro-app-demos/micro-app-demo/vue3-main/dist/)
+线上地址：[https://maxlz1.github.io/micro-app-demos/micro-app-demo/vue3-main/](https://maxlz1.github.io/micro-app-demos/micro-app-demo/vue3-main/)
 
 本地启动命令
 ```bash
@@ -70,7 +70,7 @@ pnpm run micro-app-demo:start
 
 ## icestark demo
 
-线上地址：[https://maxlz1.github.io/micro-app-demos/icestark-demo/vue3-main/dist/](https://maxlz1.github.io/micro-app-demos/icestark-demo/vue3-main/dist/)
+线上地址：[https://maxlz1.github.io/micro-app-demos/icestark-demo/vue3-main/](https://maxlz1.github.io/micro-app-demos/icestark-demo/vue3-main/)
 
 本地启动命令
 ```bash
@@ -103,7 +103,7 @@ pnpm run icestark-demo:start
 
 ## wujie demo
 
-线上地址：[https://maxlz1.github.io/micro-app-demos/wujie-demo/vue3-main/dist/](https://maxlz1.github.io/micro-app-demos/wujie-demo/vue3-main/dist/)
+线上地址：[https://maxlz1.github.io/micro-app-demos/wujie-demo/vue3-main/](https://maxlz1.github.io/micro-app-demos/wujie-demo/vue3-main/)
 
 本地启动命令
 ```bash

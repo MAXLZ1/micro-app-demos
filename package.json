@@ -4,6 +4,7 @@
   "description": "一些微前端框架的例子",
   "main": "index.js",
   "scripts": {
+    "deploy:build": "pnpm --filter \"./packages/**\" -r --stream run build",
     "qiankun-demo:start": "pnpm --filter \"@qiankun-demo/*\" -r --stream run start",
     "qiankun-demo:build": "pnpm --filter \"@qiankun-demo/*\" -r --stream run build",
     "micro-app-demo:start": "pnpm --filter \"@micro-app-demo/*\" -r --stream run start",

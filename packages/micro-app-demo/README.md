@@ -1,6 +1,6 @@
 # MicroApp demo
 
-线上地址：[https://maxlz1.github.io/micro-app-demos/micro-app-demo/vue3-main/dist/](https://maxlz1.github.io/micro-app-demos/micro-app-demo/vue3-main/dist/)
+线上地址：[https://maxlz1.github.io/micro-app-demos/micro-app-demo/vue3-main/](https://maxlz1.github.io/micro-app-demos/micro-app-demo/vue3-main/)
 
 本地启动命令，启动后自动打开主应用，如果未打开页面，使用浏览器输入http://localhost:8081进行访问
 

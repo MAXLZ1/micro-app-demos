@@ -1,6 +1,6 @@
 # icestark demo
 
-线上地址：[https://maxlz1.github.io/micro-app-demos/icestark-demo/vue3-main/dist/](https://maxlz1.github.io/micro-app-demos/icestark-demo/vue3-main/dist/)
+线上地址：[https://maxlz1.github.io/micro-app-demos/icestark-demo/vue3-main/](https://maxlz1.github.io/micro-app-demos/icestark-demo/vue3-main/)
 
 本地启动命令
 ```bash

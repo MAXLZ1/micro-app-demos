@@ -4,6 +4,7 @@ const path = require('path')
 const fs = require('fs')
 
 module.exports = defineConfig({
+  outputDir: path.join(__dirname, '../../../micro-app-demos/icestark-demo/vue2-child'),
   publicPath: process.env.VUE_APP_PUBLIC_PATH,
   devServer: {
     port: 8091,
