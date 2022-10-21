@@ -43,7 +43,7 @@ function changeUserListener(e: any) {
 }
 
 function routerChangeListener(e: any) {
-  router.navigate(e)
+  router.navigate(e.path, { replace: e.replace })
 }
 
 if (window.__POWERED_BY_WUJIE__) {

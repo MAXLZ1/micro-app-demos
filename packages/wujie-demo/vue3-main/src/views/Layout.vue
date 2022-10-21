@@ -131,6 +131,13 @@ const microData = computed(() => ({
 const { bus } = WujieVue
 
 function afterMount() {
+  if (microApp.value) {
+    // 解决首次加载路由跳转地址错误问题
+    bus.$emit(`${microApp.value.name}:router-change`, {
+      path: route.fullPath,
+      replace: true
+    })
+  }
   bus.$emit('changeUser', toRaw(microData.value))
 }
 
@@ -177,7 +184,10 @@ watchEffect(initKeys)
 
 watch(route, (val) => {
   if (microApp.value) {
-    bus.$emit(`${microApp.value.name}:router-change`, val.fullPath)
+    bus.$emit(`${microApp.value.name}:router-change`, {
+      path: val.fullPath,
+      replace: false
+    })
   }
 })
 
