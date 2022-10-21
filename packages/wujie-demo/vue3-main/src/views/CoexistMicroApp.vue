@@ -79,7 +79,7 @@ export default {
 import { useAppStore } from '@/stores/app'
 import { storeToRefs } from 'pinia'
 import WujieVue from 'wujie-vue3'
-import { computed, ref, toRaw, watch } from 'vue'
+import { ref, toRaw, watch } from 'vue'
 import type { MicroApp } from '@/data/appData'
 import { useUserStore } from '@/stores/user'
 

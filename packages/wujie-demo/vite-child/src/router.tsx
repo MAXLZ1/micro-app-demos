@@ -3,6 +3,7 @@ import { createHashRouter, Outlet, RouteObject } from 'react-router-dom'
 
 const CommunicationTest = lazy(() => import('@/views/CommunicationTest'))
 const NavigateView = lazy(() => import('@/views/NavigateView'))
+const CssIsolation = lazy(() => import('@/views/CssIsolation'))
 
 const basename = window.__POWERED_BY_WUJIE__ ? '/viteApp' : '/'
 
@@ -20,6 +21,10 @@ const routes: RouteObject[] = [
         path: 'navigate-view',
         element: <NavigateView />,
       },
+      {
+        path: 'css-isolation',
+        element: <CssIsolation />
+      }
     ]
   }
 ]

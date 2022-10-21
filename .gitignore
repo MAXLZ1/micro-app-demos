@@ -1,6 +1,6 @@
 .DS_Store
 dist
-# build dir
+# Build dir
 micro-app-demos
 node_modules
 .history
