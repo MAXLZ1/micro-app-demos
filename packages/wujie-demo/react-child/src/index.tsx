@@ -16,12 +16,7 @@ function setup() {
   root.render(
     <React.StrictMode>
       <Provider store={store}>
-        <ConfigProvider prefixCls="ar4" getPopupContainer={node => {
-          if (node) {
-            return node.parentNode as HTMLElement
-          }
-          return container
-        }}>
+        <ConfigProvider prefixCls="ar4">
           <Suspense fallback={
             <Spin>
               <div style={{width: '100%', height: '200px'}}></div>

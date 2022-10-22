@@ -1,5 +1,5 @@
 <template>
-  <a-config-provider prefixCls="av2" :getPopupContainer="getPopupContainer">
+  <a-config-provider prefixCls="av2">
     <router-view v-slot="{ Component }">
       <keep-alive>
         <component :is="Component" />
@@ -10,17 +10,8 @@
 
 <script lang="ts">
 import { ConfigProvider } from 'ant-design-vue'
-import type Vue from 'vue'
 
 export default {
-  methods: {
-    getPopupContainer(triggerNode: { parentNode: HTMLElement }): Element {
-      if (triggerNode) {
-        return triggerNode.parentNode
-      }
-      return (this as unknown as Vue).$root.$el
-    },
-  },
   components: {
     [ConfigProvider.name]: ConfigProvider,
   },
