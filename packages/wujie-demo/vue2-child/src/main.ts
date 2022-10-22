@@ -20,7 +20,6 @@ function setup() {
 
 if (window.__POWERED_BY_WUJIE__) {
   let instance: Vue | undefined
-
   window.__WUJIE_MOUNT = () => {
     instance = setup()
     const { setUser } = useUserStore()

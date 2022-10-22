@@ -100,16 +100,19 @@ watch(
       if (item.name === 'vue2App') {
         vue2App.value = {
           ...item,
+          name: item.name + 'Coexist',
           url: `${item.url}#/vue2App/communication-test`
         }
       } else if (item.name === 'reactApp') {
         reactApp.value = {
           ...item,
+          name: item.name + 'Coexist',
           url: `${item.url}#/reactApp/communication-test`
         }
       } else if (item.name === 'viteApp') {
         viteApp.value = {
           ...item,
+          name: item.name + 'Coexist',
           url: `${item.url}#/viteApp/communication-test`
         }
       }

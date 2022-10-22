@@ -124,6 +124,7 @@ pnpm run wujie-demo:start
 
 ### 资源预加载
 
+`wujie`提供的[preloadApp](https://wujie-micro.github.io/doc/api/preloadApp.html)方法。
 
 ### 子应用保活
 

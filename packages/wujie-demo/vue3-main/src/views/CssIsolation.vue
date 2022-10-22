@@ -54,16 +54,19 @@ watch(
       if (item.name === 'vue2App') {
         vue2App.value = {
           ...item,
+          name: item.name + 'CssIsolation',
           url: `${item.url}#/vue2App/css-isolation`
         }
       } else if (item.name === 'reactApp') {
         reactApp.value = {
           ...item,
+          name: item.name + 'CssIsolation',
           url: `${item.url}#/reactApp/css-isolation`
         }
       } else if (item.name === 'viteApp') {
         viteApp.value = {
           ...item,
+          name: item.name + 'CssIsolation',
           url: `${item.url}#/viteApp/css-isolation`
         }
       }

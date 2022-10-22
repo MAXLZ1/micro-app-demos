@@ -1,18 +1,20 @@
 import { Alert, Cascader, Form, Space } from 'antd'
+import { useState } from 'react'
+import WujieReact from "wujie-react"
 
-export const vue2AppEntry = process.env.NODE_ENV === 'production' ? 'https://maxlz1.github.io/micro-app-demos/qiankun-demo/vue2-child/dist/' : 'http://localhost:8091'
-export const viteAppEntry = process.env.MODE === 'production' ? 'https://maxlz1.github.io/micro-app-demos/qiankun-demo/vite-child/dist/' : 'http://localhost:8093'
+export const vue2AppEntry = process.env.REACT_APP_VUE2_CHILD_PUBLIC_PATH
+export const viteAppEntry = process.env.REACT_APP_VITE_CHILD_PUBLIC_PATH
 
 const apps: Record<string, any> = {
   vue2App: {
-    name: 'vue2App',
-    entry: vue2AppEntry,
-    activeRule: '#/vue2App',
+    name: 'vue2AppOfReact',
+    url: vue2AppEntry,
+    activeRule: '/vue2App',
   },
   viteApp: {
-    name: 'viteApp',
-    entry: viteAppEntry,
-    activeRule: '#/viteApp',
+    name: 'viteAppOfReact',
+    url: viteAppEntry,
+    activeRule: '/viteApp',
   },
 }
 
@@ -21,23 +23,32 @@ const options = [
     name: 'vue2App',
     path: 'vue2App',
     children: [
-      { name: 'vue2App-通信测试页面', path: '/vue2App/communication-test' },
-      { name: 'vue2App-子应用跳转测试页面', path: '/vue2App/navigate-view' },
+      { name: 'vue2App-通信测试页面', path: '#/vue2App/communication-test' },
+      { name: 'vue2App-子应用跳转测试页面', path: '#/vue2App/navigate-view' },
     ]
   },
   {
     name: 'viteApp',
     path: 'viteApp',
     children:  [
-      { name: 'viteApp-通信测试页面', path: '/viteApp/communication-test' },
-      { name: 'viteApp-子应用跳转测试页面', path: '/viteApp/navigate-view' },
+      { name: 'viteApp-通信测试页面', path: '#/viteApp/communication-test' },
+      { name: 'viteApp-子应用跳转测试页面', path: '#/viteApp/navigate-view' },
     ]
   }
 ]
 
 export default function MicroAppView() {
+  const [microInfo, setMicroInfo] = useState<{name: string, url: string} | null>(null)
 
-  const handleChange = async (value: any) => {
+  const handleChange = (value: any) => {
+    const [name, path] = value
+    const app = apps[name]
+    if (app) {
+      setMicroInfo(() => ({
+        name: app.name,
+        url: app.url + path
+      }))
+    }
   }
 
   return (
@@ -55,7 +66,8 @@ export default function MicroAppView() {
             />
           </Form.Item>
         </Form>
-        <div id="micapp-container"></div>
+        <WujieReact name="OfReact" url="http://localhost:8091/#/vue2App/communication-test" />
+        {/* {microInfo && <WujieReact {...microInfo} />} */}
       </Space>
     </>
   )
