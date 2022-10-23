@@ -9,9 +9,12 @@ export function setupApp() {
   apps.forEach((item) => {
     setupAppOfWujie({
       name: item.name,
-      fetch(url, options) {
-        return window.fetch(url, { ...options, credentials: 'omit' })
+      attrs: {
+        src: item.url
       }
+      // fetch(url, options) {
+      //   return window.fetch(url, { ...options, credentials: 'omit' })
+      // }
     })
 
     // 预加载
