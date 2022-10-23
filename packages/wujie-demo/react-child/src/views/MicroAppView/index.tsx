@@ -12,12 +12,10 @@ const apps: Record<string, any> = {
   vue2App: {
     name: 'vue2AppOfReact',
     url: vue2AppEntry,
-    activeRule: '/vue2App',
   },
   viteApp: {
     name: 'viteAppOfReact',
     url: viteAppEntry,
-    activeRule: '/viteApp',
   },
 }
 
@@ -48,13 +46,15 @@ if (window.$wujie) {
 
 const props = { router }
 
+function geAttrs(app: { name: string, url: string }) {
+  // 修改iframe src attr，防止github pages csp报错
+  return process.env.NODE_ENV === 'production' ? { src: app.url} : {}
+}
+
 Object.values(apps).forEach(item => {
   setupApp({
     name: item.name,
-    attrs: {
-      // 修改iframe src attr，防止github pages csp报错
-      src: item.url,
-    }
+    attrs: geAttrs(item)
   })
 })
 

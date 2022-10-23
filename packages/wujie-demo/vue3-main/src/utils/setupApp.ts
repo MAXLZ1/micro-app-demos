@@ -1,7 +1,13 @@
+import type { MicroApp } from '@/data/appData'
 import { useAppStore } from '@/stores/app'
 import WujieVue from 'wujie-vue3'
 
 const { setupApp: setupAppOfWujie, preloadApp } = WujieVue
+
+function geAttrs(app: MicroApp) {
+  // 修改iframe src attr，防止github pages csp报错
+  return import.meta.env.MODE === 'production' ? { src: app.url} : {}
+}
 
 export function setupApp() {
   const { apps } = useAppStore()
@@ -16,10 +22,7 @@ export function setupApp() {
     names.forEach((name) => {
       setupAppOfWujie({
         name,
-        attrs: {
-          // 修改iframe src attr，防止github pages csp报错
-          src: item.url
-        }
+        attrs: geAttrs(item)
       })
       // 预加载
       preloadApp({
