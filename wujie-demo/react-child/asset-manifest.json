@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/micro-app-demos/wujie-demo/react-child/static/css/main.7ef8e16f.css",
-    "main.js": "/micro-app-demos/wujie-demo/react-child/static/js/main.01c0bc14.js",
+    "main.js": "/micro-app-demos/wujie-demo/react-child/static/js/main.af978c54.js",
     "static/css/135.e89e4534.chunk.css": "/micro-app-demos/wujie-demo/react-child/static/css/135.e89e4534.chunk.css",
     "static/js/135.7d038101.chunk.js": "/micro-app-demos/wujie-demo/react-child/static/js/135.7d038101.chunk.js",
     "static/css/326.f046513e.chunk.css": "/micro-app-demos/wujie-demo/react-child/static/css/326.f046513e.chunk.css",
@@ -9,7 +9,7 @@
     "static/css/507.bc4c8730.chunk.css": "/micro-app-demos/wujie-demo/react-child/static/css/507.bc4c8730.chunk.css",
     "static/js/507.a636e404.chunk.js": "/micro-app-demos/wujie-demo/react-child/static/js/507.a636e404.chunk.js",
     "static/css/997.8be086bd.chunk.css": "/micro-app-demos/wujie-demo/react-child/static/css/997.8be086bd.chunk.css",
-    "static/js/997.c6977199.chunk.js": "/micro-app-demos/wujie-demo/react-child/static/js/997.c6977199.chunk.js",
+    "static/js/997.d43f50ce.chunk.js": "/micro-app-demos/wujie-demo/react-child/static/js/997.d43f50ce.chunk.js",
     "static/css/975.c39b27dc.chunk.css": "/micro-app-demos/wujie-demo/react-child/static/css/975.c39b27dc.chunk.css",
     "static/js/975.d52cc683.chunk.js": "/micro-app-demos/wujie-demo/react-child/static/js/975.d52cc683.chunk.js",
     "static/js/422.0954d0bc.chunk.js": "/micro-app-demos/wujie-demo/react-child/static/js/422.0954d0bc.chunk.js",
@@ -25,7 +25,7 @@
     "static/js/480.27622b60.chunk.js": "/micro-app-demos/wujie-demo/react-child/static/js/480.27622b60.chunk.js",
     "index.html": "/micro-app-demos/wujie-demo/react-child/index.html",
     "main.7ef8e16f.css.map": "/micro-app-demos/wujie-demo/react-child/static/css/main.7ef8e16f.css.map",
-    "main.01c0bc14.js.map": "/micro-app-demos/wujie-demo/react-child/static/js/main.01c0bc14.js.map",
+    "main.af978c54.js.map": "/micro-app-demos/wujie-demo/react-child/static/js/main.af978c54.js.map",
     "135.e89e4534.chunk.css.map": "/micro-app-demos/wujie-demo/react-child/static/css/135.e89e4534.chunk.css.map",
     "135.7d038101.chunk.js.map": "/micro-app-demos/wujie-demo/react-child/static/js/135.7d038101.chunk.js.map",
     "326.f046513e.chunk.css.map": "/micro-app-demos/wujie-demo/react-child/static/css/326.f046513e.chunk.css.map",
@@ -33,7 +33,7 @@
     "507.bc4c8730.chunk.css.map": "/micro-app-demos/wujie-demo/react-child/static/css/507.bc4c8730.chunk.css.map",
     "507.a636e404.chunk.js.map": "/micro-app-demos/wujie-demo/react-child/static/js/507.a636e404.chunk.js.map",
     "997.8be086bd.chunk.css.map": "/micro-app-demos/wujie-demo/react-child/static/css/997.8be086bd.chunk.css.map",
-    "997.c6977199.chunk.js.map": "/micro-app-demos/wujie-demo/react-child/static/js/997.c6977199.chunk.js.map",
+    "997.d43f50ce.chunk.js.map": "/micro-app-demos/wujie-demo/react-child/static/js/997.d43f50ce.chunk.js.map",
     "975.c39b27dc.chunk.css.map": "/micro-app-demos/wujie-demo/react-child/static/css/975.c39b27dc.chunk.css.map",
     "975.d52cc683.chunk.js.map": "/micro-app-demos/wujie-demo/react-child/static/js/975.d52cc683.chunk.js.map",
     "422.0954d0bc.chunk.js.map": "/micro-app-demos/wujie-demo/react-child/static/js/422.0954d0bc.chunk.js.map",
@@ -50,6 +50,6 @@
   },
   "entrypoints": [
     "static/css/main.7ef8e16f.css",
-    "static/js/main.01c0bc14.js"
+    "static/js/main.af978c54.js"
   ]
 }
