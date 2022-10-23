@@ -12,7 +12,11 @@
 <script lang="ts">
 import { Space, Button } from 'ant-design-vue'
 
-const router = window.$wujie.props.router
+let router: any | undefined
+
+if (window.$wujie) {
+  router = window.$wujie.props.router
+}
 
 export default {
   name: 'NavigateView',

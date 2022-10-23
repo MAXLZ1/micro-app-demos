@@ -1,3 +1,4 @@
+import { useAppSelector } from '@/stores/storeHooks'
 import { Alert, Cascader, Form, Space } from 'antd'
 import { useState } from 'react'
 import WujieReact from "wujie-react"
@@ -37,7 +38,17 @@ const options = [
   }
 ]
 
+let router: any | undefined
+
+if (window.$wujie) {
+  router = window.$wujie.props.router
+}
+
+const props = { router }
+const { bus } = WujieReact
+
 export default function MicroAppView() {
+  const user = useAppSelector(state => state.user.user)
   const [microInfo, setMicroInfo] = useState<{name: string, url: string} | null>(null)
 
   const handleChange = (value: any) => {
@@ -49,6 +60,10 @@ export default function MicroAppView() {
         url: app.url + path
       }))
     }
+  }
+
+  function afterMount() {
+    bus.$emit('changeUser', { user })
   }
 
   return (
@@ -66,8 +81,7 @@ export default function MicroAppView() {
             />
           </Form.Item>
         </Form>
-        <WujieReact name="OfReact" url="http://localhost:8091/#/vue2App/communication-test" />
-        {/* {microInfo && <WujieReact {...microInfo} />} */}
+        {microInfo && <WujieReact {...microInfo} props={props} afterMount={afterMount} />}
       </Space>
     </>
   )

@@ -36,9 +36,6 @@ const config = {
       options: {
         lessLoaderOptions: {
           lessOptions: {
-            modifyVars: {
-              'ant-prefix': 'ar4',
-            },
             javascriptEnabled: true,
           }
         }

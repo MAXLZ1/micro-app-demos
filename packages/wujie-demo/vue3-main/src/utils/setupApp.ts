@@ -11,8 +11,7 @@ export function setupApp() {
       name: item.name,
       fetch(url, options) {
         return window.fetch(url, { ...options, credentials: 'omit' })
-      },
-      exec: true
+      }
     })
 
     // 预加载

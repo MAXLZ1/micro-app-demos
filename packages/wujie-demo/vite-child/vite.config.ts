@@ -34,9 +34,6 @@ export default defineConfig(({ mode }) => ({
     },
     preprocessorOptions: {
       less: {
-        modifyVars: {
-          'ant-prefix': 'arv4',
-        },
         javascriptEnabled: true,
       }
     }

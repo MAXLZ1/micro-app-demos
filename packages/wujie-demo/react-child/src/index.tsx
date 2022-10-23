@@ -16,15 +16,13 @@ function setup() {
   root.render(
     <React.StrictMode>
       <Provider store={store}>
-        <ConfigProvider prefixCls="ar4">
-          <Suspense fallback={
-            <Spin>
-              <div style={{width: '100%', height: '200px'}}></div>
-            </Spin>
-          }>
-            <RouterProvider router={router} />
-          </Suspense>
-        </ConfigProvider>
+        <Suspense fallback={
+          <Spin>
+            <div style={{width: '100%', height: '200px'}}></div>
+          </Spin>
+        }>
+          <RouterProvider router={router} />
+        </Suspense>
       </Provider>
     </React.StrictMode>
   )  

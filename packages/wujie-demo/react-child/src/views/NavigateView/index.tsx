@@ -1,8 +1,10 @@
 import { Button, Space, Typography } from 'antd'
 
 const handleClick = ({ url }: { url: string }) => {
-  const router = window.$wujie.props.router
-  router?.push(url)
+  if (window.$wujie) {
+    const router = window.$wujie.props.router
+    router?.push(url)
+  }
 }
 const buttons = [
   {

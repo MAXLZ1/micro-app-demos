@@ -32,9 +32,6 @@ export default defineConfig(({ mode }) => {
         less: {
           additionalData:
             '@import "node_modules/ant-design-vue/dist/antd.less";',
-          modifyVars: {
-            'ant-prefix': 'mav3'
-          },
           javascriptEnabled: true
         }
       }

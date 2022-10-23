@@ -16,9 +16,6 @@ module.exports = defineConfig({
     loaderOptions: {
       less: {
         lessOptions: {
-          modifyVars: {
-            'ant-prefix': 'av2',
-          },
           javascriptEnabled: true,
         },
       },
