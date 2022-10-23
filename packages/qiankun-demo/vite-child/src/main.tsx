@@ -1,5 +1,5 @@
 import '@/public-path'
-import '@/reset.css'
+// import '@/reset.css'
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import { memoryRouter, router } from '@/router'
