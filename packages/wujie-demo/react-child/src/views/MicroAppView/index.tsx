@@ -3,6 +3,8 @@ import { Alert, Cascader, Form, Space } from 'antd'
 import { useState } from 'react'
 import WujieReact from "wujie-react"
 
+const { setupApp, bus } = WujieReact
+
 export const vue2AppEntry = process.env.REACT_APP_VUE2_CHILD_PUBLIC_PATH
 export const viteAppEntry = process.env.REACT_APP_VITE_CHILD_PUBLIC_PATH
 
@@ -45,7 +47,16 @@ if (window.$wujie) {
 }
 
 const props = { router }
-const { bus } = WujieReact
+
+Object.values(apps).forEach(item => {
+  setupApp({
+    name: item.name,
+    attrs: {
+      // 修改iframe src attr，防止github pages csp报错
+      src: item.url,
+    }
+  })
+})
 
 export default function MicroAppView() {
   const user = useAppSelector(state => state.user.user)

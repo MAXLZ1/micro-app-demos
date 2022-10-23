@@ -7,20 +7,25 @@ export function setupApp() {
   const { apps } = useAppStore()
 
   apps.forEach((item) => {
-    setupAppOfWujie({
-      name: item.name,
-      attrs: {
-        src: item.url
-      }
-      // fetch(url, options) {
-      //   return window.fetch(url, { ...options, credentials: 'omit' })
-      // }
-    })
-
-    // 预加载
-    preloadApp({
-      name: item.name,
-      url: item.url
+    const names = [
+      item.name,
+      item.name + 'Coexist',
+      item.name + 'CssIsolation',
+      item.name + 'KeepAlive'
+    ]
+    names.forEach((name) => {
+      setupAppOfWujie({
+        name,
+        attrs: {
+          // 修改iframe src attr，防止github pages csp报错
+          src: item.url
+        }
+      })
+      // 预加载
+      preloadApp({
+        name,
+        url: item.url
+      })
     })
   })
 }
