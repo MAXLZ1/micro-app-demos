@@ -128,4 +128,8 @@ pnpm run wujie-demo:start
 
 ### 子应用保活
 
+`wujie`提供的[alive](https://wujie-micro.github.io/doc/api/startApp.html#alive)配置。
+
 ### 接入vite子应用
+
+`vite`子应用需要注意在入口文件主动调用`window.__WUJIE.mount()`方法。

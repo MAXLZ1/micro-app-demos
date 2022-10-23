@@ -29,7 +29,6 @@ onMounted(() => {
 })
 
 onBeforeUnmount(async () => {
-  console.log(1111)
   if (app && app.getStatus() === 'MOUNTED') {
     await app.unmount()
   }
