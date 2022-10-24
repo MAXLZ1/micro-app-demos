@@ -50,9 +50,7 @@ pnpm run wujie-demo:start
 
 ### CSS隔离
 
-框架处理：`ant design`提供了统一修改`CSS`前缀的方案（子应用统一将`Select`, `Tooltip`等组件挂载到父节点上）
-
-正常情况使用`scoped`、`module css`等方式进行隔离。
+`wujie`采用`webcomponent`创建了一个`wujie`标签，天然的`CSS`隔离，应用无需任何处理。
 
 ### 主子应用间跳转
 
