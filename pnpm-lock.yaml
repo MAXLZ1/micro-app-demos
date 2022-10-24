@@ -5,6 +5,190 @@ importers:
   .:
     specifiers: {}
 
+  packages/garfish-demo/react-child:
+    specifiers:
+      '@craco/craco': ^6.4.5
+      '@reduxjs/toolkit': ^1.8.5
+      '@testing-library/jest-dom': ^5.14.1
+      '@testing-library/react': ^13.0.0
+      '@testing-library/user-event': ^13.2.1
+      '@types/jest': ^27.0.1
+      '@types/node': ^16.11.63
+      '@types/react': ^18.0.0
+      '@types/react-dom': ^18.0.0
+      antd: ^4.23.4
+      babel-plugin-import: ^1.13.5
+      craco-less: ^2.0.0
+      less: ^4.1.3
+      less-loader: ^11.0.0
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      react-redux: ^8.0.4
+      react-router-dom: ^6.4.1
+      react-scripts: 5.0.1
+      typescript: ^4.4.2
+      web-vitals: ^2.1.0
+    dependencies:
+      '@reduxjs/toolkit': registry.npmmirror.com/@reduxjs/toolkit/1.8.5_kuo2ie247izvzll3jejufdtq3q
+      '@testing-library/jest-dom': registry.npmmirror.com/@testing-library/jest-dom/5.16.5
+      '@testing-library/react': registry.npmmirror.com/@testing-library/react/13.4.0_biqbaboplfbrettd7655fr4n2y
+      '@testing-library/user-event': registry.npmmirror.com/@testing-library/user-event/13.5.0
+      '@types/jest': registry.npmmirror.com/@types/jest/27.5.2
+      '@types/react': registry.npmmirror.com/@types/react/18.0.21
+      '@types/react-dom': registry.npmmirror.com/@types/react-dom/18.0.6
+      antd: registry.npmmirror.com/antd/4.23.4_biqbaboplfbrettd7655fr4n2y
+      react: registry.npmmirror.com/react/18.2.0
+      react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
+      react-redux: registry.npmmirror.com/react-redux/8.0.4_5uumaiclxbdbzaqafclbf6maf4
+      react-router-dom: registry.npmmirror.com/react-router-dom/6.4.2_biqbaboplfbrettd7655fr4n2y
+      react-scripts: registry.npmmirror.com/react-scripts/5.0.1_qtbnez4q7bzoc4eqybg3efzzxe
+      typescript: registry.npmmirror.com/typescript/4.7.4
+      web-vitals: registry.npmmirror.com/web-vitals/2.1.4
+    devDependencies:
+      '@craco/craco': registry.npmmirror.com/@craco/craco/6.4.5_drmydzj6nxe2jw5bdsrfgs75wi
+      '@types/node': registry.npmmirror.com/@types/node/16.11.63
+      babel-plugin-import: registry.npmmirror.com/babel-plugin-import/1.13.5
+      craco-less: registry.npmmirror.com/craco-less/2.0.0_xgxnkve2gkwyphykbzlgtzhxmi
+      less: registry.npmmirror.com/less/4.1.3
+      less-loader: registry.npmmirror.com/less-loader/11.0.0_less@4.1.3
+
+  packages/garfish-demo/vite-child:
+    specifiers:
+      '@reduxjs/toolkit': ^1.8.5
+      '@types/react': ^18.0.17
+      '@types/react-dom': ^18.0.6
+      '@vitejs/plugin-react': ^2.1.0
+      antd: ^4.23.4
+      less: ^4.1.3
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      react-redux: ^8.0.4
+      react-router-dom: ^6.4.1
+      typescript: ^4.6.4
+      vite: ^3.1.0
+      vite-plugin-imp: ^2.3.0
+    dependencies:
+      '@reduxjs/toolkit': registry.npmmirror.com/@reduxjs/toolkit/1.8.5_kuo2ie247izvzll3jejufdtq3q
+      antd: registry.npmmirror.com/antd/4.23.4_biqbaboplfbrettd7655fr4n2y
+      react: registry.npmmirror.com/react/18.2.0
+      react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
+      react-redux: registry.npmmirror.com/react-redux/8.0.4_5uumaiclxbdbzaqafclbf6maf4
+      react-router-dom: registry.npmmirror.com/react-router-dom/6.4.2_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      '@types/react': registry.npmmirror.com/@types/react/18.0.21
+      '@types/react-dom': registry.npmmirror.com/@types/react-dom/18.0.6
+      '@vitejs/plugin-react': registry.npmmirror.com/@vitejs/plugin-react/2.1.0_vite@3.1.4
+      less: registry.npmmirror.com/less/4.1.3
+      typescript: registry.npmmirror.com/typescript/4.7.4
+      vite: registry.npmmirror.com/vite/3.1.4_less@4.1.3
+      vite-plugin-imp: registry.npmmirror.com/vite-plugin-imp/2.3.0_vite@3.1.4
+
+  packages/garfish-demo/vue2-child:
+    specifiers:
+      '@garfish/bridge-vue-v2': ^1.11.2
+      '@types/node': ^18.11.3
+      '@typescript-eslint/eslint-plugin': ^5.4.0
+      '@typescript-eslint/parser': ^5.4.0
+      '@vue/cli-plugin-babel': ~5.0.0
+      '@vue/cli-plugin-eslint': ~5.0.0
+      '@vue/cli-plugin-router': ~5.0.0
+      '@vue/cli-plugin-typescript': ~5.0.0
+      '@vue/cli-service': ~5.0.0
+      '@vue/eslint-config-typescript': ^9.1.0
+      ant-design-vue: 1.7.8
+      babel-plugin-import: ^1.13.5
+      core-js: ^3.8.3
+      eslint: ^7.32.0
+      eslint-config-prettier: ^8.3.0
+      eslint-plugin-prettier: ^4.0.0
+      eslint-plugin-vue: ^8.0.3
+      less: ^3.13.1
+      less-loader: ^11.0.0
+      pinia: ^2.0.21
+      prettier: ^2.4.1
+      typescript: ~4.5.5
+      vue: ^2.6.14
+      vue-router: ^3.5.1
+      vue-template-compiler: ^2.6.14
+    dependencies:
+      '@garfish/bridge-vue-v2': registry.npmmirror.com/@garfish/bridge-vue-v2/1.11.2_vue@2.7.10
+      ant-design-vue: registry.npmmirror.com/ant-design-vue/1.7.8_42puyn3dcxirnpdjnosl7pbb6a
+      core-js: registry.npmmirror.com/core-js/3.25.4
+      pinia: registry.npmmirror.com/pinia/2.0.22_jiyxxk5b6butdcdgbgm2qjld5y
+      vue: registry.npmmirror.com/vue/2.7.10
+      vue-router: registry.npmmirror.com/vue-router/3.6.5_vue@2.7.10
+    devDependencies:
+      '@types/node': registry.npmmirror.com/@types/node/18.11.3
+      '@typescript-eslint/eslint-plugin': registry.npmmirror.com/@typescript-eslint/eslint-plugin/5.38.1_nakgmlmdca6x76hwh7kgra66pi
+      '@typescript-eslint/parser': registry.npmmirror.com/@typescript-eslint/parser/5.38.1_sgaiclxgc5mltnpgmg7py4v6ca
+      '@vue/cli-plugin-babel': registry.npmmirror.com/@vue/cli-plugin-babel/5.0.8_xnsyvwlr7gx6uegba6x3p4d6dm
+      '@vue/cli-plugin-eslint': registry.npmmirror.com/@vue/cli-plugin-eslint/5.0.8_yvnkslq6l73c7sesu7e5hzum2a
+      '@vue/cli-plugin-router': registry.npmmirror.com/@vue/cli-plugin-router/5.0.8_@vue+cli-service@5.0.8
+      '@vue/cli-plugin-typescript': registry.npmmirror.com/@vue/cli-plugin-typescript/5.0.8_xp7w3mz4yww6a2nssgu7xohphm
+      '@vue/cli-service': registry.npmmirror.com/@vue/cli-service/5.0.8_rve2tn65k4dmxt7xb77gfubbqi
+      '@vue/eslint-config-typescript': registry.npmmirror.com/@vue/eslint-config-typescript/9.1.0_iindeve4xuoksj2kcsczumngry
+      babel-plugin-import: registry.npmmirror.com/babel-plugin-import/1.13.5
+      eslint: registry.npmmirror.com/eslint/7.32.0
+      eslint-config-prettier: registry.npmmirror.com/eslint-config-prettier/8.5.0_eslint@7.32.0
+      eslint-plugin-prettier: registry.npmmirror.com/eslint-plugin-prettier/4.2.1_7gsvg5lgwpfdww3i7smtqxamuy
+      eslint-plugin-vue: registry.npmmirror.com/eslint-plugin-vue/8.7.1_eslint@7.32.0
+      less: registry.npmmirror.com/less/3.13.1
+      less-loader: registry.npmmirror.com/less-loader/11.0.0_less@3.13.1
+      prettier: registry.npmmirror.com/prettier/2.7.1
+      typescript: registry.npmmirror.com/typescript/4.5.5
+      vue-template-compiler: registry.npmmirror.com/vue-template-compiler/2.7.10
+
+  packages/garfish-demo/vue3-main:
+    specifiers:
+      '@ant-design/icons-vue': ^6.1.0
+      '@rushstack/eslint-patch': ^1.1.4
+      '@types/node': ^16.11.56
+      '@vitejs/plugin-vue': ^3.0.3
+      '@vitejs/plugin-vue-jsx': ^2.0.1
+      '@vue/eslint-config-prettier': ^7.0.0
+      '@vue/eslint-config-typescript': ^11.0.0
+      '@vue/tsconfig': ^0.1.3
+      ant-design-vue: ^3.2.12
+      eslint: ^8.22.0
+      eslint-plugin-vue: ^9.3.0
+      garfish: ^1.11.3
+      less: ^4.1.3
+      less-loader: ^11.0.0
+      npm-run-all: ^4.1.5
+      pinia: ^2.0.21
+      prettier: ^2.7.1
+      typescript: ~4.7.4
+      unplugin-vue-components: ^0.22.7
+      vite: ^3.0.9
+      vue: ^3.2.38
+      vue-router: ^4.1.5
+      vue-tsc: ^0.40.7
+    dependencies:
+      '@ant-design/icons-vue': registry.npmmirror.com/@ant-design/icons-vue/6.1.0_vue@3.2.40
+      ant-design-vue: registry.npmmirror.com/ant-design-vue/3.2.12_vue@3.2.40
+      garfish: registry.npmmirror.com/garfish/1.11.3
+      pinia: registry.npmmirror.com/pinia/2.0.22_rg374xhldfcyvjtaj3qktyfz5y
+      vue: registry.npmmirror.com/vue/3.2.40
+      vue-router: registry.npmmirror.com/vue-router/4.1.5_vue@3.2.40
+    devDependencies:
+      '@rushstack/eslint-patch': registry.npmmirror.com/@rushstack/eslint-patch/1.2.0
+      '@types/node': registry.npmmirror.com/@types/node/16.11.63
+      '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/3.1.2_vite@3.1.4+vue@3.2.40
+      '@vitejs/plugin-vue-jsx': registry.npmmirror.com/@vitejs/plugin-vue-jsx/2.0.1_vite@3.1.4+vue@3.2.40
+      '@vue/eslint-config-prettier': registry.npmmirror.com/@vue/eslint-config-prettier/7.0.0_uoqzb7ub56apwdxrwurswvvfwe
+      '@vue/eslint-config-typescript': registry.npmmirror.com/@vue/eslint-config-typescript/11.0.2_kpxf5iryryrlim2ejhkirkiuey
+      '@vue/tsconfig': registry.npmmirror.com/@vue/tsconfig/0.1.3_@types+node@16.11.63
+      eslint: registry.npmmirror.com/eslint/8.24.0
+      eslint-plugin-vue: registry.npmmirror.com/eslint-plugin-vue/9.5.1_eslint@8.24.0
+      less: registry.npmmirror.com/less/4.1.3
+      less-loader: registry.npmmirror.com/less-loader/11.0.0_less@4.1.3
+      npm-run-all: registry.npmmirror.com/npm-run-all/4.1.5
+      prettier: registry.npmmirror.com/prettier/2.7.1
+      typescript: registry.npmmirror.com/typescript/4.7.4
+      unplugin-vue-components: registry.npmmirror.com/unplugin-vue-components/0.22.7_vue@3.2.40
+      vite: registry.npmmirror.com/vite/3.1.4_less@4.1.3
+      vue-tsc: registry.npmmirror.com/vue-tsc/0.40.13_typescript@4.7.4
+
   packages/icestark-demo/react-child:
     specifiers:
       '@craco/craco': ^6.4.5
@@ -3039,6 +3223,97 @@ packages:
       strip-json-comments: registry.npmmirror.com/strip-json-comments/3.1.1
     transitivePeerDependencies:
       - supports-color
+
+  registry.npmmirror.com/@garfish/bridge-vue-v2/1.11.2_vue@2.7.10:
+    resolution: {integrity: sha512-ijGZHlL0YDjB5xkDI21eJTMg1hKLbiB/satcN63sZCitSMujPR8BDpfxsLZweD10MuMCGOqcHQCijgy2kX2epA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@garfish/bridge-vue-v2/-/bridge-vue-v2-1.11.2.tgz}
+    id: registry.npmmirror.com/@garfish/bridge-vue-v2/1.11.2
+    name: '@garfish/bridge-vue-v2'
+    version: 1.11.2
+    peerDependencies:
+      vue: '=2'
+    dependencies:
+      vue: registry.npmmirror.com/vue/2.7.10
+    dev: false
+
+  registry.npmmirror.com/@garfish/browser-snapshot/1.11.3:
+    resolution: {integrity: sha512-+mcXT6RD+MJM1tDWUCq7Q0S+9c28jBQWeLnf4Zm1gDUKDPPnjBFiFLnoCN9ipO2q+h3GAj0NOKUTfTFyQoK6qQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@garfish/browser-snapshot/-/browser-snapshot-1.11.3.tgz}
+    name: '@garfish/browser-snapshot'
+    version: 1.11.3
+    dependencies:
+      '@garfish/core': registry.npmmirror.com/@garfish/core/1.11.3
+      '@garfish/utils': registry.npmmirror.com/@garfish/utils/1.11.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  registry.npmmirror.com/@garfish/browser-vm/1.11.3:
+    resolution: {integrity: sha512-rPO3osereQTU03RNFUEMAiDPQB0kqto54KielsF1hd/5OZkygKff1exb+QV6WFQ4FQC6BU9imJcCBromekOr5Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@garfish/browser-vm/-/browser-vm-1.11.3.tgz}
+    name: '@garfish/browser-vm'
+    version: 1.11.3
+    dependencies:
+      '@garfish/core': registry.npmmirror.com/@garfish/core/1.11.3
+      '@garfish/hooks': registry.npmmirror.com/@garfish/hooks/1.11.3
+      '@garfish/loader': registry.npmmirror.com/@garfish/loader/1.11.3
+      '@garfish/utils': registry.npmmirror.com/@garfish/utils/1.11.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  registry.npmmirror.com/@garfish/core/1.11.3:
+    resolution: {integrity: sha512-X0QGqhzNA6YswT/lvUqP2heuh5SLEPSbsfwvxf42ZYsGNNysdNu812lBdQwP1Nptn7iT+ytGXkxUiDF/D0IX2Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@garfish/core/-/core-1.11.3.tgz}
+    name: '@garfish/core'
+    version: 1.11.3
+    dependencies:
+      '@garfish/hooks': registry.npmmirror.com/@garfish/hooks/1.11.3
+      '@garfish/loader': registry.npmmirror.com/@garfish/loader/1.11.3
+      '@garfish/utils': registry.npmmirror.com/@garfish/utils/1.11.3
+      es-module-lexer: registry.npmmirror.com/es-module-lexer/0.10.5
+      eventemitter2: registry.npmmirror.com/eventemitter2/6.4.9
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  registry.npmmirror.com/@garfish/hooks/1.11.3:
+    resolution: {integrity: sha512-Tweb78LmpLh4aKBanK60UsBS6YAg10fFSFSCUKR0fKH4udYF2l1L2aKuDz+OWzkMNx+bGqZ0Hge1w6uLbGWirQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@garfish/hooks/-/hooks-1.11.3.tgz}
+    name: '@garfish/hooks'
+    version: 1.11.3
+    dependencies:
+      '@garfish/utils': registry.npmmirror.com/@garfish/utils/1.11.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  registry.npmmirror.com/@garfish/loader/1.11.3:
+    resolution: {integrity: sha512-pBHMIGsQBst2e8oEmeu1rf2Lpen/rrxQVVzOd2K4OeILLkvWn6QjIrnFBWdsjETjk/X/9qj18RJkPKwFSUUQaw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@garfish/loader/-/loader-1.11.3.tgz}
+    name: '@garfish/loader'
+    version: 1.11.3
+    dependencies:
+      '@garfish/hooks': registry.npmmirror.com/@garfish/hooks/1.11.3
+      '@garfish/utils': registry.npmmirror.com/@garfish/utils/1.11.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  registry.npmmirror.com/@garfish/router/1.11.3:
+    resolution: {integrity: sha512-18bHfOWoSlzVFFVZRF9fl54XC4+PogNUERY4ex+UprY3R8DO3QsnunEaKMPBNZt1he6V5doHt35n8Uld/RFUEg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@garfish/router/-/router-1.11.3.tgz}
+    name: '@garfish/router'
+    version: 1.11.3
+    dependencies:
+      '@garfish/core': registry.npmmirror.com/@garfish/core/1.11.3
+      '@garfish/utils': registry.npmmirror.com/@garfish/utils/1.11.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  registry.npmmirror.com/@garfish/utils/1.11.3:
+    resolution: {integrity: sha512-0s25fQO4tYivL5EwqxWqOmRp3d2iZcj5bAzJc/5Rk5354+v6daQguXx3Ozivprpv24pGsB5LKSlHwP8BlG4L1Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@garfish/utils/-/utils-1.11.3.tgz}
+    name: '@garfish/utils'
+    version: 1.11.3
+    dependencies:
+      debug: registry.npmmirror.com/debug/4.3.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   registry.npmmirror.com/@hapi/hoek/9.3.0:
     resolution: {integrity: sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@hapi/hoek/-/hoek-9.3.0.tgz}
@@ -8098,6 +8373,12 @@ packages:
     name: es-array-method-boxes-properly
     version: 1.0.0
 
+  registry.npmmirror.com/es-module-lexer/0.10.5:
+    resolution: {integrity: sha512-+7IwY/kiGAacQfY+YBhKMvEmyAJnw5grTUgjG85Pe7vcUI/6b7pZjZG8nQ7+48YhzEAEqrEgD2dCz/JIK+AYvw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/es-module-lexer/-/es-module-lexer-0.10.5.tgz}
+    name: es-module-lexer
+    version: 0.10.5
+    dev: false
+
   registry.npmmirror.com/es-module-lexer/0.9.3:
     resolution: {integrity: sha512-1HQ2M2sPtxwnvOvT1ZClHyQDiggdNjURWpY2we6aMKCQiUVxTmVs2UYPLIrD84sS+kMdUwfBSylbJPwNnBrnHQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/es-module-lexer/-/es-module-lexer-0.9.3.tgz}
     name: es-module-lexer
@@ -9031,6 +9312,12 @@ packages:
     version: 1.8.1
     engines: {node: '>= 0.6'}
 
+  registry.npmmirror.com/eventemitter2/6.4.9:
+    resolution: {integrity: sha512-JEPTiaOt9f04oa6NOkc4aH+nVp5I3wEjpHbIPqfgCdD5v5bUzy7xQqwcVO2aDQgOWhI28da57HksMrzK9HlRxg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/eventemitter2/-/eventemitter2-6.4.9.tgz}
+    name: eventemitter2
+    version: 6.4.9
+    dev: false
+
   registry.npmmirror.com/eventemitter3/4.0.7:
     resolution: {integrity: sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/eventemitter3/-/eventemitter3-4.0.7.tgz}
     name: eventemitter3
@@ -9494,6 +9781,20 @@ packages:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/functions-have-names/-/functions-have-names-1.2.3.tgz}
     name: functions-have-names
     version: 1.2.3
+
+  registry.npmmirror.com/garfish/1.11.3:
+    resolution: {integrity: sha512-A298TAtGje85DDKaQX2wcsS9ZM5jwH8hBHNLsebLrxgQnwndY77TVMmFvOcytbv/7ZAwxLaQyRuOrKealtFeeA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/garfish/-/garfish-1.11.3.tgz}
+    name: garfish
+    version: 1.11.3
+    dependencies:
+      '@garfish/browser-snapshot': registry.npmmirror.com/@garfish/browser-snapshot/1.11.3
+      '@garfish/browser-vm': registry.npmmirror.com/@garfish/browser-vm/1.11.3
+      '@garfish/core': registry.npmmirror.com/@garfish/core/1.11.3
+      '@garfish/router': registry.npmmirror.com/@garfish/router/1.11.3
+      '@garfish/utils': registry.npmmirror.com/@garfish/utils/1.11.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   registry.npmmirror.com/gensync/1.0.0-beta.2:
     resolution: {integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/gensync/-/gensync-1.0.0-beta.2.tgz}

@@ -12,7 +12,9 @@
     "icestark-demo:start": "pnpm --filter \"@icestark-demo/*\" -r --stream run start",
     "icestark-demo:build": "pnpm --filter \"@icestark-demo/*\" -r --stream run build",
     "wujie-demo:start": "pnpm --filter \"@wujie-demo/*\" -r --stream run start",
-    "wujie-demo:build": "pnpm --filter \"@wujie-demo/*\" -r --stream run build"
+    "wujie-demo:build": "pnpm --filter \"@wujie-demo/*\" -r --stream run build",
+    "garfish-demo:start": "pnpm --filter \"@garfish-demo/*\" -r --stream run start",
+    "garfish-demo:build": "pnpm --filter \"@garfish-demo/*\" -r --stream run build"
   },
   "author": "MAXLZ",
   "license": "ISC",

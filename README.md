@@ -133,3 +133,38 @@ pnpm run wujie-demo:start
 - [x] 接入vite子应用
 
 具体功能实现细节参考：[功能实现说明](https://github.com/MAXLZ1/micro-app-demos/tree/main/packages/wujie-demo#功能实现说明)
+
+## Garfish demo
+
+由于`Garfish`主应用不支持使用`hash`模式路由，所以`Garfish demo`使用`history`模式的路由。
+
+线上地址：[https://maxlz1.github.io/micro-app-demos/garfish-demo/vue3-main/](https://maxlz1.github.io/micro-app-demos/garfish-demo/vue3-main/)
+
+本地启动命令
+```bash
+pnpm i
+pnpm run garfish-demo:start
+```
+
+### 文件目录
+
+```bash
+└── garfish-demo
+    ├── react-child # react18子应用(作为嵌套应用的主应用)
+    ├── vite-child # react18-vite子应用
+    ├── vue2-child # vue2子应用
+    └── vue3-main # vue3主应用
+```
+
+### 功能列表[](README.md)
+
+- [x] 应用间通信
+- [ ] 多个子应用共存
+- [ ] CSS隔离
+- [ ] 主子应用间跳转
+- [ ] 嵌套子应用
+- [ ] 资源预加载
+- [ ] 子应用保活
+- [x] 接入vite子应用
+
+具体功能实现细节参考：[功能实现说明](https://github.com/MAXLZ1/micro-app-demos/tree/main/packages/garfish-demo#功能实现说明)
