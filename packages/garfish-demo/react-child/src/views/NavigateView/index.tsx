@@ -1,28 +1,35 @@
 import { Button, Space, Typography } from 'antd'
 
 export default function NavigateView() {
-  const handleClick = ({ url }: { url: string }) => {
-    window.history.pushState({}, '', window.location.pathname + url)
+  const handleClick = ({ path, basename }: { path: string, basename: string }) => {
+    window.Garfish.router?.push({
+      path,
+      basename,
+    })
   }
   const buttons = [
     {
-      url: '#/main/communication-test',
+      path: '/main/communication-test',
+      basename: '',
       label: '跳转至主应用 page1'
     },
     {
-      url: '#/vue2App/communication-test',
+      path: '/communication-test',
+      basename: '/vue2App',
       label: '跳转至Vue2子应用'
     },
     {
-      url: '#/reactApp/communication-test',
+      path: '/communication-test',
+      basename: '/reactApp',
       label: '跳转至React18子应用'
     },
     {
-      url: '#/viteApp/communication-test',
+      path: '/communication-test',
+      basename: '/viteApp',
       label: '跳转至Vite子应用'
     },
   ].map(item => (
-    <Button type="primary" onClick={() => handleClick(item)} key={item.url}>{item.label}</Button>
+    <Button type="primary" onClick={() => handleClick(item)} key={item.basename + item.path}>{item.label}</Button>
   ))
 
   return (

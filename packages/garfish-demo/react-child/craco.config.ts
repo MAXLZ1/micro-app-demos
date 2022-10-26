@@ -22,7 +22,6 @@ const config = {
       "@": path.resolve("src")
     },
     configure: (webpackConfig: any, { paths }: any) => {
-      paths.appBuild = 'dist'
       webpackConfig.output = {
         ...webpackConfig.output,
         // library: `${name}-[name]`,
