@@ -1,2 +1,2 @@
 "use strict";(window["webpackChunk_garfish_demo_vue2_child"]=window["webpackChunk_garfish_demo_vue2_child"]||[]).push([[71],{20071:function(u,e,n){n.r(e),n.d(e,{default:function(){return c}});var r=function(){var u=this,e=u._self._c;return e("router-view")},i=[],t={name:"Layout"},o=t,_=n(90879),a=(0,_.Z)(o,r,i,!1,null,"28413651",null),c=a.exports}}]);
-//# sourceMappingURL=71.09974147ebc64564.js.map
+//# sourceMappingURL=71.09974147.js.map
