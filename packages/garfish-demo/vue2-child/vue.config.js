@@ -28,8 +28,6 @@ module.exports = defineConfig({
     output: {
       // 开发环境设置 true 将会导致热更新失效
       clean: process.env.MODE === 'production',
-      filename: '[name].[contenthash].js',
-      chunkFilename: '[name].[contenthash].js',
       // 需要配置成 umd 规范
       libraryTarget: 'umd',
       // 修改不规范的代码格式，避免逃逸沙箱
