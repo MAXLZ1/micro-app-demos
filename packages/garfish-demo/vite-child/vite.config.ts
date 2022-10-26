@@ -33,6 +33,9 @@ export default defineConfig(({ mode }) => ({
     }),
   ],
   css: {
+    modules: {
+      localsConvention: 'camelCaseOnly',
+    },
     preprocessorOptions: {
       less: {
         modifyVars: {

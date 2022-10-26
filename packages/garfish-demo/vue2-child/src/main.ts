@@ -19,8 +19,9 @@ export const provider = () => {
   let app: Vue | null = null
   let routerInstance: VueRouter | null = null
   return {
-    render({ basename, dom }: any) {
-      routerInstance = baseRouter(basename)
+    render({ basename, dom, props }: any) {
+      // 如果存在props.path，启用abstract路由
+      routerInstance = baseRouter(basename, props.path ? 'abstract' : 'history')
       app = new Vue({
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
@@ -29,6 +30,9 @@ export const provider = () => {
         render: (h) => h(App),
       }).$mount(dom.querySelector('#app'))
 
+      if (props.path) {
+        routerInstance.push(props.path)
+      }
       window?.Garfish.channel.on('userInfo', handleUserInfo)
     },
     destroy() {

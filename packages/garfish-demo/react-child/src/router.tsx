@@ -1,6 +1,8 @@
-import { createBrowserRouter, Outlet } from 'react-router-dom'
+import { createBrowserRouter, createMemoryRouter, Outlet } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
 import React, { lazy } from 'react'
+
+type Mode = 'history' | 'memory'
 
 const CommunicationTest = lazy(() => import('@/views/CommunicationTest'))
 const CssIsolation = lazy(() => import('@/views/CssIsolation'))
@@ -14,6 +16,7 @@ const routes: RouteObject[] = [
   {
     path: '/',
     element: <Outlet />,
+    errorElement: <div>error</div>,
     children: [
       { index: true, element: <CommunicationTest /> },
       {
@@ -40,8 +43,8 @@ const routes: RouteObject[] = [
   },
 ]
 
-export function createRouter (basename: string) {
-  return createBrowserRouter(routes, {
+export function createRouter (basename: string, mode: Mode = 'history') {
+  return (mode === 'history' ? createBrowserRouter : createMemoryRouter)(routes, {
     basename
   })
 }

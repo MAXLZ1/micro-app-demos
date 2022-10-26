@@ -30,7 +30,7 @@ pnpm run garfish-demo:start
 ## 功能列表
 
 - [x] 应用间通信
-- [ ] 多个子应用共存
+- [x] 多个子应用共存
 - [ ] CSS隔离
 - [ ] 主子应用间跳转
 - [ ] 嵌套子应用
@@ -47,9 +47,140 @@ pnpm run garfish-demo:start
 
 ### 多个子应用共存
 
+使用[Garfish.loadApp](https://www.garfishjs.org/api/loadApp)，手动控制子应用的加载与卸载。
+
+为了摆脱主应用的路由驱动模式，Vue子应用路由使用`abstract`，React子应用使用`memory`路由。（项目中通过`props.path`来判断是否启用`abstract`或`memory`路由。）
+
+**主应用**
+
+```vue
+<template>
+  <div ref="one"></div>
+</template>
+
+<script lang="ts">
+export default {
+  name: 'CssIsolation'
+}
+</script>
+
+<script lang="ts" setup>
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import Garfish, { type interfaces } from 'garfish'
+
+const one = ref<HTMLElement | null>(null)
+
+let vueApp: interfaces.App | null = null
+
+onMounted(async () => {
+  vueApp = await Garfish.loadApp(vueAppInfo.value.name, {
+    domGetter: () => one.value!,
+    entry: vueAppInfo.value.entry,
+    // 作为子应用的basename
+    basename: '/css-isolation',
+    props: {
+      // 传递要跳转的path，子应用以此判断是否存启用abstract或memory
+      path: '/css-isolation'
+    }
+  }),
+  vueApp?.mount()
+})
+
+onBeforeUnmount(() => {
+  vueApp?.unmount()
+})
+</script>
+```
+
+**vue2子应用**
+
+```ts
+export const provider = () => {
+  let app: Vue | null = null
+  let routerInstance: VueRouter | null = null
+  return {
+    render({ basename, dom, props }: any) {
+      // 如果存在props.path，启用abstract路由
+      routerInstance = baseRouter(basename, props.path ? 'abstract' : 'history')
+      app = new Vue({
+        router: routerInstance,
+        pinia: createPinia(),
+        render: (h) => h(App),
+      }).$mount(dom.querySelector('#app'))
+
+      // 进行路由跳转
+      if (props.path) {
+        routerInstance.push(props.path)
+      }
+      window?.Garfish.channel.on('userInfo', handleUserInfo)
+    },
+    destroy() {
+      window?.Garfish.channel.removeListener('userInfo', handleUserInfo)
+      app?.$destroy()
+      app = null
+      routerInstance = null
+    },
+  }
+}
+```
+
+**react18子应用**
+
+```ts
+export const provider = () => {
+  let root: ReactDOM.Root | null = null
+  let router: RouterProviderProps["router"] | null = null
+
+  return {
+    render({ basename, dom, props }: any) {
+      window?.Garfish.channel.on('userInfo', handleUserInfo)
+      
+      const container = dom.querySelector('#root')!
+      // 如果存在props.path，启用memory路由
+      router = createRouter(basename, props.path ? 'memory' : 'history')
+      root = ReactDOM.createRoot(container)
+
+      root.render(<React.StrictMode>
+        <Provider store={store}>
+          <ConfigProvider prefixCls="ar4" getPopupContainer={node => {
+            if (node) {
+              return node.parentNode as HTMLElement
+            }
+            return dom
+          }}>
+            <Suspense fallback={
+              <Spin>
+                <div style={{width: '100%', height: '200px'}}></div>
+              </Spin>
+            }>
+              <RouterProvider router={router} />
+            </Suspense>
+          </ConfigProvider>
+        </Provider>
+      </React.StrictMode>)
+
+      // 进行路由跳转，React子应用需要拼接basename
+      if (props.path) {
+        router.navigate(basename + props.path)
+      }
+      
+    },
+    destroy() {
+      root?.unmount()
+      router?.dispose()
+      root = null
+      router = null
+      window?.Garfish.channel.removeListener('userInfo', handleUserInfo)
+    },
+  }
+}
+```
 
 ### CSS隔离
 
+框架处理：`ant design`提供了统一修改`CSS`前缀的方案（子应用统一将`Select`, `Tooltip`等组件挂载到父节点上）
+
+正常情况使用`scoped`、`module css`等方式进行隔离。
 
 ### 主子应用间跳转
 

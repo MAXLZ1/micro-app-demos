@@ -115,18 +115,27 @@ onMounted(async () => {
     Garfish.loadApp(vueAppInfo.value.name, {
       domGetter: () => one.value!,
       entry: vueAppInfo.value.entry,
-      basename: '/coexist-micro-app'
+      basename: '/coexist-micro-app',
+      props: {
+        path: '/communication-test'
+      }
     }),
     Garfish.loadApp(reactAppInfo.value.name, {
       domGetter: () => two.value!,
       entry: reactAppInfo.value.entry,
-      basename: '/coexist-micro-app'
+      basename: '/coexist-micro-app',
+      props: {
+        path: '/communication-test'
+      }
     }),
     Garfish.loadApp(viteAppInfo.value.name, {
       domGetter: () => three.value!,
       entry: viteAppInfo.value.entry,
       basename: '/coexist-micro-app',
-      sandbox: false
+      sandbox: false,
+      props: {
+        path: '/communication-test'
+      }
     })
   ])
   vueApp?.mount()

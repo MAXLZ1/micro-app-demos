@@ -22,22 +22,12 @@ function transformRoutes(menus: Menu[], parentPath = ''): RouteRecordRaw[] {
       routeItem.name = `top${item.key}`
       routeItem.component = () => import('@/views/Layout.vue')
       routeItem.path = ''
-      // coexist-micro-app路径下需要显示多个微应用
-      if (path === 'coexist-micro-app') {
-        routeItem.children = [
-          {
-            name: item.key + '',
-            path: `/${item.path}/:pathMatch(.*)*`
-          } as RouteRecordRaw
-        ]
-      } else {
-        routeItem.children = [
-          {
-            name: item.key + '',
-            path: `/${item.path}`
-          } as RouteRecordRaw
-        ]
-      }
+      routeItem.children = [
+        {
+          name: item.key + '',
+          path: `/${item.path}`
+        } as RouteRecordRaw
+      ]
       if (component) {
         routeItem.children[0].component = globs[`../views/${component}`]
       }

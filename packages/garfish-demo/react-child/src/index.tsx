@@ -20,11 +20,12 @@ export const provider = () => {
   let router: RouterProviderProps["router"] | null = null
 
   return {
-    render({ basename, dom }: any) {
+    render({ basename, dom, props }: any) {
       window?.Garfish.channel.on('userInfo', handleUserInfo)
       
       const container = dom.querySelector('#root')!
-      router = createRouter(basename)
+      // 如果存在props.path，启用memory路由
+      router = createRouter(basename, props.path ? 'memory' : 'history')
       root = ReactDOM.createRoot(container)
 
       root.render(<React.StrictMode>
@@ -46,6 +47,9 @@ export const provider = () => {
         </Provider>
       </React.StrictMode>)
 
+      if (props.path) {
+        router.navigate(basename + props.path)
+      }
       
     },
     destroy() {

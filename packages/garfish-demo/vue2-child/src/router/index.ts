@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import VueRouter, { type RouterMode } from 'vue-router'
 import lazyLoad from '@/utils/lazyLoad'
 import type { RouteConfig } from 'vue-router'
 
@@ -46,9 +46,9 @@ const router = new VueRouter({
   routes,
 })
 
-export function baseRouter(base: string) {
+export function baseRouter(base: string, mode: RouterMode = 'history') {
   return new VueRouter({
-    mode: 'history',
+    mode,
     base: base,
     routes,
   })
