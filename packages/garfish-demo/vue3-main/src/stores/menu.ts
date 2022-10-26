@@ -22,10 +22,22 @@ function transformRoutes(menus: Menu[], parentPath = ''): RouteRecordRaw[] {
       routeItem.name = `top${item.key}`
       routeItem.component = () => import('@/views/Layout.vue')
       routeItem.path = ''
-      routeItem.children = [ {
-        name: item.key + '',
-        path: `/${item.path}`
-      } as RouteRecordRaw ]
+      // coexist-micro-app路径下需要显示多个微应用
+      if (path === 'coexist-micro-app') {
+        routeItem.children = [
+          {
+            name: item.key + '',
+            path: `/${item.path}/:pathMatch(.*)*`
+          } as RouteRecordRaw
+        ]
+      } else {
+        routeItem.children = [
+          {
+            name: item.key + '',
+            path: `/${item.path}`
+          } as RouteRecordRaw
+        ]
+      }
       if (component) {
         routeItem.children[0].component = globs[`../views/${component}`]
       }
@@ -61,7 +73,7 @@ function combineMenuPath(menus: Menu[], parentPath = ''): Menu[] {
 
 function flatMenu(menu: Menu[]): Menu[] {
   return menu.reduce((res, cur) => {
-    if (cur.children && cur.children.length > 0 ) {
+    if (cur.children && cur.children.length > 0) {
       res.push(...flatMenu(cur.children))
     }
     res.push(cur)
@@ -74,7 +86,9 @@ export const useMenuStore = defineStore('menu', () => {
   const flattenMenuList = reactive<Menu[]>(flatMenu(menuList))
 
   const addRoutes = () => {
-    transformRoutes(menu).forEach(item => router.addRoute(item))
+    transformRoutes(menu).forEach((item) => {
+      router.addRoute(item)
+    })
   }
 
   return { menuList, addRoutes, flattenMenuList }

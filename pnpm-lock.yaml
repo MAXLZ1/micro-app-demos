@@ -85,7 +85,6 @@ importers:
 
   packages/garfish-demo/vue2-child:
     specifiers:
-      '@garfish/bridge-vue-v2': ^1.11.2
       '@types/node': ^18.11.3
       '@typescript-eslint/eslint-plugin': ^5.4.0
       '@typescript-eslint/parser': ^5.4.0
@@ -111,7 +110,6 @@ importers:
       vue-router: ^3.5.1
       vue-template-compiler: ^2.6.14
     dependencies:
-      '@garfish/bridge-vue-v2': registry.npmmirror.com/@garfish/bridge-vue-v2/1.11.2_vue@2.7.10
       ant-design-vue: registry.npmmirror.com/ant-design-vue/1.7.8_42puyn3dcxirnpdjnosl7pbb6a
       core-js: registry.npmmirror.com/core-js/3.25.4
       pinia: registry.npmmirror.com/pinia/2.0.22_jiyxxk5b6butdcdgbgm2qjld5y
@@ -3223,17 +3221,6 @@ packages:
       strip-json-comments: registry.npmmirror.com/strip-json-comments/3.1.1
     transitivePeerDependencies:
       - supports-color
-
-  registry.npmmirror.com/@garfish/bridge-vue-v2/1.11.2_vue@2.7.10:
-    resolution: {integrity: sha512-ijGZHlL0YDjB5xkDI21eJTMg1hKLbiB/satcN63sZCitSMujPR8BDpfxsLZweD10MuMCGOqcHQCijgy2kX2epA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@garfish/bridge-vue-v2/-/bridge-vue-v2-1.11.2.tgz}
-    id: registry.npmmirror.com/@garfish/bridge-vue-v2/1.11.2
-    name: '@garfish/bridge-vue-v2'
-    version: 1.11.2
-    peerDependencies:
-      vue: '=2'
-    dependencies:
-      vue: registry.npmmirror.com/vue/2.7.10
-    dev: false
 
   registry.npmmirror.com/@garfish/browser-snapshot/1.11.3:
     resolution: {integrity: sha512-+mcXT6RD+MJM1tDWUCq7Q0S+9c28jBQWeLnf4Zm1gDUKDPPnjBFiFLnoCN9ipO2q+h3GAj0NOKUTfTFyQoK6qQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@garfish/browser-snapshot/-/browser-snapshot-1.11.3.tgz}

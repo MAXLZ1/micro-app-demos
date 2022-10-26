@@ -21,6 +21,7 @@ export const provider = () => {
       window?.Garfish.channel.on('userInfo', handleUserInfo)
       const container = dom.querySelector('#root')!
       root = ReactDOM.createRoot(container)
+
       root.render(<React.StrictMode>
         <Provider store={store}>
           <ConfigProvider prefixCls="arv4" getPopupContainer={node => {

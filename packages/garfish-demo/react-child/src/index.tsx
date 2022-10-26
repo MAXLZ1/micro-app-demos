@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import { store } from '@/stores/store'
 import { ConfigProvider, Spin } from 'antd'
 import { setUser, type User } from '@/stores/userSlice'
+import type { RouterProviderProps } from 'react-router-dom'
 
 function handleUserInfo(user: User) {
   store.dispatch(dispatch => {
@@ -16,11 +17,16 @@ function handleUserInfo(user: User) {
 
 export const provider = () => {
   let root: ReactDOM.Root | null = null
+  let router: RouterProviderProps["router"] | null = null
+
   return {
-    render({ basename, dom }: { basename: string, dom: HTMLElement }) {
+    render({ basename, dom }: any) {
       window?.Garfish.channel.on('userInfo', handleUserInfo)
+      
       const container = dom.querySelector('#root')!
+      router = createRouter(basename)
       root = ReactDOM.createRoot(container)
+
       root.render(<React.StrictMode>
         <Provider store={store}>
           <ConfigProvider prefixCls="ar4" getPopupContainer={node => {
@@ -34,14 +40,19 @@ export const provider = () => {
                 <div style={{width: '100%', height: '200px'}}></div>
               </Spin>
             }>
-              <RouterProvider router={createRouter(basename)} />
+              <RouterProvider router={router} />
             </Suspense>
           </ConfigProvider>
         </Provider>
       </React.StrictMode>)
+
+      
     },
     destroy() {
       root?.unmount()
+      router?.dispose()
+      root = null
+      router = null
       window?.Garfish.channel.removeListener('userInfo', handleUserInfo)
     },
   }

@@ -4,7 +4,7 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import { listenReceiveMessage } from '@/utils/messageListener'
-import Grafish from 'garfish'
+import Garfish from 'garfish'
 import { useAppStore } from './stores/app'
 import { useUserStore } from './stores/user'
 
@@ -19,7 +19,7 @@ listenReceiveMessage()
 
 const { apps } = useAppStore()
 
-Grafish.run({
+Garfish.run({
   basename: '/',
   domGetter: '#child-app',
   apps: apps.map((item) => ({

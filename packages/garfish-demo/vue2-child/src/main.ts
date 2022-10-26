@@ -4,8 +4,8 @@ import App from '@/App.vue'
 import router from '@/router'
 import { baseRouter } from '@/router'
 import { PiniaVuePlugin, createPinia } from 'pinia'
-import { vueBridge } from '@garfish/bridge-vue-v2'
 import { type User, useUserStore } from './stores/user'
+import VueRouter from 'vue-router'
 
 Vue.config.productionTip = false
 Vue.use(PiniaVuePlugin)
@@ -15,22 +15,30 @@ function handleUserInfo(user: User) {
   setUser(user)
 }
 
-export const provider = vueBridge({
-  rootComponent: App,
-  appOptions: ({ basename }) => {
-    return {
-      el: '#app',
-      pinia: createPinia(),
-      router: baseRouter(basename),
-      destroyed() {
-        window?.Garfish.channel.removeListener('userInfo', handleUserInfo)
-      },
-    }
-  },
-  handleInstance() {
-    window?.Garfish.channel.on('userInfo', handleUserInfo)
-  },
-})
+export const provider = () => {
+  let app: Vue | null = null
+  let routerInstance: VueRouter | null = null
+  return {
+    render({ basename, dom }: any) {
+      routerInstance = baseRouter(basename)
+      app = new Vue({
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        router: routerInstance,
+        pinia: createPinia(),
+        render: (h) => h(App),
+      }).$mount(dom.querySelector('#app'))
+
+      window?.Garfish.channel.on('userInfo', handleUserInfo)
+    },
+    destroy() {
+      window?.Garfish.channel.removeListener('userInfo', handleUserInfo)
+      app?.$destroy()
+      app = null
+      routerInstance = null
+    },
+  }
+}
 
 if (!window.__GARFISH__) {
   new Vue({
