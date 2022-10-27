@@ -2,7 +2,7 @@
 
 `Garfish`主应用`hash`路由实现说明：
 
-子应用使用`abstract`或`memory`路由，那么子路由可以脱离主应用的路由控制，因此主路由可自由切换`hash`与`history`路由。
+子应用使用`abstract`或`memory`路由，那么子路由可以脱离主应用的路由控制，因此主应用可自由切换`hash`与`history`路由。
 
 线上地址：[https://maxlz1.github.io/micro-app-demos/garfish-demo/vue3-main/](https://maxlz1.github.io/micro-app-demos/garfish-demo/vue3-main/)
 
