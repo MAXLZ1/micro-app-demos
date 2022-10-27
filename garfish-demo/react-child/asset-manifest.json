@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/micro-app-demos/garfish-demo/react-child/static/css/main.dfd5857d.css",
-    "main.js": "/micro-app-demos/garfish-demo/react-child/static/js/main.e1d7c697.js",
+    "main.js": "/micro-app-demos/garfish-demo/react-child/static/js/main.9165427b.js",
     "static/css/135.a9e6ea85.chunk.css": "/micro-app-demos/garfish-demo/react-child/static/css/135.a9e6ea85.chunk.css",
     "static/js/135.c9d7fb52.chunk.js": "/micro-app-demos/garfish-demo/react-child/static/js/135.c9d7fb52.chunk.js",
     "static/css/326.21cd1678.chunk.css": "/micro-app-demos/garfish-demo/react-child/static/css/326.21cd1678.chunk.css",
@@ -9,7 +9,7 @@
     "static/css/507.39e534ef.chunk.css": "/micro-app-demos/garfish-demo/react-child/static/css/507.39e534ef.chunk.css",
     "static/js/507.cb8e71a6.chunk.js": "/micro-app-demos/garfish-demo/react-child/static/js/507.cb8e71a6.chunk.js",
     "static/css/997.dab3b162.chunk.css": "/micro-app-demos/garfish-demo/react-child/static/css/997.dab3b162.chunk.css",
-    "static/js/997.abae3447.chunk.js": "/micro-app-demos/garfish-demo/react-child/static/js/997.abae3447.chunk.js",
+    "static/js/997.6f7c67c2.chunk.js": "/micro-app-demos/garfish-demo/react-child/static/js/997.6f7c67c2.chunk.js",
     "static/css/975.747fab25.chunk.css": "/micro-app-demos/garfish-demo/react-child/static/css/975.747fab25.chunk.css",
     "static/js/975.62dbc605.chunk.js": "/micro-app-demos/garfish-demo/react-child/static/js/975.62dbc605.chunk.js",
     "static/js/422.f440a7b8.chunk.js": "/micro-app-demos/garfish-demo/react-child/static/js/422.f440a7b8.chunk.js",
@@ -22,10 +22,10 @@
     "static/js/879.8795ea99.chunk.js": "/micro-app-demos/garfish-demo/react-child/static/js/879.8795ea99.chunk.js",
     "static/css/683.22404100.chunk.css": "/micro-app-demos/garfish-demo/react-child/static/css/683.22404100.chunk.css",
     "static/js/683.79e9eaec.chunk.js": "/micro-app-demos/garfish-demo/react-child/static/js/683.79e9eaec.chunk.js",
-    "static/js/750.a88095aa.chunk.js": "/micro-app-demos/garfish-demo/react-child/static/js/750.a88095aa.chunk.js",
+    "static/js/813.ac3a5e32.chunk.js": "/micro-app-demos/garfish-demo/react-child/static/js/813.ac3a5e32.chunk.js",
     "index.html": "/micro-app-demos/garfish-demo/react-child/index.html",
     "main.dfd5857d.css.map": "/micro-app-demos/garfish-demo/react-child/static/css/main.dfd5857d.css.map",
-    "main.e1d7c697.js.map": "/micro-app-demos/garfish-demo/react-child/static/js/main.e1d7c697.js.map",
+    "main.9165427b.js.map": "/micro-app-demos/garfish-demo/react-child/static/js/main.9165427b.js.map",
     "135.a9e6ea85.chunk.css.map": "/micro-app-demos/garfish-demo/react-child/static/css/135.a9e6ea85.chunk.css.map",
     "135.c9d7fb52.chunk.js.map": "/micro-app-demos/garfish-demo/react-child/static/js/135.c9d7fb52.chunk.js.map",
     "326.21cd1678.chunk.css.map": "/micro-app-demos/garfish-demo/react-child/static/css/326.21cd1678.chunk.css.map",
@@ -33,7 +33,7 @@
     "507.39e534ef.chunk.css.map": "/micro-app-demos/garfish-demo/react-child/static/css/507.39e534ef.chunk.css.map",
     "507.cb8e71a6.chunk.js.map": "/micro-app-demos/garfish-demo/react-child/static/js/507.cb8e71a6.chunk.js.map",
     "997.dab3b162.chunk.css.map": "/micro-app-demos/garfish-demo/react-child/static/css/997.dab3b162.chunk.css.map",
-    "997.abae3447.chunk.js.map": "/micro-app-demos/garfish-demo/react-child/static/js/997.abae3447.chunk.js.map",
+    "997.6f7c67c2.chunk.js.map": "/micro-app-demos/garfish-demo/react-child/static/js/997.6f7c67c2.chunk.js.map",
     "975.747fab25.chunk.css.map": "/micro-app-demos/garfish-demo/react-child/static/css/975.747fab25.chunk.css.map",
     "975.62dbc605.chunk.js.map": "/micro-app-demos/garfish-demo/react-child/static/js/975.62dbc605.chunk.js.map",
     "422.f440a7b8.chunk.js.map": "/micro-app-demos/garfish-demo/react-child/static/js/422.f440a7b8.chunk.js.map",
@@ -46,10 +46,10 @@
     "879.8795ea99.chunk.js.map": "/micro-app-demos/garfish-demo/react-child/static/js/879.8795ea99.chunk.js.map",
     "683.22404100.chunk.css.map": "/micro-app-demos/garfish-demo/react-child/static/css/683.22404100.chunk.css.map",
     "683.79e9eaec.chunk.js.map": "/micro-app-demos/garfish-demo/react-child/static/js/683.79e9eaec.chunk.js.map",
-    "750.a88095aa.chunk.js.map": "/micro-app-demos/garfish-demo/react-child/static/js/750.a88095aa.chunk.js.map"
+    "813.ac3a5e32.chunk.js.map": "/micro-app-demos/garfish-demo/react-child/static/js/813.ac3a5e32.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dfd5857d.css",
-    "static/js/main.e1d7c697.js"
+    "static/js/main.9165427b.js"
   ]
 }
