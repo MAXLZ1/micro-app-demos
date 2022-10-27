@@ -37,7 +37,7 @@ pnpm run garfish-demo:start
 - [x] 多个子应用共存
 - [x] CSS隔离
 - [x] 主子应用间跳转
-- [ ] 嵌套子应用
+- [x] 嵌套子应用
 - [ ] 资源预加载
 - [ ] 子应用保活
 - [x] 接入vite子应用
@@ -241,6 +241,7 @@ export default function NavigateView() {
 
 ### 嵌套子应用
 
+使用[Garfish.loadApp](https://www.garfishjs.org/api/loadApp)嵌套子应用。
 
 ### 资源预加载
 
