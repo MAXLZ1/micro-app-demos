@@ -1,7 +1,7 @@
 import React, { lazy } from 'react'
-import { createBrowserRouter, createMemoryRouter, Outlet, RouteObject } from 'react-router-dom'
+import { createHashRouter, createMemoryRouter, Outlet, RouteObject } from 'react-router-dom'
 
-type Mode = 'history' | 'memory'
+type Mode = 'hash' | 'memory'
 
 const CommunicationTest = lazy(() => import('@/views/CommunicationTest'))
 const NavigateView = lazy(() => import('@/views/NavigateView'))
@@ -36,8 +36,8 @@ const routes: RouteObject[] = [
   }
 ]
 
-export function createRouter (basename: string, mode: Mode = 'history') {
-  return (mode === 'history' ? createBrowserRouter : createMemoryRouter)(routes, {
+export function createRouter (basename: string, mode: Mode = 'hash') {
+  return (mode === 'hash' ? createHashRouter : createMemoryRouter)(routes, {
     basename
   })
 }

@@ -136,8 +136,6 @@ pnpm run wujie-demo:start
 
 ## Garfish demo
 
-由于`Garfish`主应用不支持使用`hash`模式路由，所以`Garfish demo`使用`history`模式的路由。
-
 线上地址：[https://maxlz1.github.io/micro-app-demos/garfish-demo/vue3-main/](https://maxlz1.github.io/micro-app-demos/garfish-demo/vue3-main/)
 
 本地启动命令

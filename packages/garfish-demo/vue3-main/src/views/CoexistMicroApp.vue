@@ -59,9 +59,10 @@ export default {
 
 <script lang="ts" setup>
 import { useAppStore } from '@/stores/app'
+import { useUserStore } from '@/stores/user'
 import Garfish, { type interfaces } from 'garfish'
 import { storeToRefs } from 'pinia'
-import { computed, onBeforeUnmount, onMounted, ref, watchPostEffect } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watchPostEffect, toRaw } from 'vue'
 
 const one = ref<HTMLElement | null>(null)
 const two = ref<HTMLElement | null>(null)
@@ -71,6 +72,7 @@ const showReactApp = ref(true)
 const showViteApp = ref(true)
 
 const { apps } = storeToRefs(useAppStore())
+const { user } = storeToRefs(useUserStore())
 
 const vueAppInfo = computed(() => {
   const app = apps.value.find((item) => item.name === 'vue2App')!
@@ -138,9 +140,12 @@ onMounted(async () => {
       }
     })
   ])
-  vueApp?.mount()
-  reactApp?.mount()
-  viteApp?.mount()
+  await await Promise.all([
+    vueApp?.mount(),
+    reactApp?.mount(),
+    viteApp?.mount(),
+  ])
+  window.Garfish.channel.emit('userInfo', toRaw(user.value))
 })
 
 watchPostEffect(() => {

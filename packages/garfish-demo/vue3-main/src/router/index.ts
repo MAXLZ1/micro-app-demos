@@ -1,11 +1,16 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import { useMenuStore } from '@/stores/menu'
 import { useUserStore } from '@/stores/user'
 import { user as userData } from '@/data/userData'
 import { setMicroAppLoading } from '@/utils/microAppLoading'
+import Garfish from 'garfish'
+import { useAppStore } from '@/stores/app'
+import { toRaw } from 'vue'
+
+const map = new Map()
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -31,7 +36,42 @@ router.beforeEach(async (to, from, next) => {
   }
 })
 
-router.afterEach(async (to) => {
+router.afterEach(async (to, from) => {
+  const { apps } = useAppStore()
+  const toAppInfo = apps.find((item) => to.path.startsWith(item.activeWhen))
+  const fromAppInfo = apps.find((item) => from.path.startsWith(item.activeWhen))
+
+  // 隐藏子应用
+  if (fromAppInfo) {
+    if (map.has(fromAppInfo.name)) {
+      map.get(fromAppInfo.name).hide()
+    }
+  }
+
+  // 存在被激活的子应用
+  if (toAppInfo) {
+    const { user } = useUserStore()
+    const path = to.path.slice(toAppInfo.activeWhen.length)
+    if (map.has(toAppInfo.name)) {
+      const app = map.get(toAppInfo.name)
+      // 更新path
+      app.appInfo.props.path = path
+      await app.show()
+    } else {
+      const app = await Garfish.loadApp(toAppInfo.name, {
+        domGetter: '#child-app',
+        basename: toAppInfo.activeWhen,
+        entry: toAppInfo.entry,
+        props: {
+          path
+        },
+        sandbox: toAppInfo.name !== 'viteApp'
+      })
+      await app?.mount()
+      map.set(toAppInfo.name, app)
+    }
+    window.Garfish.channel.emit('userInfo', toRaw(user))
+  }
   setMicroAppLoading(false)
 })
 

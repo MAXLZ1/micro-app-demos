@@ -1,8 +1,8 @@
-import { createBrowserRouter, createMemoryRouter, Outlet } from 'react-router-dom'
+import { createHashRouter, createMemoryRouter, Outlet } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
 import React, { lazy } from 'react'
 
-type Mode = 'history' | 'memory'
+type Mode = 'memory' | 'hash'
 
 const CommunicationTest = lazy(() => import('@/views/CommunicationTest'))
 const CssIsolation = lazy(() => import('@/views/CssIsolation'))
@@ -43,8 +43,8 @@ const routes: RouteObject[] = [
   },
 ]
 
-export function createRouter (basename: string, mode: Mode = 'history') {
-  return (mode === 'history' ? createBrowserRouter : createMemoryRouter)(routes, {
+export function createRouter (basename: string, mode: Mode = 'hash') {
+  return (mode === 'hash' ? createHashRouter : createMemoryRouter)(routes, {
     basename
   })
 }

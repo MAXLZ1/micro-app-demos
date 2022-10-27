@@ -22,7 +22,7 @@ export const provider = () => {
     render({ basename, dom, props }: any) {
       window?.Garfish.channel.on('userInfo', handleUserInfo)
 
-      router = createRouter(basename, props.path ? 'memory' : 'history')
+      router = createRouter(basename, props.path ? 'memory' : 'hash')
       const container = dom.querySelector('#root')!
       root = ReactDOM.createRoot(container)
 

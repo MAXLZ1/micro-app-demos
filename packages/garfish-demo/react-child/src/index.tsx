@@ -25,7 +25,7 @@ export const provider = () => {
       
       const container = dom.querySelector('#root')!
       // 如果存在props.path，启用memory路由
-      router = createRouter(basename, props.path ? 'memory' : 'history')
+      router = createRouter(basename, props.path ? 'memory' : 'hash')
       root = ReactDOM.createRoot(container)
 
       root.render(<React.StrictMode>

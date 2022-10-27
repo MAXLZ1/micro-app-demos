@@ -21,24 +21,29 @@ export const provider = () => {
   return {
     render({ basename, dom, props }: any) {
       // 如果存在props.path，启用abstract路由
-      routerInstance = baseRouter(basename, props.path ? 'abstract' : 'history')
+      routerInstance = baseRouter(basename, props.path ? 'abstract' : 'hash')
       app = new Vue({
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         router: routerInstance,
         pinia: createPinia(),
         render: (h) => h(App),
-      }).$mount(dom.querySelector('#app'))
+      }).$mount()
 
       if (props.path) {
         routerInstance.push(props.path)
       }
+      dom.appendChild(app.$el)
       window?.Garfish.channel.on('userInfo', handleUserInfo)
     },
-    destroy() {
+    destroy({ dom }: any) {
       window?.Garfish.channel.removeListener('userInfo', handleUserInfo)
-      app?.$destroy()
-      app = null
+      if (app) {
+        app.$destroy()
+        app.$el.innerHTML = ''
+        app = null
+      }
+      dom.innerHTML = ''
       routerInstance = null
     },
   }
