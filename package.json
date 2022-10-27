@@ -14,12 +14,18 @@
     "wujie-demo:start": "pnpm --filter \"@wujie-demo/*\" -r --stream run start",
     "wujie-demo:build": "pnpm --filter \"@wujie-demo/*\" -r --stream run build",
     "garfish-demo:start": "pnpm --filter \"@garfish-demo/*\" -r --stream run start",
-    "garfish-demo:build": "pnpm --filter \"@garfish-demo/*\" -r --stream run build"
+    "garfish-demo:build": "pnpm --filter \"@garfish-demo/*\" -r --stream run build",
+    "prepare": "husky install"
   },
   "author": "MAXLZ",
   "license": "ISC",
   "engines": {
     "node": "^16 || ^18",
     "pnpm": ">=7"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "husky": "^8.0.0"
   }
 }
