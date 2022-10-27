@@ -38,7 +38,7 @@ pnpm run garfish-demo:start
 - [x] CSS隔离
 - [x] 主子应用间跳转
 - [x] 嵌套子应用
-- [ ] 资源预加载
+- [x] 资源预加载
 - [ ] 子应用保活
 - [x] 接入vite子应用
 
@@ -245,6 +245,7 @@ export default function NavigateView() {
 
 ### 资源预加载
 
+使用[Garfish.preloadApp](https://www.garfishjs.org/api/preloadApp)进行资源的预加载。
 
 ### 子应用保活
 
