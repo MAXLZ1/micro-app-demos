@@ -162,7 +162,7 @@ pnpm run garfish-demo:start
 - [x] 主子应用间跳转
 - [x] 嵌套子应用
 - [x] 资源预加载
-- [ ] 子应用保活
+- [x] 子应用保活
 - [x] 接入vite子应用
 
 具体功能实现细节参考：[功能实现说明](https://github.com/MAXLZ1/micro-app-demos/tree/main/packages/garfish-demo#功能实现说明)

@@ -39,7 +39,7 @@ pnpm run garfish-demo:start
 - [x] 主子应用间跳转
 - [x] 嵌套子应用
 - [x] 资源预加载
-- [ ] 子应用保活
+- [x] 子应用保活
 - [x] 接入vite子应用
 
 ## 功能实现说明
@@ -249,6 +249,85 @@ export default function NavigateView() {
 
 ### 子应用保活
 
+主应用利用`keep-alive`进行子应用的保活。主应用创建加载子应用的`view`，并将这个`view`加入`keep-alive`列表中。在`view`中使用`loadApp`进行加载子应用。
+
+**主应用router-view所在view**
+```vue
+<template>
+  <router-view v-slot="{ Component }">
+    <keep-alive :include="aliveView">
+      <component :is="Component" />
+    </keep-alive>
+  </router-view>
+</template>
+
+<script lang="ts" setup>
+const aliveView = reactive<string[]>([
+  'Vue2KeepAliveView',
+  'React18KeepAliveView',
+  'ViteKeepAliveView'
+])
+</script>
+```
+
+**Vue2KeepAliveView.vue**
+
+```vue
+<template>
+  <div ref="container"></div>
+</template>
+
+<script lang="ts">
+export default {
+  name: 'Vue2KeepAliveView'
+}
+</script>
+
+<script lang="ts" setup>
+import { useAppStore } from '@/stores/app'
+import { storeToRefs } from 'pinia'
+import { onMounted, ref, onUnmounted, computed } from 'vue'
+import Garfish, { type interfaces } from 'garfish'
+
+const container = ref<HTMLElement | null>(null)
+
+const { apps } = storeToRefs(useAppStore())
+
+const appInfo = computed(() => {
+  const app = apps.value.find((item) => item.name === 'vue2App')
+  if (app) {
+    return {
+      ...app,
+      name: app.name + 'KeepAlive'
+    }
+  }
+})
+
+let app: interfaces.App | null = null
+
+onMounted(async () => {
+  if (appInfo.value) {
+    const { name, entry } = appInfo.value
+    app = await Garfish.loadApp(name, {
+      entry,
+      domGetter: () => container.value!,
+      props: {
+        path: '/tab-view'
+      }
+    })
+    await app?.mount()
+  }
+})
+
+onUnmounted(() => {
+  app?.unmount()
+  app = null
+})
+</script>
+
+<style lang="less" scoped></style>
+
+```
 
 ### 接入vite子应用
 

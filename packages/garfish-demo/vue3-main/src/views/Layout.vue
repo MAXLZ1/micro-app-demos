@@ -97,7 +97,11 @@ import type { Menu } from '@/data/menuData'
 const collapsed = ref(false)
 const selectedKeys = ref<number[]>([])
 const openKeys = reactive<number[]>([])
-const aliveView = reactive<string[]>(['KeepAliveView'])
+const aliveView = reactive<string[]>([
+  'Vue2KeepAliveView',
+  'React18KeepAliveView',
+  'ViteKeepAliveView'
+])
 
 const { menuList, flattenMenuList } = useMenuStore()
 const router = useRouter()

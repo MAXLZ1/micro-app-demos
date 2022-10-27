@@ -67,6 +67,7 @@ router.afterEach(async (to, from) => {
         props: {
           path
         },
+        cache: true
       }
       if (toAppInfo.name === 'viteApp') {
         options.sandbox = false

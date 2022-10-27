@@ -44,11 +44,6 @@ export const menuList: Menu[] = [
         key: 22,
         path: 'navigate-view',
         name: '子应用跳转测试'
-      },
-      {
-        key: 23,
-        name: '子应用保活测试 TODO',
-        path: 'tab-view'
       }
     ]
   },
@@ -104,5 +99,31 @@ export const menuList: Menu[] = [
     name: 'CSS隔离测试',
     path: 'css-isolation',
     component: 'CssIsolation.vue'
+  },
+  {
+    key: 7,
+    name: '子应用保活',
+    path: 'keep-alive-app',
+    component: 'Layout.vue',
+    children: [
+      {
+        key: 71,
+        name: 'Vue2子应用保活',
+        path: 'vue2',
+        component: 'Vue2KeepAliveView.vue'
+      },
+      {
+        key: 72,
+        name: 'React18子应用保活',
+        path: 'react18',
+        component: 'React18KeepAliveView.vue'
+      },
+      {
+        key: 73,
+        name: 'Vite子应用保活',
+        path: 'vite',
+        component: 'ViteKeepAliveView.vue'
+      }
+    ]
   }
 ]
