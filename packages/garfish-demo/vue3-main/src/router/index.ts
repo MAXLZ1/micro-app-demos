@@ -3,7 +3,7 @@ import { useMenuStore } from '@/stores/menu'
 import { useUserStore } from '@/stores/user'
 import { user as userData } from '@/data/userData'
 import { setMicroAppLoading } from '@/utils/microAppLoading'
-import Garfish from 'garfish'
+import Garfish, { type interfaces } from 'garfish'
 import { useAppStore } from '@/stores/app'
 import { toRaw } from 'vue'
 
@@ -50,6 +50,8 @@ router.afterEach(async (to, from) => {
 
   // 存在被激活的子应用
   if (toAppInfo) {
+    Garfish.setGlobalValue('__MAIN_ROUTER__', router)
+
     const { user } = useUserStore()
     const path = to.path.slice(toAppInfo.activeWhen.length)
     if (map.has(toAppInfo.name)) {
@@ -58,15 +60,18 @@ router.afterEach(async (to, from) => {
       app.appInfo.props.path = path
       await app.show()
     } else {
-      const app = await Garfish.loadApp(toAppInfo.name, {
+      const options: Partial<Omit<interfaces.AppInfo, 'name'>> = {
         domGetter: '#child-app',
         basename: toAppInfo.activeWhen,
         entry: toAppInfo.entry,
         props: {
           path
         },
-        sandbox: toAppInfo.name !== 'viteApp'
-      })
+      }
+      if (toAppInfo.name === 'viteApp') {
+        options.sandbox = false
+      }
+      const app = await Garfish.loadApp(toAppInfo.name, options)
       await app?.mount()
       map.set(toAppInfo.name, app)
     }

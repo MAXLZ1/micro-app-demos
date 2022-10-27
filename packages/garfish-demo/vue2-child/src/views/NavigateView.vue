@@ -19,34 +19,29 @@ export default {
       urls: [
         {
           label: '跳转至主应用 page1',
-          basename: '/',
           path: '/main/communication-test',
         },
         {
           label: '跳转至Vue2子应用',
-          basename: '/vue2App',
-          path: '/communication-test',
+          path: '/vue2App/communication-test',
         },
         {
           label: '跳转至React18子应用',
-          basename: '/reactApp',
-          path: '/communication-test',
+          path: '/reactApp/communication-test',
         },
         {
           label: '跳转至Vite子应用',
-          basename: '/viteApp',
-          path: '/communication-test',
+          path: '/viteApp/communication-test',
         },
       ],
     }
   },
   methods: {
-    handleClick({ path, basename }: any) {
-      console.log(path, basename)
-      window.Garfish.router?.push({
-        path,
-        basename,
-      })
+    handleClick({ path }: any) {
+      const router = (window.Garfish.getGlobalObject() as any).__MAIN_ROUTER__
+      if (router) {
+        router.push(path)
+      }
     },
   },
   components: {

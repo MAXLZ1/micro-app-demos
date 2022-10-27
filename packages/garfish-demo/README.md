@@ -188,6 +188,56 @@ export const provider = () => {
 
 ### 主子应用间跳转
 
+主应用下发路由对象，子应用使用下发的路由对象进行路由跳转。
+
+**主应用**
+```ts
+Garfish.setGlobalValue('__MAIN_ROUTER__', router)
+```
+
+**子应用**
+```ts
+import { Button, Space, Typography } from 'antd'
+
+export default function NavigateView() {
+  const handleClick = ({ path }: { path: string }) => {
+    const router = (window.Garfish.getGlobalObject() as any).__MAIN_ROUTER__
+      if (router) {
+        router.push(path)
+      }
+  }
+  const buttons = [
+    {
+      path: '/main/communication-test',
+      label: '跳转至主应用 page1'
+    },
+    {
+      path: '/vue2App/communication-test',
+      label: '跳转至Vue2子应用'
+    },
+    {
+      path: '/reactApp/communication-test',
+      label: '跳转至React18子应用'
+    },
+    {
+      path: '/viteApp/communication-test',
+      label: '跳转至Vite子应用'
+    },
+  ].map(item => (
+    <Button type="primary" onClick={() => handleClick(item)} key={item.path}>{item.label}</Button>
+  ))
+
+  return (
+    <>
+      <Typography.Title>Vite子应用内控制跳转</Typography.Title>
+      <Space size={20}>
+        {buttons}
+      </Space>
+    </>
+  )
+}
+
+```
 
 ### 嵌套子应用
 
